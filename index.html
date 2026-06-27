@@ -3,209 +3,553 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>福建省龙岩龙化化工有限公司 - 质检科 (QID)</title>
+    <title>质检科 · 龙化化工有限公司</title>
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         :root {
-            --primary-color: #004b87;
-            --secondary-color: #0073CF;
-            --background-light: #f4f7f9;
-            --text-dark: #2c3e50;
-            --text-muted: #596a7b;
+            --blue: #005BAC;
+            --text: #1a1a1a;
+            --muted: #888;
+            --border: #e5e5e5;
+            --bg: #fff;
         }
 
         body {
-            font-family: 'Helvetica Neue', Arial, 'Microsoft YaHei', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-light);
-            color: var(--text-dark);
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Microsoft YaHei', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.7;
         }
 
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.2rem;
-            letter-spacing: 2px;
-        }
-
-        header p {
-            margin: 10px 0 0;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: -30px auto 40px;
-            padding: 40px;
-            background: #ffffff;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
-            border-radius: 8px;
-            position: relative;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            border-left: 5px solid var(--secondary-color);
-            padding-left: 15px;
-            margin-top: 0;
-        }
-
-        .content-section {
-            margin-bottom: 40px;
-            text-align: justify;
-            font-size: 1.05rem;
-            color: #444;
-        }
-
-        .data-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .card {
-            background: var(--background-light);
-            padding: 20px;
-            border-radius: 6px;
-            border: 1px solid #e1e8ed;
-        }
-
-        .card h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-            font-size: 1.1rem;
-        }
-
-        .card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 0;
-        }
-
-        /* 按钮导航区样式 */
-        .nav-section {
-            background: #eef3f7;
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid #dce5ec;
-        }
-
-        .nav-section h2 {
-            border: none;
-            padding: 0;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .button-group {
+        /* ── NAV ── */
+        nav {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            height: 64px;
+            border-bottom: 1px solid var(--border);
         }
 
-        .btn {
-            display: inline-block;
+        .nav-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .nav-brand .name {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: 0.02em;
+        }
+
+        .nav-brand .dept {
+            font-size: 0.72rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.82rem;
+            color: var(--muted);
             text-decoration: none;
-            padding: 15px 30px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 75, 135, 0.2);
-            min-width: 200px;
+            letter-spacing: 0.03em;
+            transition: color 0.15s;
         }
 
-        .btn:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 115, 207, 0.3);
+        .nav-links a:hover { color: var(--blue); }
+
+        /* ── HERO ── */
+        .hero {
+            padding: 80px 48px 72px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 900px;
         }
 
-        .btn-external::after {
-            content: " ↗";
-            font-size: 0.9em;
+        .hero-eyebrow {
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue);
         }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #2c3e50;
-            color: #a0b2c1;
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 300;
+            line-height: 1.2;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+
+        .hero h1 strong {
+            font-weight: 700;
+        }
+
+        .hero-desc {
+            font-size: 0.95rem;
+            color: var(--muted);
+            max-width: 560px;
+            line-height: 1.8;
+        }
+
+        /* ── STATS STRIP ── */
+        .stats {
+            display: flex;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stat-item {
+            flex: 1;
+            padding: 36px 48px;
+            border-right: 1px solid var(--border);
+        }
+
+        .stat-item:last-child { border-right: none; }
+
+        .stat-num {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-num span {
+            font-size: 1.1rem;
+            color: var(--blue);
+        }
+
+        .stat-label {
+            font-size: 0.78rem;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+        }
+
+        /* ── SECTION ── */
+        .section {
+            padding: 64px 48px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .section-header .tag {
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* ── ABOUT TEXT ── */
+        .about-text {
+            max-width: 680px;
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.9;
+        }
+
+        /* ── FUNC GRID ── */
+        .func-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid var(--border);
+            border-left: 1px solid var(--border);
+        }
+
+        .func-cell {
+            padding: 32px 28px;
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .func-cell:hover { background: #fafafa; }
+
+        .func-num {
+            font-size: 0.7rem;
+            color: var(--blue);
+            letter-spacing: 0.1em;
+            margin-bottom: 14px;
+        }
+
+        .func-cell h3 {
             font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .func-cell p {
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        /* ── INSTRUMENTS ── */
+        .inst-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .inst-table tr {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .inst-table tr:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .inst-table td {
+            padding: 14px 0;
+            font-size: 0.87rem;
+            color: #444;
+            vertical-align: top;
+        }
+
+        .inst-table td:first-child {
+            width: 200px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .inst-table td:last-child {
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        .inst-abbr {
+            display: inline-block;
+            font-size: 0.7rem;
+            color: var(--blue);
+            background: #f0f6ff;
+            padding: 1px 7px;
+            border-radius: 2px;
+            margin-left: 8px;
+            letter-spacing: 0.04em;
+            font-weight: 600;
+            vertical-align: middle;
+        }
+
+        /* ── LINKS ── */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid var(--border);
+            border-left: 1px solid var(--border);
+        }
+
+        .link-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 28px;
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text);
+            transition: background 0.15s;
+            min-height: 130px;
+        }
+
+        .link-item:hover {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        .link-item:hover .link-sub { color: rgba(255,255,255,0.6); }
+        .link-item:hover .link-arrow { color: #fff; }
+
+        .link-title {
+            font-size: 0.88rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }
+
+        .link-sub {
+            font-size: 0.75rem;
+            color: var(--muted);
+            transition: color 0.15s;
+        }
+
+        .link-arrow {
+            font-size: 1rem;
+            color: var(--border);
+            margin-top: 16px;
+            transition: color 0.15s;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 28px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-left {
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+
+        .footer-right {
+            font-size: 0.75rem;
+            color: #ccc;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            nav, .hero, .section, footer { padding-left: 24px; padding-right: 24px; }
+            .stats { flex-direction: column; }
+            .stat-item { border-right: none; border-bottom: 1px solid var(--border); padding: 28px 24px; }
+            .func-grid { grid-template-columns: 1fr; }
+            .links-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .inst-table td:first-child { width: 140px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>福建省龙岩龙化化工有限公司</h1>
-        <p>质检科 (Quality Inspection Department)</p>
-    </header>
-
-    <div class="container">
-        
-        <!-- 部门简介 -->
-        <div class="content-section">
-            <h2>科室概况</h2>
-            <p>质检科是龙化化工有限公司的核心技术监督与质量验证枢纽。本科室全面负责从原辅料入库、生产工艺流转（IPQC）至成品出厂的全生命周期质量管控。我们依托高标准化的分析实验室与精密的现代分析仪器，严格执行国家标准（GB/T）、行业规范及ISO质量管理体系，以严谨的数据逻辑和可追溯的实验记录，确保产品批次合格率达到100%，为企业的安全生产与底层研发提供坚实可靠的数据支撑。</p>
-        </div>
-
-        <!-- 核心职能 -->
-        <div class="content-section">
-            <h2>核心职能与管控维度</h2>
-            <div class="data-grid">
-                <div class="card">
-                    <h3>原辅料光谱与色谱分析</h3>
-                    <p>运用气相色谱仪（GC）、液相色谱仪（HPLC）及电感耦合等离子体发射光谱仪（ICP-OMS），对进厂化工原料的纯度、杂质限度及理化指标进行定量与定性检验。</p>
-                </div>
-                <div class="card">
-                    <h3>中控流体监测 (IPQC)</h3>
-                    <p>在反应釜及核心管线节点实施定时采样，针对密度、酸碱度（pH）、粘度、反应转化率及关键中间产物浓度进行实时动态监测，避免工艺偏差。</p>
-                </div>
-                <div class="card">
-                    <h3>成品出厂检定与留样</h3>
-                    <p>依据出厂检验规程对最终产品进行批次放行测试，出具《产品质量检验报告》（COA），并实行标准化留样管理以备长期追溯与稳定性考察。</p>
-                </div>
-                <div class="card">
-                    <h3>环保与安全指标监测</h3>
-                    <p>对厂区排放的废水、废气实施生化需氧量（BOD）、化学需氧量（COD）、挥发性有机物（VOCs）等环保参数的定期监测，确保达到生态排放阈值。</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 外部系统导航 -->
-        <div class="nav-section">
-            <h2>业务系统与数据查询通道</h2>
-            <div class="button-group">
-                <!-- 实际应用中请将 href="#" 替换为真实的网址 -->
-                <a href="https://www.fjlonghua.com/" class="btn btn-external" target="_blank" rel="noopener">公司官方主页</a>
-                <a href="https://std.samr.gov.cn/" class="btn btn-external" target="_blank" rel="noopener">国家标准服务平台</a>
-                <a href="http://192.168.0.51:8100/DocSystem/web/projects.html" class="btn btn-external" target="_blank" rel="noopener">内网分析信息管理系统</a>
-                <a href="https://220.160.53.129:18093/ipss-web/#/login" class="btn btn-external" target="_blank" rel="noopener">工业产品主体责任平台</a>
-                <a href="https://doc.weixin.qq.com/smartsheet/form/1_wpSrehNAAAtM5DlAj-dbA4qgBPbLlVwA_86ecf4"class="btn btn-external" target="_blank" rel="noopener">内部质量异常申报平台</a>
-                <a href="https://www.lhzjk.com/zj/" class="btn btn-external" target="_blank" rel="noopener">超标指标复检核验</a>
-            </div>
-        </div>
-
+<!-- NAV -->
+<nav>
+    <div class="nav-brand">
+        <span class="name">龙化化工有限公司</span>
+        <span class="dept">Quality Inspection Department</span>
     </div>
+    <ul class="nav-links">
+        <li><a href="#about">科室概况</a></li>
+        <li><a href="#functions">核心职能</a></li>
+        <li><a href="#instruments">分析仪器</a></li>
+        <li><a href="#systems">业务系统</a></li>
+    </ul>
+</nav>
 
-    <footer>
-        <p>&copy; 2026 龙化化工有限公司 - 质检科. 保留所有权利. | 秉持科学、公正、准确、高效的质量方针</p>
-    </footer>
+<!-- HERO -->
+<div class="hero">
+    <p class="hero-eyebrow">福建省龙岩 · 质检科 QID</p>
+    <h1><strong>质量</strong>，是每一批次<br>产品的底线</h1>
+    <p class="hero-desc">
+        从原辅料入厂到成品出库，覆盖生产全链路的质量检测与数据管控，严格执行 GB/T 国家标准与 ISO 质量管理体系。
+    </p>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+    <div class="stat-item">
+        <div class="stat-num">100<span>%</span></div>
+        <div class="stat-label">批次合格率目标</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">全链路管控阶段</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">GB/T</div>
+        <div class="stat-label">国家标准执行</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">ISO</div>
+        <div class="stat-label">质量管理体系认证</div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<div class="section" id="about">
+    <div class="section-header">
+        <h2>科室概况</h2>
+        <span class="tag">About</span>
+    </div>
+    <p class="about-text">
+        质检科是龙化化工有限公司的核心技术监督与质量验证枢纽，全面负责原辅料入库、生产工艺流转（IPQC）至成品出厂的全生命周期质量管控。依托高标准化的分析实验室与精密现代分析仪器，以严谨的数据逻辑和可追溯的实验记录，为企业安全生产与底层研发提供坚实可靠的数据支撑。
+    </p>
+</div>
+
+<!-- FUNCTIONS -->
+<div class="section" id="functions">
+    <div class="section-header">
+        <h2>核心职能</h2>
+        <span class="tag">Functions</span>
+    </div>
+    <div class="func-grid">
+        <div class="func-cell">
+            <div class="func-num">01</div>
+            <h3>原辅料光谱与色谱分析</h3>
+            <p>运用 GC、HPLC 及 ICP-OES，对进厂原料的纯度、杂质限度及理化指标进行定量与定性检验。</p>
+        </div>
+        <div class="func-cell">
+            <div class="func-num">02</div>
+            <h3>中控流体监测 IPQC</h3>
+            <p>在反应釜及核心管线节点实施定时采样，对密度、pH、粘度及关键中间产物浓度进行实时动态监测。</p>
+        </div>
+        <div class="func-cell">
+            <div class="func-num">03</div>
+            <h3>成品出厂检定与留样</h3>
+            <p>依据检验规程进行批次放行测试，出具 COA 报告，实行标准化留样管理以备追溯与稳定性考察。</p>
+        </div>
+        <div class="func-cell">
+            <div class="func-num">04</div>
+            <h3>环保与安全指标监测</h3>
+            <p>定期对厂区废水、废气实施 BOD、COD、VOCs 等环保参数监测，确保排放达到法定生态阈值。</p>
+        </div>
+        <div class="func-cell">
+            <div class="func-num">05</div>
+            <h3>数据记录与质量追溯</h3>
+            <p>建立电子台账与纸质档案双轨留存体系，所有检测数据具备完整批次溯源链，支持内外部审核。</p>
+        </div>
+        <div class="func-cell">
+            <div class="func-num">06</div>
+            <h3>方法验证与标准修订</h3>
+            <p>负责检测方法开发与验证，跟踪国家标准更新，适时修订作业指导书，持续提升分析准确性。</p>
+        </div>
+    </div>
+</div>
+
+<!-- INSTRUMENTS -->
+<div class="section" id="instruments">
+    <div class="section-header">
+        <h2>主要分析仪器</h2>
+        <span class="tag">Instruments</span>
+    </div>
+    <table class="inst-table">
+        <tbody>
+            <tr>
+                <td>气相色谱仪 <span class="inst-abbr">GC</span></td>
+                <td>用于挥发性有机物定量分析及产品纯度检测</td>
+            </tr>
+            <tr>
+                <td>高效液相色谱 <span class="inst-abbr">HPLC</span></td>
+                <td>用于非挥发性组分的分离、定性与定量分析</td>
+            </tr>
+            <tr>
+                <td>等离子体发射光谱 <span class="inst-abbr">ICP-OES</span></td>
+                <td>痕量金属元素的多元素同时检测</td>
+            </tr>
+            <tr>
+                <td>分光光度计</td>
+                <td>溶液浓度测定及有色物质吸光度分析</td>
+            </tr>
+            <tr>
+                <td>离子计 </td>
+                <td>阴阳离子含量定量，用于水质及产品检测</td>
+            </tr>
+            <tr>
+                <td>色度 / 浊度仪 </td>
+                <td>定量溶液澄清及颜色等外观</td>
+            </tr>
+            <tr>
+                <td>行星球磨仪</td>
+                <td>快速将试样研磨至胶状细度</td>
+            </tr>
+            <tr>
+                <td>卤素快速水分测定仪</td>
+                <td>快速测定试样的水分</td>
+            </tr>
+            <tr>
+                <td>pH / 电导率仪</td>
+                <td>溶液酸碱度与导电性实时监测</td>
+            </tr>
+            <tr>
+                <td>旋转粘度计 / 折光仪</td>
+                <td>流体物性参数测定，辅助中控判断</td>
+            </tr>
+            <tr>
+                <td>微量水分测定仪</td>
+                <td>电量法/露点法测定气体产品中微量水分</td>
+            </tr>
+            <tr>
+                <td>超纯水仪器</td>
+                <td>制备一级试验用水</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- SYSTEMS -->
+<div class="section" id="systems">
+    <div class="section-header">
+        <h2>业务系统与数据通道</h2>
+        <span class="tag">Systems</span>
+    </div>
+    <div class="links-grid">
+        <a href="https://www.fjlonghua.com/" class="link-item" target="_blank" rel="noopener">
+            <div>
+                <div class="link-title">公司官方主页</div>
+                <div class="link-sub">fjlonghua.com · 企业门户</div>
+            </div>
+            <div class="link-arrow">→</div>
+        </a>
+        <a href="https://std.samr.gov.cn/" class="link-item" target="_blank" rel="noopener">
+            <div>
+                <div class="link-title">国家标准服务平台</div>
+                <div class="link-sub">samr.gov.cn · GB/T 标准查询</div>
+            </div>
+            <div class="link-arrow">→</div>
+        </a>
+        <a href="http://192.168.0.51:8100/DocSystem/web/projects.html" class="link-item" target="_blank" rel="noopener">
+            <div>
+                <div class="link-title">分析信息管理系统</div>
+                <div class="link-sub">192.168.0.51 · 内网访问</div>
+            </div>
+            <div class="link-arrow">→</div>
+        </a>
+        <a href="https://220.160.53.129:18093/ipss-web/#/login" class="link-item" target="_blank" rel="noopener">
+            <div>
+                <div class="link-title">工业产品主体责任平台</div>
+                <div class="link-sub">IPSS · 合规申报系统</div>
+            </div>
+            <div class="link-arrow">→</div>
+        </a>
+        <a href="https://doc.weixin.qq.com/smartsheet/form/1_wpSrehNAAAtM5DlAj-dbA4qgBPbLlVwA_86ecf4" class="link-item" target="_blank" rel="noopener">
+            <div>
+                <div class="link-title">质量异常申报平台</div>
+                <div class="link-sub">内部在线表单 · 实时提交</div>
+            </div>
+            <div class="link-arrow">→</div>
+        </a>
+        <a href="https://www.lhzjk.com/zj/" class="link-item" target="_blank" rel="noopener">
+            <div>
+                <div class="link-title">超标指标复检核验流程</div>
+                <div class="link-sub">lhzjk.com · 复检业务流程</div>
+            </div>
+            <div class="link-arrow">→</div>
+        </a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-left">
+        © 2026 龙化化工有限公司 · 质检科 &nbsp;|&nbsp; 科学 · 公正 · 准确 · 高效
+    </div>
+    <div class="footer-right">QID · LONGHUA CHEMICAL</div>
+</footer>
 
 </body>
 </html>
