@@ -209,6 +209,46 @@
             line-height: 1.8;
         }
 
+        /* ── REGULATIONS ── */
+        .reg-flow {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .reg-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 16px;
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.84rem;
+            background: #fff;
+            transition: border-color 0.15s, color 0.15s, background 0.15s;
+            white-space: nowrap;
+        }
+
+        .reg-pill:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+            background: #f0f6ff;
+        }
+
+        .reg-pill-num {
+            font-size: 0.64rem;
+            font-weight: 700;
+            color: #c0c0c0;
+            letter-spacing: 0.04em;
+            transition: color 0.15s;
+        }
+
+        .reg-pill:hover .reg-pill-num {
+            color: var(--blue);
+        }
+
         /* ── INSTRUMENTS ── */
         .inst-table {
             width: 100%;
@@ -346,6 +386,7 @@
     <ul class="nav-links">
         <li><a href="#about">科室概况</a></li>
         <li><a href="#functions">核心职能</a></li>
+        <li><a href="#regulations">管理制度</a></li>
         <li><a href="#instruments">分析仪器</a></li>
         <li><a href="#systems">业务系统</a></li>
     </ul>
@@ -422,6 +463,35 @@
             <h3><div class="func-num">06</div>方法验证与标准修订</h3>
             <p>负责检测方法开发与验证，跟踪国家标准更新，适时修订作业指导书，持续提升分析准确性。</p>
         </div>
+    </div>
+</div>
+
+<!-- REGULATIONS -->
+<div class="section" id="regulations">
+    <div class="section-header">
+        <h2>管理制度</h2>
+        <span class="tag">Regulations</span>
+    </div>
+    <div class="reg-flow">
+        <a href="001.html" class="reg-pill"><span class="reg-pill-num">01</span>安全管理实施办法</a>
+        <a href="002.html" class="reg-pill"><span class="reg-pill-num">02</span>日常检验制度</a>
+        <a href="003.html" class="reg-pill"><span class="reg-pill-num">03</span>卫生管理制度</a>
+        <a href="004.html" class="reg-pill"><span class="reg-pill-num">04</span>药品管理制度</a>
+        <a href="005.html" class="reg-pill"><span class="reg-pill-num">05</span>采样、留样及留样区管理制度</a>
+        <a href="006.html" class="reg-pill"><span class="reg-pill-num">06</span>分析用溶液管理制度</a>
+        <a href="007.html" class="reg-pill"><span class="reg-pill-num">07</span>标准滴定溶液管理制度</a>
+        <a href="008.html" class="reg-pill"><span class="reg-pill-num">08</span>天平室管理制度</a>
+        <a href="009.html" class="reg-pill"><span class="reg-pill-num">09</span>仪器设备管理制度</a>
+        <a href="010.html" class="reg-pill"><span class="reg-pill-num">10</span>气瓶、气体安全管理制度</a>
+        <a href="011.html" class="reg-pill"><span class="reg-pill-num">11</span>加热设备安全管理制度</a>
+        <a href="012.html" class="reg-pill"><span class="reg-pill-num">12</span>检验设备检定校准规程</a>
+        <a href="013.html" class="reg-pill"><span class="reg-pill-num">13</span>安全责任书</a>
+        <a href="014.html" class="reg-pill"><span class="reg-pill-num">14</span>6S管理制度</a>
+        <a href="015.html" class="reg-pill"><span class="reg-pill-num">15</span>标液药品更换验证操作规程</a>
+        <a href="016.html" class="reg-pill"><span class="reg-pill-num">16</span>质量数据管理办法</a>
+        <a href="017.html" class="reg-pill"><span class="reg-pill-num">17</span>质量数据定义及采集范围规定</a>
+        <a href="018.html" class="reg-pill"><span class="reg-pill-num">18</span>质量数据安全储备管理规定</a>
+        <a href="019.html" class="reg-pill"><span class="reg-pill-num">19</span>车间化验室分析数据抽检与监督管理规定</a>
     </div>
 </div>
 

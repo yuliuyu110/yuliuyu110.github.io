@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中心化验室化学安全管理实施办法</title>
+<style>
+  :root{
+    --bg:#ffffff;
+    --line:#e5e5e5;
+    --ink:#141414;
+    --gray:#6b6b6b;
+    --gray-2:#9a9a9a;
+    --navy:#002d72;
+    --max:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--bg);color:var(--gray);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+    font-size:15.5px;line-height:1.9;font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    letter-spacing:.2px;
+  }
+  b,strong{color:var(--ink);font-weight:700;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 40px;}
+
+  /* ---------- top nav ---------- */
+  nav.top{
+    position:sticky;top:0;z-index:50;background:var(--bg);
+    border-bottom:1px solid var(--line);
+  }
+  .top-inner{
+    max-width:var(--max);margin:0 auto;padding:0 40px;
+    height:66px;display:flex;align-items:center;justify-content:space-between;
+  }
+  .org{display:flex;align-items:baseline;gap:12px;}
+  .org .name{font-weight:700;color:var(--ink);font-size:16px;letter-spacing:.5px;}
+  .org .dept{color:var(--gray-2);font-size:13px;}
+  .top-links{display:flex;gap:34px;}
+  .top-links a{font-size:13.5px;color:var(--gray);transition:color .15s;}
+  .top-links a:hover{color:var(--navy);}
+  #burger{display:none;background:none;border:none;font-size:20px;color:var(--ink);cursor:pointer;}
+
+  /* ---------- hero ---------- */
+  .hero{border-bottom:1px solid var(--line);}
+  .hero .wrap{padding-top:84px;padding-bottom:84px;}
+  .eyebrow{
+    font-size:12.5px;letter-spacing:3px;color:var(--gray-2);
+    text-transform:uppercase;margin-bottom:30px;
+  }
+  .hero h1{
+    font-weight:300;color:var(--ink);
+    font-size:52px;line-height:1.28;letter-spacing:1px;margin:0 0 28px;
+  }
+  .hero h1 b{font-weight:700;}
+  .hero .lede{
+    max-width:640px;font-size:16px;color:var(--gray);line-height:2;margin:0;
+  }
+
+  /* ---------- stats bar ---------- */
+  .stats{
+    border-bottom:1px solid var(--line);
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:1px;background:var(--line);
+  }
+  .stats .cell{background:var(--bg);padding:40px 40px;}
+  .stats .num{font-weight:300;color:var(--ink);font-size:40px;line-height:1;letter-spacing:1px;}
+  .stats .num small{font-size:18px;color:var(--gray-2);margin-left:4px;}
+  .stats .lab{margin-top:14px;font-size:13px;color:var(--gray-2);letter-spacing:1px;}
+  /* align stats grid to page container */
+  .stats-band{max-width:var(--max);margin:0 auto;}
+
+  /* ---------- section scaffolding ---------- */
+  section.block{border-bottom:1px solid var(--line);}
+  .block .wrap{padding-top:72px;padding-bottom:72px;}
+  .sec-label{
+    font-size:12.5px;letter-spacing:3px;color:var(--gray-2);
+    text-transform:uppercase;margin-bottom:14px;
+  }
+  .sec-title{
+    font-weight:300;color:var(--ink);font-size:32px;letter-spacing:1px;margin:0 0 8px;
+  }
+  .sec-intro{max-width:680px;color:var(--gray);margin:14px 0 0;}
+
+  /* ---------- chapter grid (buttons) ---------- */
+  .grid{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:1px;background:var(--line);
+    border:1px solid var(--line);
+  }
+  .grid a{
+    background:var(--bg);padding:30px 30px;
+    display:flex;flex-direction:column;gap:12px;
+    transition:background .18s,color .18s;
+  }
+  .grid a .gn{
+    font-weight:300;font-size:30px;color:var(--navy);letter-spacing:1px;
+    transition:color .18s;
+  }
+  .grid a .gt{font-size:16px;color:var(--ink);font-weight:700;transition:color .18s;}
+  .grid a .gd{font-size:12.5px;color:var(--gray-2);transition:color .18s;}
+  .grid a:hover{background:var(--navy);}
+  .grid a:hover .gn,.grid a:hover .gt,.grid a:hover .gd{color:#fff;}
+  .grid a:hover .gd{color:rgba(255,255,255,.7);}
+
+  /* ---------- articles ---------- */
+  .art{
+    display:flex;gap:34px;padding:26px 0;
+    border-top:1px solid var(--line);
+  }
+  .art:first-of-type{border-top:none;}
+  .art .no{
+    flex:0 0 96px;font-size:14px;color:var(--navy);font-weight:700;
+    letter-spacing:.5px;padding-top:1px;
+  }
+  .art .body{flex:1;min-width:0;}
+  .art .body>p{margin:0 0 12px;}
+  .art .body>p:last-child{margin-bottom:0;}
+  .art .lead{color:var(--ink);}
+  .clause{padding-left:0;margin:4px 0;display:flex;gap:8px;}
+  .clause .ci{flex:0 0 auto;color:var(--ink);font-weight:700;}
+
+  /* ---------- tables ---------- */
+  table{width:100%;border-collapse:collapse;margin-top:8px;font-size:14.5px;}
+  thead th{
+    text-align:left;font-weight:700;color:var(--ink);font-size:12.5px;
+    letter-spacing:1.5px;text-transform:uppercase;
+    padding:14px 18px;border-bottom:2px solid var(--ink);
+    white-space:nowrap;
+  }
+  tbody td{
+    padding:18px 18px;border-bottom:1px solid var(--line);
+    color:var(--gray);vertical-align:top;
+  }
+  tbody td:first-child{color:var(--ink);font-weight:700;white-space:nowrap;}
+  tbody td b{color:var(--navy);}
+  tbody tr:hover td{background:#fafafa;}
+  .tbl-wrap{overflow-x:auto;}
+
+  /* ---------- footer ---------- */
+  footer{padding:48px 0 60px;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;}
+  footer .sig .o{color:var(--ink);font-weight:700;font-size:15px;letter-spacing:.5px;}
+  footer .sig .d{color:var(--gray-2);font-size:13px;margin-top:6px;}
+  footer .meta{color:var(--gray-2);font-size:12.5px;text-align:right;line-height:1.9;}
+
+  /* back to top */
+  #top{
+    position:fixed;right:30px;bottom:30px;width:48px;height:48px;
+    border:1px solid var(--line);background:var(--bg);color:var(--ink);
+    font-size:18px;cursor:pointer;z-index:40;
+    opacity:0;pointer-events:none;transition:opacity .25s,background .18s,color .18s;
+  }
+  #top.show{opacity:1;pointer-events:auto;}
+  #top:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:900px){
+    .wrap,.top-inner{padding-left:24px;padding-right:24px;}
+    .hero h1{font-size:36px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .grid{grid-template-columns:repeat(2,1fr);}
+    .top-links{
+      position:absolute;top:66px;left:0;right:0;background:var(--bg);
+      flex-direction:column;gap:0;border-bottom:1px solid var(--line);
+      display:none;
+    }
+    .top-links.open{display:flex;}
+    .top-links a{padding:16px 24px;border-top:1px solid var(--line);}
+    #burger{display:block;}
+  }
+  @media (max-width:560px){
+    .hero h1{font-size:28px;}
+    .sec-title{font-size:24px;}
+    .stats{grid-template-columns:1fr;}
+    .grid{grid-template-columns:1fr;}
+    .art{flex-direction:column;gap:8px;}
+    .art .no{flex-basis:auto;}
+    .stats .num{font-size:32px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP NAV ============ -->
+<nav class="top">
+  <div class="top-inner">
+    <div class="org">
+      <span class="name">龙岩龙化化工</span>
+      <span class="dept">质检科 · 中心化验室</span>
+    </div>
+    <button id="burger" aria-label="菜单">☰</button>
+    <div class="top-links" id="links">
+      <a href="#system">管理体系</a>
+      <a href="#storage">贮存与使用</a>
+      <a href="#operation">设备与操作</a>
+      <a href="#emergency">应急管理</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">中心化验室化学安全管理实施办法 · LH/ZJZD-001:2024</div>
+    <h1><b>安全第一</b>，预防为主，<br>综合治理。</h1>
+    <p class="lede">规范中心化验室化学品的购买、贮存、使用与处置，预防和减少化学安全事故，保障产品质量分析工作正常开展，保护分析人员生命安全与身体健康。</p>
+  </div>
+</header>
+
+<!-- ============ STATS ============ -->
+<div class="stats-band">
+  <div class="stats">
+    <div class="cell"><div class="num">9<small>章</small></div><div class="lab">制度章节</div></div>
+    <div class="cell"><div class="num">47<small>条</small></div><div class="lab">管理条款</div></div>
+    <div class="cell"><div class="num">5<small>类</small></div><div class="lab">重点管制化学品</div></div>
+    <div class="cell"><div class="num">2024<small>.05</small></div><div class="lab">公布施行</div></div>
+  </div>
+</div>
+
+<!-- ============ CHAPTER GRID ============ -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-label">CONTENTS</div>
+    <h2 class="sec-title">全文目录</h2>
+    <p class="sec-intro">本办法依据《危险化学品安全管理条例》《化学化工实验室安全管理规范》（T/CCSAS 005-2019）等规定，结合中心化验室实际制定，共九章四十七条。</p>
+    <div class="grid" style="margin-top:36px;">
+      <a href="#general"><span class="gn">01</span><span class="gt">总则</span><span class="gd">第一条 — 第二条</span></a>
+      <a href="#system"><span class="gn">02</span><span class="gt">管理体系</span><span class="gd">第三条 — 第五条</span></a>
+      <a href="#purchase"><span class="gn">03</span><span class="gt">试剂材料的购买</span><span class="gd">第六条 — 第九条</span></a>
+      <a href="#storage"><span class="gn">04</span><span class="gt">危险化学品的贮存与使用</span><span class="gd">第十条 — 第二十五条</span></a>
+      <a href="#operation"><span class="gn">05</span><span class="gt">化学实验设备及操作</span><span class="gd">第二十六条 — 第三十六条</span></a>
+      <a href="#waste"><span class="gn">06</span><span class="gt">实验室危险废物</span><span class="gd">第三十七条 — 第三十九条</span></a>
+      <a href="#gas"><span class="gn">07</span><span class="gt">气体安全</span><span class="gd">第四十条 — 第四十二条</span></a>
+      <a href="#emergency"><span class="gn">08</span><span class="gt">安全风险评估与应急</span><span class="gd">第四十三条 — 第四十五条</span></a>
+      <a href="#supplementary"><span class="gn">09</span><span class="gt">附则</span><span class="gd">第四十六条 — 第四十七条</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KEY PARAMETERS TABLE ============ -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-label">SPECIFICATIONS</div>
+    <h2 class="sec-title">关键设备设施技术要求</h2>
+    <p class="sec-intro">各类安全设备与设施的核心参数与运维要求一览，便于现场核查与日常管理。</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>设备 / 设施</th><th>关键参数与要求</th><th>检查频次</th><th>依据条款</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>通风柜</td><td>面风速 <b>0.30~0.75 米/秒</b>；可调玻璃视窗开至距台面 10~15 厘米；柜内物品距视窗内侧约 15 厘米；尾端配气体吸收处理装置</td><td>实验前确认</td><td>第三十二条</td></tr>
+          <tr><td>应急喷淋装置</td><td>与工作区域距离 <b>≤ 30 米</b>；水管总阀常开；喷淋头下方无障碍；设置指示标志、保持通道畅通</td><td>每月至少启动一次</td><td>第三十三条</td></tr>
+          <tr><td>洗眼器</td><td>接入生活用水；喷水高度 <b>8~10 厘米</b>；水流畅通平稳、无锈水脏水；盖好防尘盖</td><td>每周检查</td><td>第三十三条</td></tr>
+          <tr><td>防爆冰箱</td><td>易燃易爆化学品低温存放专用；门上注明是否防爆；试剂可靠密封、螺口拧紧；禁放非实验用食品</td><td>日常巡查</td><td>第十六条</td></tr>
+          <tr><td>灭火与急救器材</td><td>灭火器材与实验物质相适应、位置明显便于取用；配备急救箱/包及药品、绷带、纱布、消毒药剂</td><td>定期检查维护</td><td>第三十四 — 三十五条</td></tr>
+          <tr><td>气瓶柜 / 专用气瓶间</td><td>可燃、有毒气体气瓶宜置室外；室内须安装气体监测报警装置并与风机联锁；窒息性气体设氧含量报警</td><td>持续监测</td><td>第四十一 — 四十二条</td></tr>
+          <tr><td>危险废物暂存区</td><td>边界施划 <b>3 厘米宽</b> 黄色或黄黑相间实线；设警示标志；防遗洒、防渗漏；不相容废物分区暂存</td><td>投用即标识</td><td>第三十八条</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTROLLED CHEMICALS TABLE ============ -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-label">CONTROLLED SUBSTANCES</div>
+    <h2 class="sec-title">重点管制化学品管理要求</h2>
+    <p class="sec-intro">五类重点管制化学品的储存、记录与台账保存要求，发生丢失、被盗、被抢应立即报告保卫处、质检科。</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>类别</th><th>储存要求</th><th>使用记录</th><th>台账保存</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>剧毒化学品</td><td>专用柜单独存放；符合 GA 1002；安装监控摄像头；专人管理</td><td><b>双人保管 / 领取 / 使用 / 双把锁 / 双本账</b>；逐次逐条双人记录</td><td>收发记录 ≥ 3 年</td></tr>
+          <tr><td>麻醉药品 / 第一类精神药品</td><td>专柜或专库；专库设防盗与报警；专柜用保险柜；双人双锁</td><td>专人管理、双人记录</td><td>自有效期满起 ≥ 5 年</td></tr>
+          <tr><td>第一类易制毒化学品</td><td>专库设防盗、专柜用保险柜；双人双锁管理</td><td>逐次逐条双人记录</td><td>账册 ≥ 2 年</td></tr>
+          <tr><td>易制爆化学品</td><td>专用储存柜具防盗功能、双人双锁；安装机械防盗锁（符合 GA/T 73）</td><td>逐次逐条记录</td><td>账物相符</td></tr>
+          <tr><td>民用爆炸物品</td><td>单独隔离、限量储存；收存发放登记</td><td>逐次逐条双人记录</td><td>账目清楚、账物相符</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CH 1 ============ -->
+<section class="block" id="general">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 01</div>
+    <h2 class="sec-title">第一章　总则</h2>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">第一条</div><div class="body"><p>为进一步加强中心化验室（以下简称"中化"）<b>化学安全管理</b>，预防和减少化学安全事故，保障中化产品质量分析等工作的正常开展，保护分析人员生命安全和身体健康，保护中化安全，根据<b>《危险化学品安全管理条例》</b><b>《化学化工实验室安全管理规范》（T/CCSAS 005-2019）</b>等有关规定，结合中化实际，制定本办法。</p></div></div>
+      <div class="art"><div class="no">第二条</div><div class="body"><p>本办法适用于中化<b>购买、贮存、使用和处置</b>化学品等试剂材料，以及相关实验操作的化学安全管理工作。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CH 2 ============ -->
+<section class="block" id="system">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 02</div>
+    <h2 class="sec-title">第二章　管理体系</h2>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">第三条</div><div class="body">
+        <p class="lead"><b>质检科是中化化学安全的归口管理部门</b>，主要职责包括：</p>
+        <div class="clause"><span class="ci">（一）</span><span>组织制定中化化学安全管理相关规章制度，编制化学安全事故应急预案。</span></div>
+        <div class="clause"><span class="ci">（二）</span><span>在中化开展化学安全相关宣传、教育和培训工作，加强安全文化建设。</span></div>
+        <div class="clause"><span class="ci">（三）</span><span>负责试剂材料库与试剂材料信息管理系统的运行管理。</span></div>
+        <div class="clause"><span class="ci">（四）</span><span>建立中化危险化学品购买电子动态台账，监督中化做好危险化学品贮存、使用及处置台账与实物管理，保障化学安全。</span></div>
+        <div class="clause"><span class="ci">（五）</span><span>负责药品室和分析室危险废物存放点的运维管理及存放点危险废物的企业内转运工作，与有资质的专业机构签订实验室危险废物处置合同，组织中化危险废物的企业外转运工作。</span></div>
+      </div></div>
+      <div class="art"><div class="no">第四条</div><div class="body">
+        <p class="lead"><b>质检科是中化化学安全管理的主体责任单位</b>，主要职责包括：</p>
+        <div class="clause"><span class="ci">（一）</span><span>落实安全责任制。按照"安全第一、预防为主、综合治理"的原则，质检科负责人及安全主管领导负责中化化学安全的管理工作，全面及时掌握中化涉及化学安全的基本情况。质检科应安排掌握化学品安全知识并接受过化学安全相关培训的人员，负责实验室化学安全的相关工作。</span></div>
+        <div class="clause"><span class="ci">（二）</span><span>根据质检科实际，建立健全化学安全管理规章制度，明确中化负责人、安全员和其他直接责任人的责任。</span></div>
+        <div class="clause"><span class="ci">（三）</span><span>监督中化做好危险化学品台账及实物管理。</span></div>
+        <div class="clause"><span class="ci">（四）</span><span>制定中化化学安全事故应急预案，定期组织应急演练。</span></div>
+        <div class="clause"><span class="ci">（五）</span><span>及时报告并采取措施妥善处置安全事故，保护事故现场，接受和开展事故调查。</span></div>
+      </div></div>
+      <div class="art"><div class="no">第五条</div><div class="body">
+        <p class="lead">涉及使用危险化学品的分析室应有相应的管理制度并认真落实，<b>中化安全负责人承担化学安全管理责任</b>，主要职责包括：</p>
+        <div class="clause"><span class="ci">（一）</span><span>依法依规落实试剂材料的购买、贮存、使用和处置等管理工作。</span></div>
+        <div class="clause"><span class="ci">（二）</span><span>安排具有安全知识和管理能力的人员负责中化化学安全管理。</span></div>
+        <div class="clause"><span class="ci">（三）</span><span>建立中化危险化学品台账，做好实物管理。</span></div>
+        <div class="clause"><span class="ci">（四）</span><span>针对中化涉及的化学类危险源进行安全评估，编制必要的实验室化学安全事故应急预案，定期开展应急演练。</span></div>
+        <div class="clause"><span class="ci">（五）</span><span>针对本实验室涉及的有化学安全风险的工艺流程、设备，组织编制安全操作规程。</span></div>
+        <div class="clause"><span class="ci">（六）</span><span>配置合适的化学防护设施及个人防护装备，定期进行维护。</span></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CH 3 ============ -->
+<section class="block" id="purchase">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 03</div>
+    <h2 class="sec-title">第三章　试剂材料的购买</h2>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">第六条</div><div class="body"><p>包含<b>管制类化学品</b>在内的试剂材料的购买应当遵守国家法律法规的相关规定，试剂通过<b>耐思信息管理系统</b>申请购买。</p></div></div>
+      <div class="art"><div class="no">第七条</div><div class="body"><p>购买的危险化学品等试剂材料进入中化药品室前应当由<b>本人签收</b>，管制类化学品应贮存于相应管控要求的试剂柜。</p></div></div>
+      <div class="art"><div class="no">第八条</div><div class="body"><p>购买危险化学品时，购买人应当向供应单位索取符合国家标准或行业标准的<b>安全技术说明书（SDS）</b>，及时了解其危险特性、储存要求、防护措施等内容。</p></div></div>
+      <div class="art"><div class="no">第九条</div><div class="body"><p>试剂材料购买申报由<b>质检科</b>负责。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CH 4 ============ -->
+<section class="block" id="storage">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 04</div>
+    <h2 class="sec-title">第四章　危险化学品的贮存与使用</h2>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">第十条</div><div class="body"><p><b>剧毒化学品</b>应在中化药品室剧毒化学品柜贮存，其它危险化学品应在中化药品室合规贮存。</p></div></div>
+      <div class="art"><div class="no">第十一条</div><div class="body"><p>中化内应建立危险化学品的<b>电子或纸质动态台账</b>，记录危险化学品的名称、规格、数量、贮存具体位置等信息。</p><p>中化应提供相应的化学品安全技术说明书（SDS）或安全周知卡，以方便查阅。</p></div></div>
+      <div class="art"><div class="no">第十二条</div><div class="body"><p>中化化学品应<b>有序分类存放</b>，固体液体不混乱放置，贮存禁忌化学品不得混放，试剂不得叠放、倒放，贮存原则应符合 <b>GB 15603</b> 的要求。</p></div></div>
+      <div class="art"><div class="no">第十三条</div><div class="body"><p>化学品的储存室、储存区、储存柜等应<b>避免阳光直晒</b>，并应避免靠近暖气、高温电器设备等热源，保持通风良好。有机溶剂储存区应远离热源和火源。易挥发的试剂应存放在具有通风或吸收净化功能的储存柜内。储存柜中不能有电源插座或接线板。</p><p>实验台架存放化学试剂应设置挡板或者托盘等防止试剂滑落的措施。</p></div></div>
+      <div class="art"><div class="no">第十四条</div><div class="body"><p>装有试剂的试剂瓶<b>不得开口放置</b>，实验中取用试剂后，应及时盖好瓶盖。</p></div></div>
+      <div class="art"><div class="no">第十五条</div><div class="body"><p><b>腐蚀性化学品</b>应存放在具有防腐蚀功能的储存柜中，并有防遗洒（撒）托盘。</p></div></div>
+      <div class="art"><div class="no">第十六条</div><div class="body"><p>需低温存放的易燃易爆化学品应存放在具有<b>防爆功能的冰箱</b>内，冰箱门上应注明是否防爆，冰箱内试剂必须可靠密封，试剂瓶螺口拧紧，无开口容器。实验室冰箱内不得放置非实验用食品。</p></div></div>
+      <div class="art"><div class="no">第十七条</div><div class="body"><p>化学品包装或容器上应有符合规定的<b>化学品标签</b>，标签应完整、清晰。标签脱落、模糊、腐蚀、较难识别的，应及时粘贴自制标签，内容应包括试剂名称、纯度或浓度等，配制试剂应再标注配制人、配制日期等信息。</p><p>化学品由原包装转移或分装到其他包装内时，应及时重新粘贴标识。使用饮料瓶存放试剂或样品必须撕去原包装纸，贴上自制试剂标签。</p><p>如不能对化学品进行确认，应当作为废弃化学品处置。</p></div></div>
+      <div class="art"><div class="no">第十八条</div><div class="body"><p>中化各分分析室内危险化学品存量适中，<b>严禁超量储存</b>，原则上不应超过 <b>50 公升或 50 千克</b>，其中易燃易爆化学品的存放总量不应超过 <b>25 公升或 25 千克</b>，且单一包装容器不应大于 <b>20 公升或 20 千克</b>（按 25 平方米为标准，存放量以实验室面积比考察）。</p></div></div>
+      <div class="art"><div class="no">第十九条</div><div class="body"><p>中化应当至少<b>每半年清查一次</b>所存放的试剂材料，及时清理不再使用的试剂。</p></div></div>
+      <div class="art"><div class="no">第二十条</div><div class="body"><p>剧毒化学品实行"<b>双人保管、双人领取、双人使用、双把锁、双本账</b>"的管理，收发记录应当至少保存 <b>3 年</b>。</p><p>存放场所与防盗保险柜应符合 GA 1002 的要求。剧毒化学品应单独存放，不得与易燃、易爆、腐蚀性物品等一起存放。剧毒化学品应有专人负责管理。</p><p>使用剧毒化学品的实验室应安装监控摄像头记录实验过程，剧毒化学品的使用应逐次逐条双人记录。</p></div></div>
+      <div class="art"><div class="no">第二十一条</div><div class="body"><p><b>麻醉药品和第一类精神药品</b>应设专柜或专库进行储存，专库应当设有防盗设施并安装报警装置，专柜应当使用保险柜。专库和专柜应当实行双人双锁管理，配备专人管理并建立专用账册，双人记录，专用账册的保存期限应当自药品有效期期满之日起<b>不少于 5 年</b>。</p></div></div>
+      <div class="art"><div class="no">第二十二条</div><div class="body"><p><b>易制毒化学品</b>应设置专库或者专柜储存，配备锁具。</p><p>储存第一类易制毒化学品、药品类易制毒化学品的专库应当设有防盗设施，专柜应当使用保险柜，专库与专柜应实行双人双锁管理。第一类易制毒化学品使用应逐次逐条双人记录，账册保存期限<b>不少于 2 年</b>。</p><p>第二、三类易制毒化学品使用应如实及时登记入库（柜）量、使用消耗量，并保证台账与实物的品种和数量相符。</p></div></div>
+      <div class="art"><div class="no">第二十三条</div><div class="body"><p>使用<b>易制爆化学品</b>的实验室，应配备易制爆化学品专用储存柜，专用储存柜应具有防盗功能，符合双人双锁管理要求，并安装机械防盗锁，机械防盗锁应符合 GA/T 73 的相关规定。易制爆化学品的使用应逐次逐条记录。</p></div></div>
+      <div class="art"><div class="no">第二十四条</div><div class="body"><p><b>民用爆炸物品</b>应当单独隔离、限量储存，收存和发放必须进行登记，民用爆炸物品的使用应逐次逐条双人记录，做到账目清楚，账物相符。</p></div></div>
+      <div class="art"><div class="no">第二十五条</div><div class="body"><p>发生管制类试剂材料<b>丢失、被盗、被抢</b>等事件，应当立即报告<b>保卫处、质检科</b>。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CH 5 ============ -->
+<section class="block" id="operation">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 05</div>
+    <h2 class="sec-title">第五章　化学实验设备及操作</h2>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">第二十六条</div><div class="body"><p>危险化学品的使用应当在<b>符合安全技术规范的分析室</b>内进行。</p></div></div>
+      <div class="art"><div class="no">第二十七条</div><div class="body"><p>分析人员在开展涉及危险化学品相关的分析工作前应当<b>通过培训及考核，获得准入</b>后方可开展实验，实验室的培训包括但不限于实验所涉及的试剂、设备、个人防护、应急处置等内容。</p></div></div>
+      <div class="art"><div class="no">第二十八条</div><div class="body"><p>涉及高温、高压以及大型实验设备装置应进行相应的<b>安全风险评估</b>，并编制安全操作规程。安全操作规程应张贴或者置于明显位置。</p></div></div>
+      <div class="art"><div class="no">第二十九条</div><div class="body"><p>涉及危险工艺、易燃易爆性物质、有毒有害物质、气体及气路等实验操作过程，操作前需查阅<b>安全技术说明书（SDS）</b>，掌握化学品的危险特性，做好个体防护和应急准备，实验过程须遵守安全操作规程。</p></div></div>
+      <div class="art"><div class="no">第三十条</div><div class="body"><p>有安全风险的化学分析<b>必须有人看守</b>。</p></div></div>
+      <div class="art"><div class="no">第三十一条</div><div class="body"><p>加热设备周边醒目位置应张贴<b>高温警示标识</b>，并有必要的防护措施，加热设备旁不能放置易燃易爆化学品、气体钢瓶、冰箱、杂物等。</p><p>烘箱等加热设备内不得烘烤易燃物品，不得使用塑料筐等易燃容器。</p></div></div>
+      <div class="art"><div class="no">第三十二条</div><div class="body"><p>使用或产生有毒、有害、有异味气体或蒸汽的实验应在运行正常的<b>通风柜</b>中进行，实验时通风柜面风速达到 <b>0.30~0.75 米/秒</b>，可调玻璃视窗开至距台面 10~15 厘米，柜内放置物品距离玻璃视窗内侧 15 厘米左右。</p><p>产生有毒气体和腐蚀性废气的实验，在实验装置尾端应配有气体吸收或处理装置。</p><p>在排风管路上应设置必要的气体吸附或处理装置。</p></div></div>
+      <div class="art"><div class="no">第三十三条</div><div class="body"><p>涉及使用强酸、强碱、有机化学品烧伤危险或有液体毒害危险的实验室应安装<b>应急喷淋装置与洗眼器</b>。</p><p>应急喷淋装置安装位置合适，与工作区域之间距离<b>不超过 30 米</b>。拉杆位置合适、方向正确。水管总阀应处常开状态，喷淋头下方无障碍物。应设置应急喷淋指示标志，并保持通道畅通。不能以普通淋浴装置代替应急喷淋装置。每月至少启动一次阀门，做好检查记录。</p><p>洗眼器应接入生活用水管道，水量水压适中，保证喷水高度 <b>8~10 厘米</b>，水流畅通平稳。每周应检查洗眼器，擦拭洗眼喷头，盖好防尘盖，确保使用时无锈水脏水，做好检查记录。</p></div></div>
+      <div class="art"><div class="no">第三十四条</div><div class="body"><p>实验室应配备与室内易燃易爆性物质、腐蚀性物质和毒害物质等相适应的<b>灭火器材</b>，消防器材应放置在位置明显、便于取用的地点，不得挪为他用。消防器材应定期检查和维护，保留检查记录。</p></div></div>
+      <div class="art"><div class="no">第三十五条</div><div class="body"><p>中化应在方便取用的位置设置<b>急救箱或急救包</b>，配备必要的急救药品、绷带、纱布、消毒药剂等物品，保障物品在有效期内。</p></div></div>
+      <div class="art"><div class="no">第三十六条</div><div class="body"><p>中化应根据存在的职业危害因素为分析人员配备合适的<b>个体防护装备</b>（防护口罩、防毒面具、护目镜、防护手套、防护服等），保障装备在有效期内。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CH 6 ============ -->
+<section class="block" id="waste">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 06</div>
+    <h2 class="sec-title">第六章　实验室危险废物</h2>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">第三十七条</div><div class="body"><p>中化危险废物应按化学特性和危险特性<b>分类收集和暂存，严禁与生活垃圾混装</b>。液体危险废物分类装入专用废液桶，固体危险废物分类装入专用固废箱。废弃化学试剂应存放在原试剂瓶中并保留原标签。针头等利器应放入利器盒中收集。</p></div></div>
+      <div class="art"><div class="no">第三十八条</div><div class="body"><p>中化危险废物存放应设立<b>暂存区</b>，边界应施划 <b>3 厘米宽</b> 的黄色实线或黄黑相间实线，并设置危险废物警示标志。暂存区应配备防遗洒、防渗漏设施。不相容的实验室危险废物应在不同暂存区暂存。</p></div></div>
+      <div class="art"><div class="no">第三十九条</div><div class="body"><p>危险废物收集容器上应粘贴专用的<b>"危险废物"标签</b>，注明分类、危险类别（易燃、易爆、腐蚀、反应、有毒等）、主要成分、实验室、联系人、电话等。收集容器自投入使用时即须粘贴标签。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CH 7 ============ -->
+<section class="block" id="gas">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 07</div>
+    <h2 class="sec-title">第七章　气体安全</h2>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">第四十条</div><div class="body"><p>不得使用超过<b>使用年限</b>和超过<b>安全检验日期</b>的气瓶；超过使用年限的气瓶应及时清理出厂，超过安全检验日期的气瓶应及时更换或退回供应商。</p></div></div>
+      <div class="art"><div class="no">第四十一条</div><div class="body"><p>盛装<b>可燃气体和有毒气体</b>的气瓶应放置室外；室内放置应存放在气瓶柜或专用气瓶间，并必须安装相应气体的监测报警装置，与风机联锁。</p></div></div>
+      <div class="art"><div class="no">第四十二条</div><div class="body"><p>较小密闭空间使用可引起<b>窒息的气体</b>，应设置氧含量监测报警装置。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CH 8 ============ -->
+<section class="block" id="emergency">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 08</div>
+    <h2 class="sec-title">第八章　安全风险评估与应急</h2>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">第四十三条</div><div class="body"><p>拟开展<b>非常规的、危险程度较高</b>的分析项目，应进行相应的安全风险评估，确认存在的安全风险，采取相应的安全管控措施。</p></div></div>
+      <div class="art"><div class="no">第四十四条</div><div class="body"><p>制定各分分析室化学安全事故<b>应急预案</b>，针对可能发生的安全事件或事故制定预案；<b>每年至少组织一次</b>化学安全事故专项应急演练，并做好演练记录。</p></div></div>
+      <div class="art"><div class="no">第四十五条</div><div class="body"><p>中化应针对分析室涉及的化学类危险源，编制必要的实验室事故应急预案；<b>每半年至少组织一次</b>与化学安全事故有关的应急演练，并做好演练记录。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CH 9 ============ -->
+<section class="block" id="supplementary">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 09</div>
+    <h2 class="sec-title">第九章　附则</h2>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">第四十六条</div><div class="body"><p>本办法由<b>质检科</b>负责解释。</p></div></div>
+      <div class="art"><div class="no">第四十七条</div><div class="body"><p>本办法<b>自公布之日起施行</b>。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="sig">
+      <div class="o">龙岩龙化化工质检科</div>
+      <div class="d">2024 年 5 月 1 日</div>
+    </div>
+    <div class="meta">
+      中心化验室化学安全管理实施办法<br>
+      文件编号 LH/ZJZD-001:2024 · 共九章四十七条<br>
+      本办法由质检科负责解释
+    </div>
+  </div>
+</footer>
+
+<button id="top" aria-label="返回顶部">↑</button>
+
+<script>
+  // mobile menu
+  const burger=document.getElementById('burger');
+  const links=document.getElementById('links');
+  burger.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+
+  // back to top
+  const top=document.getElementById('top');
+  window.addEventListener('scroll',()=>top.classList.toggle('show',window.scrollY>500),{passive:true});
+  top.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>
