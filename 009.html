@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>仪器设备管理制度</title>
+<style>
+  :root{--bg:#ffffff;--line:#e5e5e5;--ink:#141414;--gray:#6b6b6b;--gray-2:#9a9a9a;--navy:#002d72;--max:1120px;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--gray);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+    font-size:15.5px;line-height:1.9;font-weight:400;-webkit-font-smoothing:antialiased;letter-spacing:.2px;}
+  b,strong{color:var(--ink);font-weight:700;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 40px;}
+
+  nav.top{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line);}
+  .top-inner{max-width:var(--max);margin:0 auto;padding:0 40px;height:66px;display:flex;align-items:center;justify-content:space-between;}
+  .org{display:flex;align-items:baseline;gap:12px;}
+  .org .name{font-weight:700;color:var(--ink);font-size:16px;letter-spacing:.5px;}
+  .org .dept{color:var(--gray-2);font-size:13px;}
+  .top-links{display:flex;gap:34px;}
+  .top-links a{font-size:13.5px;color:var(--gray);transition:color .15s;}
+  .top-links a:hover{color:var(--navy);}
+  #burger{display:none;background:none;border:none;font-size:20px;color:var(--ink);cursor:pointer;}
+
+  .hero{border-bottom:1px solid var(--line);}
+  .hero .wrap{padding-top:84px;padding-bottom:84px;}
+  .eyebrow{font-size:12.5px;letter-spacing:3px;color:var(--gray-2);text-transform:uppercase;margin-bottom:30px;}
+  .hero h1{font-weight:300;color:var(--ink);font-size:50px;line-height:1.3;letter-spacing:1px;margin:0 0 28px;}
+  .hero h1 b{font-weight:700;}
+  .hero .lede{max-width:680px;font-size:16px;color:var(--gray);line-height:2;margin:0;}
+
+  .stats-band{max-width:var(--max);margin:0 auto;}
+  .stats{border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);}
+  .stats .cell{background:var(--bg);padding:40px;}
+  .stats .num{font-weight:300;color:var(--ink);font-size:40px;line-height:1;letter-spacing:1px;}
+  .stats .num small{font-size:18px;color:var(--gray-2);margin-left:4px;}
+  .stats .lab{margin-top:14px;font-size:13px;color:var(--gray-2);letter-spacing:1px;}
+
+  section.block{border-bottom:1px solid var(--line);}
+  .block .wrap{padding-top:72px;padding-bottom:72px;}
+  .sec-label{font-size:12.5px;letter-spacing:3px;color:var(--gray-2);text-transform:uppercase;margin-bottom:14px;}
+  .sec-title{font-weight:300;color:var(--ink);font-size:32px;letter-spacing:1px;margin:0 0 8px;}
+  .sec-intro{max-width:740px;color:var(--gray);margin:14px 0 0;}
+  .subsec{margin-top:50px;}
+  .subsec-head{display:flex;align-items:baseline;gap:14px;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:8px;}
+  .subsec-head .k{font-size:12px;letter-spacing:2px;color:var(--gray-2);text-transform:uppercase;}
+  .subsec-head h3{margin:0;font-weight:700;color:var(--ink);font-size:18px;letter-spacing:.5px;}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .grid .cellb{background:var(--bg);padding:30px;display:flex;flex-direction:column;gap:11px;transition:background .18s,color .18s;}
+  .grid .gn{font-weight:300;font-size:26px;color:var(--navy);letter-spacing:1px;transition:color .18s;}
+  .grid .gt{font-size:16px;color:var(--ink);font-weight:700;transition:color .18s;}
+  .grid .gd{font-size:12.5px;color:var(--gray-2);line-height:1.6;transition:color .18s;}
+  .grid .cellb:hover{background:var(--navy);}
+  .grid .cellb:hover .gn,.grid .cellb:hover .gt,.grid .cellb:hover .gd{color:#fff;}
+  .grid .cellb:hover .gd{color:rgba(255,255,255,.72);}
+
+  .art{display:flex;gap:30px;padding:24px 0;border-top:1px solid var(--line);}
+  .art:first-of-type{border-top:none;}
+  .art .no{flex:0 0 56px;font-size:18px;color:var(--navy);font-weight:300;letter-spacing:1px;padding-top:2px;}
+  .art .body{flex:1;min-width:0;}
+  .art .body>p{margin:0;}
+
+  table{width:100%;border-collapse:collapse;margin-top:8px;font-size:14.5px;}
+  thead th{text-align:left;font-weight:700;color:var(--ink);font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;padding:14px 18px;border-bottom:2px solid var(--ink);white-space:nowrap;}
+  tbody td{padding:16px 18px;border-bottom:1px solid var(--line);color:var(--gray);vertical-align:top;}
+  tbody td:first-child{color:var(--ink);font-weight:700;white-space:nowrap;}
+  tbody tr:hover td{background:#fafafa;}
+  .tbl-wrap{overflow-x:auto;}
+
+  footer{padding:48px 0 60px;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;}
+  footer .sig .o{color:var(--ink);font-weight:700;font-size:15px;letter-spacing:.5px;}
+  footer .sig .d{color:var(--gray-2);font-size:13px;margin-top:6px;}
+  footer .meta{color:var(--gray-2);font-size:12.5px;text-align:right;line-height:1.9;}
+
+  #top{position:fixed;right:30px;bottom:30px;width:48px;height:48px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:18px;cursor:pointer;z-index:40;opacity:0;pointer-events:none;transition:opacity .25s,background .18s,color .18s;}
+  #top.show{opacity:1;pointer-events:auto;}
+  #top:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+  @media (max-width:900px){
+    .wrap,.top-inner{padding-left:24px;padding-right:24px;}
+    .hero h1{font-size:34px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .grid{grid-template-columns:repeat(2,1fr);}
+    .top-links{position:absolute;top:66px;left:0;right:0;background:var(--bg);flex-direction:column;gap:0;border-bottom:1px solid var(--line);display:none;}
+    .top-links.open{display:flex;}
+    .top-links a{padding:16px 24px;border-top:1px solid var(--line);}
+    #burger{display:block;}
+  }
+  @media (max-width:560px){
+    .hero h1{font-size:27px;}
+    .sec-title{font-size:24px;}
+    .stats,.grid{grid-template-columns:1fr;}
+    .art{flex-direction:column;gap:4px;}
+    .art .no{flex-basis:auto;}
+    .stats .num{font-size:32px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="top">
+  <div class="top-inner">
+    <div class="org">
+      <span class="name">龙岩龙化化工</span>
+      <span class="dept">质检科 · 中心化验室</span>
+    </div>
+    <button id="burger" aria-label="菜单">☰</button>
+    <div class="top-links" id="links">
+      <a href="#inventory">仪器清单</a>
+      <a href="#glassware">玻璃仪器</a>
+      <a href="#precision">精密仪器</a>
+      <a href="#usage">使用要点</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">仪器设备管理制度 · LH/ZJZD-009:2024</div>
+    <h1>规范使用，定期校验，<br><b>安全运行。</b></h1>
+    <p class="lede">为保障中心化验室仪器设备的安全和正常运行，中化所有分析人员及进入中化的外来人员，均需遵守玻璃仪器器皿与精密仪器的管理要求。</p>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats">
+    <div class="cell"><div class="num">26<small>项</small></div><div class="lab">管理要求</div></div>
+    <div class="cell"><div class="num">2<small>类</small></div><div class="lab">设备类别</div></div>
+    <div class="cell"><div class="num">16<small>种</small></div><div class="lab">玻璃仪器器皿</div></div>
+    <div class="cell"><div class="num">20<small>台</small></div><div class="lab">精密仪器</div></div>
+  </div>
+</div>
+
+<!-- 仪器清单 -->
+<section class="block" id="inventory">
+  <div class="wrap">
+    <div class="sec-label">INVENTORY</div>
+    <h2 class="sec-title">仪器设备清单</h2>
+    <p class="sec-intro">中化现有仪器设备分为玻璃仪器及化学器皿、精密仪器两大类，按功能归类如下。</p>
+
+    <div class="subsec">
+      <div class="subsec-head"><span class="k">GLASSWARE</span><h3>玻璃仪器及化学器皿</h3></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>类别</th><th>器具</th></tr></thead>
+          <tbody>
+            <tr><td>计量器具</td><td>滴定管、移液管、容量瓶、量筒、气体量管</td></tr>
+            <tr><td>容器</td><td>烧杯、锥形瓶、碘量瓶、试剂瓶、真空抽滤瓶</td></tr>
+            <tr><td>比色</td><td>比色管、比色皿</td></tr>
+            <tr><td>加热 · 干燥</td><td>蒸发皿、坩埚、干燥器</td></tr>
+            <tr><td>其他</td><td>玻璃棒等</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="subsec">
+      <div class="subsec-head"><span class="k">PRECISION</span><h3>精密仪器</h3></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>类别</th><th>仪器</th></tr></thead>
+          <tbody>
+            <tr><td>色谱</td><td>气相色谱仪（GC）、高效液相色谱仪（LC）</td></tr>
+            <tr><td>光谱 · 光学</td><td>电感耦合等离子体发射光谱仪（ICP）、分光光度计、阿贝折光仪、色度仪、浊度仪</td></tr>
+            <tr><td>称量 · 移液</td><td>精密电子天平、移液器</td></tr>
+            <tr><td>电化学</td><td>离子计、酸度计、半自动滴定仪</td></tr>
+            <tr><td>热工 · 控温</td><td>电热烘箱、电阻炉、恒温水浴设备、控温磁力加热套、熔点仪</td></tr>
+            <tr><td>制样 · 其他</td><td>行星球磨仪、水分分析仪、高压灭菌器</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 玻璃仪器管理 -->
+<section class="block" id="glassware">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 01</div>
+    <h2 class="sec-title">玻璃仪器及化学器皿的管理</h2>
+    <p class="sec-intro">分类存放、用后洗净归位，按规范干燥保存，外借登记、定期清点，精确量器须定期校验。</p>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">01</div><div class="body"><p>所有仪器及器皿分别、分类放在指定位置，做到<b>不挤压、不堆放</b>，各柜应<b>张贴仪器的标签</b>。</p></div></div>
+      <div class="art"><div class="no">02</div><div class="body"><p>所有玻璃仪器用后必须洗干净，<b>清洁度以不挂水珠或内壁有一层均匀水膜为准</b>，不得在容器内遗留油脂、酸、碱液及毒性物质，用后需归放回原位。</p></div></div>
+      <div class="art"><div class="no">03</div><div class="body"><p>清洗比色管<b>不能使用毛刷</b>；玻璃容量器具（量瓶、移液管、滴定管、量筒等）<b>原则不可加热干燥</b>，应以<b>自然晾干</b>。</p></div></div>
+      <div class="art"><div class="no">04</div><div class="body"><p>不常用移液管洗净后，应用<b>干净滤纸包住两端或全部包起</b>，以防沾污。</p></div></div>
+      <div class="art"><div class="no">05</div><div class="body"><p>不常用滴定管用毕，洗去管内溶液，再用纯水冲洗，上盖玻璃短试管或塑料套套管，也可放尽水倒置夹于滴定管夹上；<b>长期不用</b>的滴定管要除掉凡士林后垫纸，用皮筋拴好活塞保存。</p></div></div>
+      <div class="art"><div class="no">06</div><div class="body"><p>成套的玻璃仪器用完后，要<b>立即洗净</b>，放在<b>专用纸盒</b>内保存。</p></div></div>
+      <div class="art"><div class="no">07</div><div class="body"><p>玻璃仪器和器皿<b>不得随意外借</b>，外借时必须经质检科负责人同意并严格做好<b>仪器外借登记</b>。</p></div></div>
+      <div class="art"><div class="no">08</div><div class="body"><p>分析人员要<b>定期清点和统计</b>玻璃仪器及器皿数量，若仪器不能达到实验需求，需及时向质检科相关负责人反映。</p></div></div>
+      <div class="art"><div class="no">09</div><div class="body"><p>分析人员在<b>损坏</b>玻璃仪器及器皿时要及时向质检科相关负责人反映并<b>做好登记</b>。</p></div></div>
+      <div class="art"><div class="no">10</div><div class="body"><p>精确玻璃仪器（滴定管、量瓶、移液管）使用前应按<b>《检验设备检定校准规程》</b>要求定期进行校验，确保其准确性，<b>不合格者不能使用</b>。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 精密仪器管理 -->
+<section class="block" id="precision">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 02</div>
+    <h2 class="sec-title">精密仪器的管理</h2>
+    <p class="sec-intro">从安装环境、电源接地，到培训上岗、使用登记、关机维护、建档校验与下班锁门，全过程规范管控。</p>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">01</div><div class="body"><p>仪器摆放和布局应符合要求，便于操作、清洁和维修。摆放点应<b>避免阳光直接照射</b>，有良好通风，配适当的<b>防震、防尘及专用排气</b>等设施，<b>远离高温及磁场</b>。</p></div></div>
+      <div class="art"><div class="no">02</div><div class="body"><p>仪器所用电源应保证<b>电压恒定</b>，有足够容量，并有<b>良好的专用地线</b>。</p></div></div>
+      <div class="art"><div class="no">03</div><div class="body"><p>仪器摆放点必须保持<b>清洁干燥</b>，定期进行清洁工作。</p></div></div>
+      <div class="art"><div class="no">04</div><div class="body"><p>操作者必须<b>经过相应仪器培训</b>，熟悉仪器的性能和操作方法，<b>非中化人员严禁擅自操作</b>仪器。</p></div></div>
+      <div class="art"><div class="no">05</div><div class="body"><p>在使用仪器前，应认真查看<b>"仪器使用记录"</b>，了解仪器是否可正常运行。</p></div></div>
+      <div class="art"><div class="no">06</div><div class="body"><p>各仪器应<b>张贴操作规程</b>，明确设备性能和基本操作方法。</p></div></div>
+      <div class="art"><div class="no">07</div><div class="body"><p>仪器必须严格执行<b>使用登记制度</b>，登记时应记录仪器运行状况、开关机时间、操作者。</p></div></div>
+      <div class="art"><div class="no">08</div><div class="body"><p>仪器使用完成时，要按各仪器规定要求<b>关闭电源</b>。</p></div></div>
+      <div class="art"><div class="no">09</div><div class="body"><p>仪器及其配套工具由<b>质检科相关负责人</b>负责。</p></div></div>
+      <div class="art"><div class="no">10</div><div class="body"><p>仪器出现<b>故障</b>时应及时向质检科相关负责人反映。</p></div></div>
+      <div class="art"><div class="no">11</div><div class="body"><p>仪器性能无法满足分析要求或因故无法使用时，及时向质检科负责人反映。</p></div></div>
+      <div class="art"><div class="no">12</div><div class="body"><p>仪器应建立<b>完整的档案</b>（包括验收报告、说明书、技术规程、维修手册、合格证、装箱单、零部件等）。</p></div></div>
+      <div class="art"><div class="no">13</div><div class="body"><p>所有涉及产品及原辅材料检验的仪器，应按<b>《检验设备检定校准规程》</b>要求，定期请有关计量单位进行<b>检查和校验</b>。</p></div></div>
+      <div class="art"><div class="no">14</div><div class="body"><p>为不断提高中化仪器的使用水平、充分发挥其效能，<b>定期举办分析技术培训</b>，牢固基本理论知识，提升分析技术，以适应中化现代化建设的需要。</p></div></div>
+      <div class="art"><div class="no">15</div><div class="body"><p>下班时，仪器室由每日卫生值日人员负责<b>锁门</b>，锁门前要检查仪器（包括电脑）、电源、空调器是否已关闭以及室内情况，一切正常后锁门，钥匙放在实验室内固定地方。</p></div></div>
+      <div class="art"><div class="no">16</div><div class="body"><p>违反操作规程造成仪器损坏或发生事故的，<b>视情节轻重</b>，对责任者处以批评教育、书面检查、罚款等处分。</p></div></div>
+    </div>
+
+    <!-- 使用要点 grid -->
+    <div class="subsec" id="usage">
+      <div class="subsec-head"><span class="k">KEY POINTS</span><h3>精密仪器使用要点 · 六要</h3></div>
+      <div class="grid" style="margin-top:24px;">
+        <div class="cellb"><span class="gn">01</span><span class="gt">经培训</span><span class="gd">操作者经培训，非中化人员严禁操作</span></div>
+        <div class="cellb"><span class="gn">02</span><span class="gt">查记录</span><span class="gd">使用前查看仪器使用记录</span></div>
+        <div class="cellb"><span class="gn">03</span><span class="gt">贴规程</span><span class="gd">各仪器张贴操作规程</span></div>
+        <div class="cellb"><span class="gn">04</span><span class="gt">勤登记</span><span class="gd">运行状况 / 开关机时间 / 操作者</span></div>
+        <div class="cellb"><span class="gn">05</span><span class="gt">关电源</span><span class="gd">用毕按规定关闭电源</span></div>
+        <div class="cellb"><span class="gn">06</span><span class="gt">建档案</span><span class="gd">验收报告 / 说明书 / 合格证等齐全</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="sig">
+      <div class="o">龙岩龙化化工质检科</div>
+      <div class="d">仪器设备管理制度</div>
+    </div>
+    <div class="meta">
+      文件编号 LH/ZJZD-009:2024<br>
+      两类设备 · 玻璃仪器器皿 / 精密仪器<br>
+      规范使用 · 定期校验 · 安全运行
+    </div>
+  </div>
+</footer>
+
+<button id="top" aria-label="返回顶部">↑</button>
+
+<script>
+  const burger=document.getElementById('burger');
+  const links=document.getElementById('links');
+  burger.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+  const top=document.getElementById('top');
+  window.addEventListener('scroll',()=>top.classList.toggle('show',window.scrollY>500),{passive:true});
+  top.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>

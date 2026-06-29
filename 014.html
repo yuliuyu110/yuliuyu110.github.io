@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中心化验室试运行 6S 管理制度</title>
+<style>
+  :root{--bg:#ffffff;--line:#e5e5e5;--ink:#141414;--gray:#6b6b6b;--gray-2:#9a9a9a;--navy:#002d72;--max:1120px;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--gray);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+    font-size:15.5px;line-height:1.9;font-weight:400;-webkit-font-smoothing:antialiased;letter-spacing:.2px;}
+  b,strong{color:var(--ink);font-weight:700;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 40px;}
+
+  nav.top{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line);}
+  .top-inner{max-width:var(--max);margin:0 auto;padding:0 40px;height:66px;display:flex;align-items:center;justify-content:space-between;}
+  .org{display:flex;align-items:baseline;gap:12px;}
+  .org .name{font-weight:700;color:var(--ink);font-size:16px;letter-spacing:.5px;}
+  .org .dept{color:var(--gray-2);font-size:13px;}
+  .top-links{display:flex;gap:34px;}
+  .top-links a{font-size:13.5px;color:var(--gray);transition:color .15s;}
+  .top-links a:hover{color:var(--navy);}
+  #burger{display:none;background:none;border:none;font-size:20px;color:var(--ink);cursor:pointer;}
+
+  .hero{border-bottom:1px solid var(--line);}
+  .hero .wrap{padding-top:84px;padding-bottom:84px;}
+  .eyebrow{font-size:12.5px;letter-spacing:3px;color:var(--gray-2);text-transform:uppercase;margin-bottom:30px;}
+  .hero h1{font-weight:300;color:var(--ink);font-size:50px;line-height:1.3;letter-spacing:1px;margin:0 0 28px;}
+  .hero h1 b{font-weight:700;}
+  .hero .lede{max-width:680px;font-size:16px;color:var(--gray);line-height:2;margin:0;}
+
+  .stats-band{max-width:var(--max);margin:0 auto;}
+  .stats{border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);}
+  .stats .cell{background:var(--bg);padding:40px;}
+  .stats .num{font-weight:300;color:var(--ink);font-size:40px;line-height:1;letter-spacing:1px;}
+  .stats .num small{font-size:18px;color:var(--gray-2);margin-left:4px;}
+  .stats .lab{margin-top:14px;font-size:13px;color:var(--gray-2);letter-spacing:1px;}
+
+  section.block{border-bottom:1px solid var(--line);}
+  .block .wrap{padding-top:72px;padding-bottom:72px;}
+  .sec-label{font-size:12.5px;letter-spacing:3px;color:var(--gray-2);text-transform:uppercase;margin-bottom:14px;}
+  .sec-title{font-weight:300;color:var(--ink);font-size:32px;letter-spacing:1px;margin:0 0 8px;}
+  .sec-intro{max-width:740px;color:var(--gray);margin:14px 0 0;}
+  .subsec{margin-top:50px;}
+  .subsec-head{display:flex;align-items:baseline;gap:14px;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:8px;}
+  .subsec-head .k{font-size:12px;letter-spacing:2px;color:var(--gray-2);text-transform:uppercase;}
+  .subsec-head h3{margin:0;font-weight:700;color:var(--ink);font-size:18px;letter-spacing:.5px;}
+
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .grid.c3{grid-template-columns:repeat(3,1fr);}
+  .grid a,.grid .cellb{background:var(--bg);padding:30px;display:flex;flex-direction:column;gap:10px;transition:background .18s,color .18s;}
+  .grid .gn{font-weight:300;font-size:28px;color:var(--navy);letter-spacing:1px;transition:color .18s;}
+  .grid .gt{font-size:16px;color:var(--ink);font-weight:700;transition:color .18s;}
+  .grid .gt em{font-style:normal;color:var(--gray-2);font-weight:400;font-size:12.5px;margin-left:7px;letter-spacing:1px;transition:color .18s;}
+  .grid .gd{font-size:12.5px;color:var(--gray-2);line-height:1.6;transition:color .18s;}
+  .grid a:hover,.grid .cellb:hover{background:var(--navy);}
+  .grid a:hover .gn,.grid a:hover .gt,.grid a:hover .gd,.grid a:hover .gt em,
+  .grid .cellb:hover .gn,.grid .cellb:hover .gt,.grid .cellb:hover .gd,.grid .cellb:hover .gt em{color:#fff;}
+  .grid a:hover .gd,.grid .cellb:hover .gd,.grid a:hover .gt em,.grid .cellb:hover .gt em{color:rgba(255,255,255,.7);}
+
+  .art{display:flex;gap:30px;padding:24px 0;border-top:1px solid var(--line);}
+  .art:first-of-type{border-top:none;}
+  .art .no{flex:0 0 56px;font-size:18px;color:var(--navy);font-weight:300;letter-spacing:1px;padding-top:2px;}
+  .art .body{flex:1;min-width:0;}
+  .art .body>p{margin:0;}
+  .stag{display:inline-block;font-size:11px;letter-spacing:2px;color:var(--gray-2);border:1px solid var(--line);padding:2px 9px;margin-bottom:10px;}
+
+  table{width:100%;border-collapse:collapse;margin-top:8px;font-size:14.5px;}
+  thead th{text-align:left;font-weight:700;color:var(--ink);font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;padding:14px 18px;border-bottom:2px solid var(--ink);white-space:nowrap;}
+  tbody td{padding:18px;border-bottom:1px solid var(--line);color:var(--gray);vertical-align:top;}
+  tbody td:first-child{color:var(--ink);font-weight:700;white-space:nowrap;}
+  tbody td:first-child em{font-style:normal;display:block;color:var(--gray-2);font-weight:400;font-size:12px;letter-spacing:1px;margin-top:3px;}
+  tbody tr:hover td{background:#fafafa;}
+  .tbl-wrap{overflow-x:auto;}
+
+  footer{padding:48px 0 60px;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;}
+  footer .sig .o{color:var(--ink);font-weight:700;font-size:15px;letter-spacing:.5px;}
+  footer .sig .d{color:var(--gray-2);font-size:13px;margin-top:6px;}
+  footer .meta{color:var(--gray-2);font-size:12.5px;text-align:right;line-height:1.9;}
+
+  #top{position:fixed;right:30px;bottom:30px;width:48px;height:48px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:18px;cursor:pointer;z-index:40;opacity:0;pointer-events:none;transition:opacity .25s,background .18s,color .18s;}
+  #top.show{opacity:1;pointer-events:auto;}
+  #top:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+  @media (max-width:900px){
+    .wrap,.top-inner{padding-left:24px;padding-right:24px;}
+    .hero h1{font-size:34px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .grid,.grid.c3{grid-template-columns:repeat(2,1fr);}
+    .top-links{position:absolute;top:66px;left:0;right:0;background:var(--bg);flex-direction:column;gap:0;border-bottom:1px solid var(--line);display:none;}
+    .top-links.open{display:flex;}
+    .top-links a{padding:16px 24px;border-top:1px solid var(--line);}
+    #burger{display:block;}
+  }
+  @media (max-width:560px){
+    .hero h1{font-size:27px;}
+    .sec-title{font-size:24px;}
+    .stats,.grid,.grid.c3{grid-template-columns:1fr;}
+    .art{flex-direction:column;gap:4px;}
+    .art .no{flex-basis:auto;}
+    .stats .num{font-size:32px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="top">
+  <div class="top-inner">
+    <div class="org">
+      <span class="name">龙岩龙化化工</span>
+      <span class="dept">质检科 · 中心化验室</span>
+    </div>
+    <button id="burger" aria-label="菜单">☰</button>
+    <div class="top-links" id="links">
+      <a href="#sixs">6S 要素</a>
+      <a href="#framework">定义与目的</a>
+      <a href="#rules">实施细则</a>
+      <a href="#safety">安全要点</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">中心化验室试运行 6S 管理制度 · LH/ZJZD-014:2024</div>
+    <h1>整理、整顿、清扫、清洁，<br><b>素养与安全。</b></h1>
+    <p class="lede">中心化验室（以下简称中化）试行 6S 管理，将中化人员、仪器、材料、方法等工作要素进行有效管理，以达到提高中化整体工作质量的目的。</p>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats">
+    <div class="cell"><div class="num">6<small>S</small></div><div class="lab">管理要素</div></div>
+    <div class="cell"><div class="num">25</div><div class="lab">实施细则</div></div>
+    <div class="cell"><div class="num">4</div><div class="lab">工作要素 · 人 / 机 / 料 / 法</div></div>
+    <div class="cell"><div class="num">1<small>次/月</small></div><div class="lab">卫生死角彻底清洁</div></div>
+  </div>
+</div>
+
+<!-- 6S 要素 grid signature -->
+<section class="block" id="sixs">
+  <div class="wrap">
+    <div class="sec-label">FRAMEWORK</div>
+    <h2 class="sec-title">6S 管理要素</h2>
+    <p class="sec-intro">6S 由整理、整顿、清扫、清洁、素养、安全六项构成，层层递进、互为支撑，从环境治理到人员素养与安全保障。</p>
+    <div class="grid c3" style="margin-top:36px;">
+      <div class="cellb"><span class="gn">1S</span><span class="gt">整理<em>Seiri</em></span><span class="gd">区分要与不要，只留适量必需品</span></div>
+      <div class="cellb"><span class="gn">2S</span><span class="gt">整顿<em>Seiton</em></span><span class="gd">定位放置，加以标示</span></div>
+      <div class="cellb"><span class="gn">3S</span><span class="gt">清扫<em>Seiso</em></span><span class="gd">干净整洁，设备铮亮完好</span></div>
+      <div class="cellb"><span class="gn">4S</span><span class="gt">清洁<em>Seiketsu</em></span><span class="gd">执行到底，规范化、制度化</span></div>
+      <div class="cellb"><span class="gn">5S</span><span class="gt">素养<em>Shitsuke</em></span><span class="gd">养成良好习惯，提升素养</span></div>
+      <div class="cellb"><span class="gn">6S</span><span class="gt">安全<em>Safety</em></span><span class="gd">人人有安全意识，按规程作业</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 第一条 定义与目的 表 -->
+<section class="block" id="framework">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 01</div>
+    <h2 class="sec-title">第一条　6S 管理的定义与目的</h2>
+    <div class="tbl-wrap" style="margin-top:30px;">
+      <table>
+        <thead><tr><th>6S 项目</th><th>定　义</th><th>目　的</th></tr></thead>
+        <tbody>
+          <tr><td>整理<em>Seiri</em></td><td>区分要与不要的东西，在岗位上只放置适量的必需品，其他一切都不放置。</td><td>腾出空间，防止误用，塑造清爽的工作场所。</td></tr>
+          <tr><td>整顿<em>Seiton</em></td><td>整顿现场次序，将需要的东西加以定位放置并且加以标示。</td><td>腾出时间，减少寻找时间，创造井井有条的工作秩序。</td></tr>
+          <tr><td>清扫<em>Seiso</em></td><td>将岗位变得干净整洁，设备保养得铮亮完好，创造干净漂亮的环境。</td><td>消除"污脏"，保持现场干净明亮。</td></tr>
+          <tr><td>清洁<em>Seiketsu</em></td><td>将整理、整顿和清扫执行到底，并且规范化、制度化。</td><td>形成制度和惯例，维持前 3 个 S 的成果。</td></tr>
+          <tr><td>素养<em>Shitsuke</em></td><td>建立并形成良好的习惯与意识，从根本上提升人员的素养。</td><td>提升员工修养，培养良好素质，提升团队精神，实现员工的自我规范。</td></tr>
+          <tr><td>安全<em>Safety</em></td><td>人人有安全意识，人人按安全操作规程作业。</td><td>建立起安全工作的环境，减少人身伤害和经济损失。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 第二条 实施细则 -->
+<section class="block" id="rules">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 02</div>
+    <h2 class="sec-title">第二条　6S 实施部分细则</h2>
+    <p class="sec-intro">根据中心化验室实际和 6S 管理试行中不断总结和更新，规范部分实施细则如下（左侧标注对应的 6S 要素）。</p>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">01</div><div class="body"><span class="stag">整顿</span><p>文件、资料和记录整齐摆放在文件架、文件夹、文件栏或文件柜中，<b>不得随意散放在桌面或操作台上</b>。文件夹要有明确的标示。归档的文件或质量记录要分类存放，并有<b>明确的目录和标识</b>以便于查找。</p></div></div>
+      <div class="art"><div class="no">02</div><div class="body"><span class="stag">整理</span><p>桌面或台面上的器具、文件等要摆放整齐有序，要求桌面与台面上的物品<b>都是工作必需品</b>。桌下与操作平台下面不得堆放与工作无关的文件和物品，如报纸、杂志、纸箱等。</p></div></div>
+      <div class="art"><div class="no">03</div><div class="body"><span class="stag">清扫</span><p>操作台面及桌面要保持整洁干净，要求<b>无灰尘、水渍、杂物</b>。工作场所的门窗、台架应保持无灰尘、无油污的清洁状态。</p></div></div>
+      <div class="art"><div class="no">04</div><div class="body"><span class="stag">整顿</span><p>水杯、电话、文具等物品用具应摆放在<b>指定位置</b>。</p></div></div>
+      <div class="art"><div class="no">05</div><div class="body"><span class="stag">整顿</span><p>办公桌抽屉内的物品要<b>分类摆放整齐</b>，并且要进行<b>定期清理</b>。</p></div></div>
+      <div class="art"><div class="no">06</div><div class="body"><span class="stag">整顿</span><p>文件、资料、书籍、用具、用品等使用完毕要<b>及时放回到指定位置</b>并摆放整齐。</p></div></div>
+      <div class="art"><div class="no">07</div><div class="body"><span class="stag">清扫</span><p>墙角、天花板等<b>卫生死角</b>应作为重点清洁对象，<b>每月彻底清洁一次</b>并保持干净。</p></div></div>
+      <div class="art"><div class="no">08</div><div class="body"><span class="stag">清扫</span><p>办公及工作场所地面保持干净整洁，应保持<b>无灰尘、无油污、无水渍、无纸屑杂物</b>。地面上沾染物或污物要及时清洗干净。</p></div></div>
+      <div class="art"><div class="no">09</div><div class="body"><span class="stag">清扫</span><p>电脑或设备仪器要<b>摆放端正、保持清洁</b>，不使用或下班时要及时<b>关闭电源</b>。</p></div></div>
+      <div class="art"><div class="no">10</div><div class="body"><span class="stag">整顿</span><p>各处的标识或标牌必须<b>悬挂或粘贴端正、美观</b>。墙上或设备仪器上的张贴物、悬挂物要与整体环境协调一致，不得影响整体美观效果。</p></div></div>
+      <div class="art"><div class="no">11</div><div class="body"><span class="stag">清扫</span><p>清洁用具保持干净，使用后要及时<b>悬挂或摆放到指定位置</b>。</p></div></div>
+      <div class="art"><div class="no">12</div><div class="body"><span class="stag">安全</span><p>须先<b>关闭或锁好门窗，关好水、电</b>等并确保安全后，才能下班或离开实验室、办公室。</p></div></div>
+      <div class="art"><div class="no">13</div><div class="body"><span class="stag">整理</span><p>不使用的化学试剂及其它物品或工具等要<b>立即清理，归类放置</b>，不可使其占用作业空间。</p></div></div>
+      <div class="art"><div class="no">14</div><div class="body"><span class="stag">整理</span><p>个人物品如工作服、手套等，要放在<b>指定位置</b>，不得在实验室内随意丢放。</p></div></div>
+      <div class="art"><div class="no">15</div><div class="body"><span class="stag">安全</span><p><b>灭火器、高压气瓶</b>等要保持清洁，上面<b>不得放置任何物品</b>。</p></div></div>
+      <div class="art"><div class="no">16</div><div class="body"><span class="stag">清洁</span><p>分析仪器设备要按要求进行<b>定期点检</b>，并进行设备日常维护和管理，保持设备整洁。</p></div></div>
+      <div class="art"><div class="no">17</div><div class="body"><span class="stag">整顿</span><p>药品试剂按<b>化学性质分类堆放</b>，所有药品试剂附有与实际相符的标识。<b>危险化学品的存放要符合相关规定</b>。</p></div></div>
+      <div class="art"><div class="no">18</div><div class="body"><span class="stag">安全</span><p>所有的分析废液及其它废弃物必须<b>按相应的规定处理或存放</b>。下班前，清理岗位卫生，物品放置有序，保持工作岗位环境清洁。</p></div></div>
+      <div class="art"><div class="no">19</div><div class="body"><span class="stag">清洁</span><p>做好<b>责任区域 6S 工作</b>，保持区域整洁干净。工作场所的垃圾要及时清理，不得出现垃圾桶满了还没有清理的现象。</p></div></div>
+      <div class="art"><div class="no">20</div><div class="body"><span class="stag">清洁</span><p>仪器设备使用完毕要及时<b>维护和保养</b>，保持清洁干净，要求外观<b>无污染、无灰尘、无油迹</b>。</p></div></div>
+      <div class="art"><div class="no">21</div><div class="body"><span class="stag">清扫</span><p><b>随手整理收拾</b>分析用材料和用具，分析完毕<b>立即整理和清洁</b>台面、桌面及用具用品等。</p></div></div>
+      <div class="art"><div class="no">22</div><div class="body"><span class="stag">整顿</span><p>工作中所用到的相关文件、记录等应<b>分类摆放整齐、填写清楚无误</b>。所用的标准或质量记录要<b>远离水源</b>等，必须避免受到污染和损坏。</p></div></div>
+      <div class="art"><div class="no">23</div><div class="body"><span class="stag">安全</span><p>按相关规定穿工作服，按要求<b>穿戴劳保用品</b>，做好自身安全防护。</p></div></div>
+      <div class="art"><div class="no">24</div><div class="body"><span class="stag">整顿</span><p>所有物料或样品要<b>分门别类，做好标识</b>，按相应的储存措施保存好。对样品室要及时整理清洁，保持其整洁有序，样品室的门要<b>随手关好</b>。</p></div></div>
+      <div class="art"><div class="no">25</div><div class="body"><span class="stag">素养</span><p>不断学习相关业务知识，逐步提高工作技能，逐步形成<b>科学、严谨、准确、高效</b>的工作素养。</p></div></div>
+    </div>
+
+    <!-- 安全要点 grid -->
+    <div class="subsec" id="safety">
+      <div class="subsec-head"><span class="k">SAFETY · 6S</span><h3>安全要点</h3></div>
+      <div class="grid c3" style="margin-top:24px;">
+        <div class="cellb"><span class="gn">01</span><span class="gt">下班离开</span><span class="gd">关好门窗、水电，确保安全</span></div>
+        <div class="cellb"><span class="gn">02</span><span class="gt">消防器具</span><span class="gd">灭火器、高压气瓶清洁，上不放物</span></div>
+        <div class="cellb"><span class="gn">03</span><span class="gt">危化品</span><span class="gd">分类标识，存放符合规定</span></div>
+        <div class="cellb"><span class="gn">04</span><span class="gt">废弃物</span><span class="gd">废液及废弃物按规定处理存放</span></div>
+        <div class="cellb"><span class="gn">05</span><span class="gt">劳保防护</span><span class="gd">按要求穿工作服与劳保用品</span></div>
+        <div class="cellb"><span class="gn">06</span><span class="gt">设备点检</span><span class="gd">仪器定期点检与日常维护</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="sig">
+      <div class="o">龙岩龙化化工质检科</div>
+      <div class="d">中心化验室试运行 6S 管理制度</div>
+    </div>
+    <div class="meta">
+      文件编号 LH/ZJZD-014:2024<br>
+      6S · 整理 / 整顿 / 清扫 / 清洁 / 素养 / 安全<br>
+      人员 · 仪器 · 材料 · 方法 全要素管理
+    </div>
+  </div>
+</footer>
+
+<button id="top" aria-label="返回顶部">↑</button>
+
+<script>
+  const burger=document.getElementById('burger');
+  const links=document.getElementById('links');
+  burger.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+  const top=document.getElementById('top');
+  window.addEventListener('scroll',()=>top.classList.toggle('show',window.scrollY>500),{passive:true});
+  top.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>

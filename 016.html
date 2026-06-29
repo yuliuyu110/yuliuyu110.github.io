@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>质量数据管理办法</title>
+<style>
+  :root{--bg:#ffffff;--line:#e5e5e5;--ink:#141414;--gray:#6b6b6b;--gray-2:#9a9a9a;--navy:#002d72;--max:1120px;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--gray);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+    font-size:15.5px;line-height:1.9;font-weight:400;-webkit-font-smoothing:antialiased;letter-spacing:.2px;}
+  b,strong{color:var(--ink);font-weight:700;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 40px;}
+
+  nav.top{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line);}
+  .top-inner{max-width:var(--max);margin:0 auto;padding:0 40px;height:66px;display:flex;align-items:center;justify-content:space-between;}
+  .org{display:flex;align-items:baseline;gap:12px;}
+  .org .name{font-weight:700;color:var(--ink);font-size:16px;letter-spacing:.5px;}
+  .org .dept{color:var(--gray-2);font-size:13px;}
+  .top-links{display:flex;gap:34px;}
+  .top-links a{font-size:13.5px;color:var(--gray);transition:color .15s;}
+  .top-links a:hover{color:var(--navy);}
+  #burger{display:none;background:none;border:none;font-size:20px;color:var(--ink);cursor:pointer;}
+
+  .hero{border-bottom:1px solid var(--line);}
+  .hero .wrap{padding-top:84px;padding-bottom:84px;}
+  .eyebrow{font-size:12.5px;letter-spacing:3px;color:var(--gray-2);text-transform:uppercase;margin-bottom:30px;}
+  .hero h1{font-weight:300;color:var(--ink);font-size:50px;line-height:1.3;letter-spacing:1px;margin:0 0 28px;}
+  .hero h1 b{font-weight:700;}
+  .hero .lede{max-width:680px;font-size:16px;color:var(--gray);line-height:2;margin:0;}
+
+  .stats-band{max-width:var(--max);margin:0 auto;}
+  .stats{border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);}
+  .stats .cell{background:var(--bg);padding:40px;}
+  .stats .num{font-weight:300;color:var(--ink);font-size:40px;line-height:1;letter-spacing:1px;}
+  .stats .num small{font-size:18px;color:var(--gray-2);margin-left:4px;}
+  .stats .lab{margin-top:14px;font-size:13px;color:var(--gray-2);letter-spacing:1px;}
+
+  section.block{border-bottom:1px solid var(--line);}
+  .block .wrap{padding-top:72px;padding-bottom:72px;}
+  .sec-label{font-size:12.5px;letter-spacing:3px;color:var(--gray-2);text-transform:uppercase;margin-bottom:14px;}
+  .sec-title{font-weight:300;color:var(--ink);font-size:32px;letter-spacing:1px;margin:0 0 8px;}
+  .sec-intro{max-width:740px;color:var(--gray);margin:14px 0 0;}
+  .subsec{margin-top:50px;}
+  .subsec-head{display:flex;align-items:baseline;gap:14px;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:8px;}
+  .subsec-head .k{font-size:12px;letter-spacing:2px;color:var(--gray-2);text-transform:uppercase;}
+  .subsec-head h3{margin:0;font-weight:700;color:var(--ink);font-size:18px;letter-spacing:.5px;}
+
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .grid.c3{grid-template-columns:repeat(3,1fr);}
+  .grid a,.grid .cellb{background:var(--bg);padding:30px;display:flex;flex-direction:column;gap:11px;transition:background .18s,color .18s;}
+  .grid .gn{font-weight:300;font-size:28px;color:var(--navy);letter-spacing:1px;transition:color .18s;}
+  .grid .gt{font-size:15.5px;color:var(--ink);font-weight:700;transition:color .18s;line-height:1.4;}
+  .grid .gd{font-size:12.5px;color:var(--gray-2);line-height:1.6;transition:color .18s;}
+  .grid a:hover,.grid .cellb:hover{background:var(--navy);}
+  .grid a:hover .gn,.grid a:hover .gt,.grid a:hover .gd,
+  .grid .cellb:hover .gn,.grid .cellb:hover .gt,.grid .cellb:hover .gd{color:#fff;}
+  .grid a:hover .gd,.grid .cellb:hover .gd{color:rgba(255,255,255,.72);}
+
+  .art{display:flex;gap:30px;padding:26px 0;border-top:1px solid var(--line);}
+  .art:first-of-type{border-top:none;}
+  .art .no{flex:0 0 86px;font-size:14px;color:var(--navy);font-weight:700;letter-spacing:.5px;padding-top:3px;}
+  .art .body{flex:1;min-width:0;}
+  .art .body>p{margin:0 0 12px;}
+  .art .body>p:last-child{margin-bottom:0;}
+  .art .lead{color:var(--ink);}
+  .clause{display:flex;gap:10px;margin:8px 0;color:var(--gray);}
+  .clause .ci{flex:0 0 auto;color:var(--ink);font-weight:700;}
+  .defn{display:flex;gap:10px;margin:8px 0;color:var(--gray);}
+  .defn .dt{flex:0 0 auto;color:var(--ink);font-weight:700;}
+
+  table{width:100%;border-collapse:collapse;margin-top:8px;font-size:14.5px;}
+  thead th{text-align:left;font-weight:700;color:var(--ink);font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;padding:14px 18px;border-bottom:2px solid var(--ink);white-space:nowrap;}
+  tbody td{padding:18px;border-bottom:1px solid var(--line);color:var(--gray);vertical-align:top;}
+  tbody td:first-child{color:var(--ink);font-weight:700;white-space:nowrap;}
+  tbody td b{color:var(--navy);}
+  tbody tr:hover td{background:#fafafa;}
+  .tbl-wrap{overflow-x:auto;}
+  .tbl-note{margin-top:16px;font-size:13px;color:var(--gray-2);}
+
+  footer{padding:48px 0 60px;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;}
+  footer .sig .o{color:var(--ink);font-weight:700;font-size:15px;letter-spacing:.5px;}
+  footer .sig .d{color:var(--gray-2);font-size:13px;margin-top:6px;}
+  footer .meta{color:var(--gray-2);font-size:12.5px;text-align:right;line-height:1.9;}
+
+  #top{position:fixed;right:30px;bottom:30px;width:48px;height:48px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:18px;cursor:pointer;z-index:40;opacity:0;pointer-events:none;transition:opacity .25s,background .18s,color .18s;}
+  #top.show{opacity:1;pointer-events:auto;}
+  #top:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+  @media (max-width:900px){
+    .wrap,.top-inner{padding-left:24px;padding-right:24px;}
+    .hero h1{font-size:34px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .grid,.grid.c3{grid-template-columns:repeat(2,1fr);}
+    .top-links{position:absolute;top:66px;left:0;right:0;background:var(--bg);flex-direction:column;gap:0;border-bottom:1px solid var(--line);display:none;}
+    .top-links.open{display:flex;}
+    .top-links a{padding:16px 24px;border-top:1px solid var(--line);}
+    #burger{display:block;}
+  }
+  @media (max-width:560px){
+    .hero h1{font-size:27px;}
+    .sec-title{font-size:24px;}
+    .stats,.grid,.grid.c3{grid-template-columns:1fr;}
+    .art{flex-direction:column;gap:8px;}
+    .art .no{flex-basis:auto;}
+    .stats .num{font-size:32px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="top">
+  <div class="top-inner">
+    <div class="org">
+      <span class="name">龙岩龙化化工</span>
+      <span class="dept">质检科 · 中心化验室</span>
+    </div>
+    <button id="burger" aria-label="菜单">☰</button>
+    <div class="top-links" id="links">
+      <a href="#general">总则与原则</a>
+      <a href="#duties">职责分工</a>
+      <a href="#sharing">采集与共享</a>
+      <a href="#security">质量与安全</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">质量数据管理办法 · LH/ZJZD-016:2026</div>
+    <h1>一数一源，<br><b>一次采集，重复使用。</b></h1>
+    <p class="lede">为推进质量数据数字化的规范管理、互联互通和共享交换，对质检科、中心化验室和车间化验室在检验与行政管理中获取、生成的各类质量数据，实行统一采集、统一存储、授权共享与全过程安全管控。</p>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats">
+    <div class="cell"><div class="num">17<small>条</small></div><div class="lab">管理条款 · 共 5 章</div></div>
+    <div class="cell"><div class="num">3<small>类</small></div><div class="lab">数据管理角色</div></div>
+    <div class="cell"><div class="num">3<small>级</small></div><div class="lab">数据共享类型</div></div>
+    <div class="cell"><div class="num">4<small>项</small></div><div class="lab">基本原则</div></div>
+  </div>
+</div>
+
+<!-- CONTENTS GRID -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-label">CONTENTS</div>
+    <h2 class="sec-title">办法目录</h2>
+    <p class="sec-intro">本办法共五章十七条，明确质量数据的定义与原则、管理职责与分工、采集存储共享使用，以及数据质量与安全管理。</p>
+    <div class="grid" style="margin-top:36px;">
+      <a href="#general"><span class="gn">01</span><span class="gt">总则与原则</span><span class="gd">第一 — 五条 · 定义与四项原则</span></a>
+      <a href="#duties"><span class="gn">02</span><span class="gt">职责与分工</span><span class="gd">第六 — 八条 · 三类部门</span></a>
+      <a href="#sharing"><span class="gn">03</span><span class="gt">采集与共享</span><span class="gd">第九 — 十二条 · 三类共享</span></a>
+      <a href="#security"><span class="gn">04</span><span class="gt">质量与安全</span><span class="gd">第十三 — 十七条 · 监管保障</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 第一章 总则 -->
+<section class="block" id="general">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 01</div>
+    <h2 class="sec-title">第一章　总则</h2>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">第一条</div><div class="body"><p>为贯彻落实工业和信息化部<b>《制造业质量管理数字化实施指南（试行）》</b>（工信厅科〔2021〕59 号）要求，根据龙化公司智能化建设的需要，为更好推进质量数据数字化的<b>规范管理、互联互通和共享交换</b>，特制定本办法。</p></div></div>
+      <div class="art"><div class="no">第二条</div><div class="body"><p>本办法所指的<b>质量数据</b>是指龙化公司质检科、中心化验室和车间化验室履行检验和行政管理等职责过程中<b>获取、生成的各类质量数据资源</b>。</p></div></div>
+      <div class="art"><div class="no">第三条</div><div class="body">
+        <p class="lead">质量数据管理是指对上述质量数据的<b>采集、存储、共享、使用、安全管理、质量管理</b>等。</p>
+        <div class="defn"><span class="dt">采集存储共享使用</span><span>质检科和各化验室对质量数据进行收集和加工、存放在计算机磁盘等介质、传递给不同的计算机和不同的软件，且不同的计算机和软件能够读取并进行运算和分析的行为。</span></div>
+        <div class="defn"><span class="dt">质量管理</span><span>质量数据质量规范与标准的制定，以及对管理过程中可能产生的不准确、不完整、不规范等情况进行识别、修正。</span></div>
+        <div class="defn"><span class="dt">安全管理</span><span>建立健全质量数据安全管理制度，组织开展安全教育培训，采取相应技术措施和其他必要措施，保障质量数据资源的可用性、完整性和保密性。</span></div>
+      </div></div>
+      <div class="art"><div class="no">第四条</div><div class="body"><p>质量数据管理涉及的部门，分为<b>质量数据管理部门、质量数据提供部门/班组、质量数据使用部门</b>。</p></div></div>
+      <div class="art"><div class="no">第五条</div><div class="body">
+        <p class="lead">质量数据管理的基本原则：</p>
+        <div class="clause"><span class="ci">（一）统一管理，各负其责。</span></div>
+        <p>质量数据管理部门负责集中统一管理，制定规范标准，保障安全，推动共享；提供部门/班组按规范标准提供数据，确保<b>真实性、准确性、完整性和及时性</b>；使用部门按规范标准合规使用数据。</p>
+        <div class="clause"><span class="ci">（二）一数一源，权威来源。</span></div>
+        <p>管理部门确定质量数据的权威来源，各单位遵照<b>"一数一源，一次采集，重复使用"</b>的原则，开展采集、存储、共享和使用。</p>
+        <div class="clause"><span class="ci">（三）质量数据公有，授权共享。</span></div>
+        <p>质量数据是公司公共资源，所有权和使用权归公司所有。在确保安全的前提下，实行<b>以充分共享为原则、不共享为例外</b>的授权共享机制。</p>
+        <div class="clause"><span class="ci">（四）规范管理，保障安全。</span></div>
+        <p>明确各环节管理程序，建立<b>全过程管控体系</b>，完善共享机制，保护个人隐私信息，保障质量数据资源安全。</p>
+      </div></div>
+    </div>
+
+    <!-- 四项原则 grid signature -->
+    <div class="subsec">
+      <div class="subsec-head"><span class="k">PRINCIPLES</span><h3>基本原则 · 四项</h3></div>
+      <div class="grid" style="margin-top:24px;">
+        <div class="cellb"><span class="gn">01</span><span class="gt">统一管理<br>各负其责</span><span class="gd">集中统一管理，制定规范标准</span></div>
+        <div class="cellb"><span class="gn">02</span><span class="gt">一数一源<br>权威来源</span><span class="gd">一次采集，重复使用</span></div>
+        <div class="cellb"><span class="gn">03</span><span class="gt">数据公有<br>授权共享</span><span class="gd">充分共享为原则，不共享为例外</span></div>
+        <div class="cellb"><span class="gn">04</span><span class="gt">规范管理<br>保障安全</span><span class="gd">全过程管控，保护隐私</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 第二章 职责分工 -->
+<section class="block" id="duties">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 02</div>
+    <h2 class="sec-title">第二章　管理职责与分工</h2>
+    <p class="sec-intro">质量数据管理涉及三类部门，各司其职：管理部门归口统管，提供部门/班组负责来源数据，使用部门按权使用。</p>
+
+    <!-- 三类部门一览表 -->
+    <div class="subsec">
+      <div class="subsec-head"><span class="k">ROLES</span><h3>三类部门一览</h3></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>角色</th><th>定位</th><th>关键职责</th></tr></thead>
+          <tbody>
+            <tr><td>管理部门</td><td>归口管理 · 质检科</td><td>统一规划、建设、管理；确定<b>权威来源</b>；统一发布与共享；保障安全</td></tr>
+            <tr><td>提供部门 / 班组</td><td>数据来源</td><td>采集、加工、维护，确保真实准确完整及时；<b>未经审批不得离线传递</b></td></tr>
+            <tr><td>使用部门</td><td>数据使用</td><td>申请获权、合规使用、遵守保密；<b>未经审批不得传播</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div style="margin-top:46px;">
+      <div class="art"><div class="no">第六条</div><div class="body">
+        <p class="lead">质量数据管理部门</p>
+        <div class="clause"><span class="ci">（一）</span><span>质检科是质量数据的<b>归口管理部门</b>，负责质量数据数据库的建设与管理。</span></div>
+        <div class="clause"><span class="ci">（二）</span><span>负责质量数据的<b>统一规划、统一建设、统一管理</b>，根据"一数一源"原则确定权威来源。</span></div>
+        <div class="clause"><span class="ci">（三）</span><span>负责质量数据的<b>统一发布</b>。</span></div>
+        <div class="clause"><span class="ci">（四）</span><span>统一为使用部门提供<b>共享质量数据</b>。</span></div>
+        <div class="clause"><span class="ci">（五）</span><span>采用相应的技术措施和其他必要措施，<b>保障质量数据安全</b>。</span></div>
+      </div></div>
+      <div class="art"><div class="no">第七条</div><div class="body">
+        <p class="lead">质量数据提供部门 / 班组</p>
+        <div class="clause"><span class="ci">（一）</span><span>作为数据来源部门/班组，负责<b>采集、加工、维护</b>，确保真实性、准确性、完整性和及时性。</span></div>
+        <div class="clause"><span class="ci">（二）</span><span><b>未经审批，不得通过离线方式传递</b>质量数据。</span></div>
+        <div class="clause"><span class="ci">（三）</span><span>不得向使用部门直接提供数据；经审批的数据，必须<b>通过公司领导</b>向使用部门提供。</span></div>
+      </div></div>
+      <div class="art"><div class="no">第八条</div><div class="body">
+        <p class="lead">质量数据使用部门</p>
+        <div class="clause"><span class="ci">（一）</span><span>向管理部门提出<b>使用申请</b>，按规定流程获得使用权。</span></div>
+        <div class="clause"><span class="ci">（二）</span><span>严格遵守<b>保密规范</b>，保证用途与申请用途一致。</span></div>
+        <div class="clause"><span class="ci">（三）</span><span><b>未经审批，不得传播</b>给其他单位或个人使用。</span></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 第三章 采集存储共享 -->
+<section class="block" id="sharing">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 03</div>
+    <h2 class="sec-title">第三章　采集、存储、共享与使用</h2>
+    <p class="sec-intro">统一采集、统一存储备份；共享分为三类，由管理部门与提供部门共同商议确定，并通过公司级质量数据中心实现。</p>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">第九条</div><div class="body"><p>质量数据由提供部门/班组<b>统一采集，不得重复采集</b>。数据采集范围见<b>《质量数据定义及采集范围规定》</b>。</p></div></div>
+      <div class="art"><div class="no">第十条</div><div class="body"><p>质量数据由管理部门<b>统一规划、统一存储、统一备份</b>。</p></div></div>
+      <div class="art"><div class="no">第十一条</div><div class="body"><p>质量数据共享分为<b>无条件共享、有条件共享、不予共享</b>三种类型，由管理部门和提供部门共同商议确定（详见下表）。</p></div></div>
+      <div class="art"><div class="no">第十二条</div><div class="body"><p>有条件共享和无条件共享的质量数据必须<b>通过公司级质量数据中心</b>进行共享。</p></div></div>
+    </div>
+
+    <!-- 共享三类型表 -->
+    <div class="subsec">
+      <div class="subsec-head"><span class="k">SHARING</span><h3>数据共享三类型</h3></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>共享类型</th><th>授权要求</th><th>包含数据</th></tr></thead>
+          <tbody>
+            <tr><td>无条件共享</td><td><b>无需</b>提供单位授权，经管理部门审核</td><td>分析日报表、例行分析报告单等</td></tr>
+            <tr><td>有条件共享</td><td>经<b>提供部门授权</b> + 管理部门审核</td><td>分析台账、试验报告、试验记录、统计表等</td></tr>
+            <tr><td>不予共享</td><td>提供部门确定<b>不提供共享</b></td><td>涉及涉密生产数据等</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">无条件与有条件共享的质量数据，均须<b style="color:var(--ink)">通过公司级质量数据中心</b>进行共享。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 第四章+第五章 质量与安全 / 附则 -->
+<section class="block" id="security">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 04 — 05</div>
+    <h2 class="sec-title">第四章　数据质量与安全管理</h2>
+    <p class="sec-intro">管理部门监管数据质量、制定安全制度与培训；各单位落实责任、提升人员安全意识。</p>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">第十三条</div><div class="body"><p>管理部门负责对质量数据质量进行<b>监管</b>并制定相关制度；使用部门对使用中发现的质量问题进行<b>反馈</b>；提供部门在管理部门指导下负责质量数据质量的<b>提升和优化</b>。</p></div></div>
+      <div class="art"><div class="no">第十四条</div><div class="body"><p>管理部门负责制定<b>安全管理相关制度</b>，开展安全培训，指导监督采集、存储、共享、使用过程中的安全保障工作，组织开展<b>安全风险评估和安全管理审查</b>，确保质量数据安全。</p></div></div>
+      <div class="art"><div class="no">第十五条</div><div class="body"><p>各单位均应遵循安全管理相关制度，<b>明确责任人</b>，落实安全管理责任。</p></div></div>
+      <div class="art"><div class="no">第十六条</div><div class="body"><p>各单位应提高本单位人员<b>质量数据安全意识</b>，加强对采集、使用等相关工作人员的安全教育和培训。</p></div></div>
+    </div>
+
+    <div class="subsec">
+      <div class="subsec-head"><span class="k">CHAPTER 05</span><h3>第五章　附则</h3></div>
+      <div class="art" style="border-top:none;padding-top:18px;"><div class="no">第十七条</div><div class="body"><p>本办法经 <b>2024 年 1 月 1 日</b> 分管领导审议通过，<b>自颁布之日起执行</b>，由质检科负责解释。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="sig">
+      <div class="o">龙岩龙化化工质检科</div>
+      <div class="d">质量数据管理办法</div>
+    </div>
+    <div class="meta">
+      文件编号 LH/ZJZD-016:2026<br>
+      共五章十七条 · 总则 / 职责 / 采集共享 / 质量安全 / 附则<br>
+      一数一源 · 授权共享 · 安全可控
+    </div>
+  </div>
+</footer>
+
+<button id="top" aria-label="返回顶部">↑</button>
+
+<script>
+  const burger=document.getElementById('burger');
+  const links=document.getElementById('links');
+  burger.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+  const top=document.getElementById('top');
+  window.addEventListener('scroll',()=>top.classList.toggle('show',window.scrollY>500),{passive:true});
+  top.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>

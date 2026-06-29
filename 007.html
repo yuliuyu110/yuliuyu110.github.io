@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>标准滴定溶液管理制度</title>
+<style>
+  :root{--bg:#ffffff;--line:#e5e5e5;--ink:#141414;--gray:#6b6b6b;--gray-2:#9a9a9a;--navy:#002d72;--max:1120px;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--gray);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+    font-size:15.5px;line-height:1.9;font-weight:400;-webkit-font-smoothing:antialiased;letter-spacing:.2px;}
+  b,strong{color:var(--ink);font-weight:700;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 40px;}
+
+  nav.top{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line);}
+  .top-inner{max-width:var(--max);margin:0 auto;padding:0 40px;height:66px;display:flex;align-items:center;justify-content:space-between;}
+  .org{display:flex;align-items:baseline;gap:12px;}
+  .org .name{font-weight:700;color:var(--ink);font-size:16px;letter-spacing:.5px;}
+  .org .dept{color:var(--gray-2);font-size:13px;}
+  .top-links{display:flex;gap:34px;}
+  .top-links a{font-size:13.5px;color:var(--gray);transition:color .15s;}
+  .top-links a:hover{color:var(--navy);}
+  #burger{display:none;background:none;border:none;font-size:20px;color:var(--ink);cursor:pointer;}
+
+  .hero{border-bottom:1px solid var(--line);}
+  .hero .wrap{padding-top:84px;padding-bottom:84px;}
+  .eyebrow{font-size:12.5px;letter-spacing:3px;color:var(--gray-2);text-transform:uppercase;margin-bottom:30px;}
+  .hero h1{font-weight:300;color:var(--ink);font-size:48px;line-height:1.3;letter-spacing:1px;margin:0 0 28px;}
+  .hero h1 b{font-weight:700;}
+  .hero .lede{max-width:660px;font-size:16px;color:var(--gray);line-height:2;margin:0;}
+
+  .stats-band{max-width:var(--max);margin:0 auto;}
+  .stats{border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);}
+  .stats .cell{background:var(--bg);padding:40px;}
+  .stats .num{font-weight:300;color:var(--ink);font-size:38px;line-height:1;letter-spacing:1px;}
+  .stats .num small{font-size:17px;color:var(--gray-2);margin-left:4px;}
+  .stats .lab{margin-top:14px;font-size:13px;color:var(--gray-2);letter-spacing:1px;}
+
+  section.block{border-bottom:1px solid var(--line);}
+  .block .wrap{padding-top:72px;padding-bottom:72px;}
+  .sec-label{font-size:12.5px;letter-spacing:3px;color:var(--gray-2);text-transform:uppercase;margin-bottom:14px;}
+  .sec-title{font-weight:300;color:var(--ink);font-size:32px;letter-spacing:1px;margin:0 0 8px;}
+  .sec-intro{max-width:740px;color:var(--gray);margin:14px 0 0;}
+  .subsec{margin-top:50px;}
+  .subsec-head{display:flex;align-items:baseline;gap:14px;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:8px;}
+  .subsec-head .k{font-size:12px;letter-spacing:2px;color:var(--gray-2);text-transform:uppercase;}
+  .subsec-head h3{margin:0;font-weight:700;color:var(--ink);font-size:18px;letter-spacing:.5px;}
+
+  /* lifecycle flow (clickable) */
+  .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:36px;}
+  .flow a{background:#fff;padding:28px 24px;display:flex;flex-direction:column;gap:9px;transition:background .18s,color .18s;}
+  .flow a .sn{font-size:12px;color:var(--navy);font-weight:700;letter-spacing:2px;transition:color .18s;}
+  .flow a .st{font-size:18px;color:var(--ink);font-weight:700;transition:color .18s;}
+  .flow a .sd{font-size:12.5px;color:var(--gray-2);transition:color .18s;}
+  .flow a:hover{background:var(--navy);}
+  .flow a:hover .sn,.flow a:hover .st{color:#fff;}
+  .flow a:hover .sd{color:rgba(255,255,255,.7);}
+
+  .art{display:flex;gap:30px;padding:24px 0;border-top:1px solid var(--line);}
+  .art:first-of-type{border-top:none;}
+  .art .no{flex:0 0 56px;font-size:18px;color:var(--navy);font-weight:300;letter-spacing:1px;padding-top:2px;}
+  .art .body{flex:1;min-width:0;}
+  .art .body>p{margin:0;}
+
+  table{width:100%;border-collapse:collapse;margin-top:8px;font-size:14.5px;}
+  thead th{text-align:left;font-weight:700;color:var(--ink);font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;padding:14px 18px;border-bottom:2px solid var(--ink);white-space:nowrap;}
+  tbody td{padding:18px;border-bottom:1px solid var(--line);color:var(--gray);vertical-align:top;}
+  tbody td:first-child{color:var(--ink);font-weight:700;white-space:nowrap;}
+  tbody td b{color:var(--navy);}
+  tbody tr:hover td{background:#fafafa;}
+  .tbl-wrap{overflow-x:auto;}
+  .tbl-note{margin-top:16px;font-size:13px;color:var(--gray-2);}
+
+  footer{padding:48px 0 60px;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;}
+  footer .sig .o{color:var(--ink);font-weight:700;font-size:15px;letter-spacing:.5px;}
+  footer .sig .d{color:var(--gray-2);font-size:13px;margin-top:6px;}
+  footer .meta{color:var(--gray-2);font-size:12.5px;text-align:right;line-height:1.9;}
+
+  #top{position:fixed;right:30px;bottom:30px;width:48px;height:48px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:18px;cursor:pointer;z-index:40;opacity:0;pointer-events:none;transition:opacity .25s,background .18s,color .18s;}
+  #top.show{opacity:1;pointer-events:auto;}
+  #top:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+  @media (max-width:900px){
+    .wrap,.top-inner{padding-left:24px;padding-right:24px;}
+    .hero h1{font-size:34px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .flow{grid-template-columns:repeat(3,1fr);}
+    .top-links{position:absolute;top:66px;left:0;right:0;background:var(--bg);flex-direction:column;gap:0;border-bottom:1px solid var(--line);display:none;}
+    .top-links.open{display:flex;}
+    .top-links a{padding:16px 24px;border-top:1px solid var(--line);}
+    #burger{display:block;}
+  }
+  @media (max-width:560px){
+    .hero h1{font-size:27px;}
+    .sec-title{font-size:24px;}
+    .stats,.flow{grid-template-columns:1fr;}
+    .art{flex-direction:column;gap:4px;}
+    .art .no{flex-basis:auto;}
+    .stats .num{font-size:30px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="top">
+  <div class="top-inner">
+    <div class="org">
+      <span class="name">龙岩龙化化工</span>
+      <span class="dept">质检科 · 中心化验室</span>
+    </div>
+    <button id="burger" aria-label="菜单">☰</button>
+    <div class="top-links" id="links">
+      <a href="#prep">配制</a>
+      <a href="#standardize">标定</a>
+      <a href="#storage">贮存与发放</a>
+      <a href="#use">使用</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">标准滴定溶液管理制度 · LH/ZJZD-007:2026</div>
+    <h1>每一瓶标准滴定溶液，<br><b>浓度准确，全程受控。</b></h1>
+    <p class="lede">为规范龙化分析室标准溶液的配制、保存和使用，对配制、标定、贮存、发放、使用全过程作出统一规定，确保量值准确、记录可追溯。</p>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats">
+    <div class="cell"><div class="num">5<small>环节</small></div><div class="lab">全生命周期管理</div></div>
+    <div class="cell"><div class="num">≥3<small>份</small></div><div class="lab">标定 / 复标份数</div></div>
+    <div class="cell"><div class="num">≤0.1<small>%</small></div><div class="lab">相对偏差限值</div></div>
+    <div class="cell"><div class="num">1–3<small>月</small></div><div class="lab">使用期限</div></div>
+  </div>
+</div>
+
+<!-- LIFECYCLE flow signature -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-label">LIFECYCLE</div>
+    <h2 class="sec-title">全生命周期管理</h2>
+    <p class="sec-intro">标准滴定溶液从配制、标定，到贮存、发放与使用，环环受控、全程留痕。</p>
+    <div class="flow">
+      <a href="#prep"><span class="sn">STEP 01</span><span class="st">配制</span><span class="sd">9 项要求</span></a>
+      <a href="#standardize"><span class="sn">STEP 02</span><span class="st">标定</span><span class="sd">10 项要求</span></a>
+      <a href="#storage"><span class="sn">STEP 03</span><span class="st">贮存</span><span class="sd">3 项要求</span></a>
+      <a href="#storage"><span class="sn">STEP 04</span><span class="st">发放</span><span class="sd">6 项要求</span></a>
+      <a href="#use"><span class="sn">STEP 05</span><span class="st">使用</span><span class="sd">4 项要求</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 配制 -->
+<section class="block" id="prep">
+  <div class="wrap">
+    <div class="sec-label">STAGE 01</div>
+    <h2 class="sec-title">标准滴定溶液的配制</h2>
+    <p class="sec-intro">严格按标准方法配制，试剂合格、容器洁净、用水达标，先配贮备液再稀释，记录须第二人复核。</p>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">01</div><div class="body"><p>所有品种均严格按 <b>GB/T 601《化学试剂 标准滴定溶液的制备》</b>、<b>GJB 1886A-2019《标准溶液的制备及标定》</b> 及各产品或原辅材料标准要求的方法进行配制。</p></div></div>
+      <div class="art"><div class="no">02</div><div class="body"><p>检查所领试剂<b>标签完好、包装完整、封口严密、无污染</b>，在规定使用期内，符合其规格要求。</p></div></div>
+      <div class="art"><div class="no">03</div><div class="body"><p>严格按配制方法操作，<b>实验操作规范</b>符合要求。</p></div></div>
+      <div class="art"><div class="no">04</div><div class="body"><p>配制所用<b>容器具必须洁净</b>。</p></div></div>
+      <div class="art"><div class="no">05</div><div class="body"><p>配制用水应符合实验室用水规格<b>二级水</b>要求，一般采用实验室超纯水仪现产的 <b>RO 纯水</b>。</p></div></div>
+      <div class="art"><div class="no">06</div><div class="body"><p>配好的标准滴定溶液须放在与溶液性质相适应的<b>洁净试剂瓶</b>中，<b>贴好标签</b>。</p></div></div>
+      <div class="art"><div class="no">07</div><div class="body"><p>配制时一般先配制成<b>标准贮备液</b>，然后稀释至所需浓度。</p></div></div>
+      <div class="art"><div class="no">08</div><div class="body"><p>在整个溶解、转移和稀释过程中，应确保<b>无固体溶质或液溅落丢失</b>。</p></div></div>
+      <div class="art"><div class="no">09</div><div class="body"><p>标准滴定溶液配制记录须由<b>第二人进行复核</b>。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 标定 -->
+<section class="block" id="standardize">
+  <div class="wrap">
+    <div class="sec-label">STAGE 02</div>
+    <h2 class="sec-title">标准滴定溶液的标定</h2>
+    <p class="sec-intro">使用基准试剂、专用天平与经校正的玻璃量器；标定复标各不少于 3 份，偏差控制在限值内，记录齐全、标签完整。</p>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">01</div><div class="body"><p>标定标准滴定溶液的试剂应使用<b>基准试剂</b>。</p></div></div>
+      <div class="art"><div class="no">02</div><div class="body"><p>标定所用天平应<b>专用</b>，称量及精度必须与所称样品要求相符，必须有计量部门签发的<b>计量合格证</b>，且<b>在检定效期内</b>。</p></div></div>
+      <div class="art"><div class="no">03</div><div class="body"><p>称量基准物的容器及操作过程所用的容器须<b>洁净、无痕迹、无残留物</b>。</p></div></div>
+      <div class="art"><div class="no">04</div><div class="body"><p>所有使用的<b>精密玻璃计量器具</b>（容量瓶、滴定管、移液管）均应经过校正，<b>有校正记录</b>。</p></div></div>
+      <div class="art"><div class="no">05</div><div class="body"><p>按要求进行标定和复标，标定的份数和复标的份数<b>不少于 3 份</b>，三份样之间的相对偏差<b>≤0.1%</b>，标定和复标之间的相对偏差<b>≤0.1%</b>，否则重标。标定结果按初复标的平均值计算，<b>取四位有效数字</b>。</p></div></div>
+      <div class="art"><div class="no">06</div><div class="body"><p>以上各项操作均应<b>有记录</b>（配制、标定、复标）。</p></div></div>
+      <div class="art"><div class="no">07</div><div class="body"><p>标准滴定溶液须<b>贴标签</b>，内容包括：品名、浓度、配制者、配制日期、复标者、标定者、标定日期、复标日期、室温、使用期限等。</p></div></div>
+      <div class="art"><div class="no">08</div><div class="body"><p>在更替启用前，必须使用<b>新旧标液对同一批次车间样品进行平行测定</b>，确认结果偏差在限值范围内方可正式投入放行检验。</p></div></div>
+      <div class="art"><div class="no">09</div><div class="body"><p>使用期限一般为 <b>1-3 个月</b>，特殊配制另行规定。<b>超过使用期限不得使用，必须重新标定</b>。</p></div></div>
+      <div class="art"><div class="no">10</div><div class="body"><p>用过的容器、器具<b>洗涤、干燥、贮存</b>。</p></div></div>
+    </div>
+
+    <!-- 标定关键控制指标 表 -->
+    <div class="subsec">
+      <div class="subsec-head"><span class="k">CONTROL</span><h3>标定关键控制指标</h3></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>控制项</th><th>要求</th></tr></thead>
+          <tbody>
+            <tr><td>标定 / 复标份数</td><td><b>≥ 3 份</b></td></tr>
+            <tr><td>三份样之间相对偏差</td><td><b>≤ 0.1%</b></td></tr>
+            <tr><td>标定与复标之间相对偏差</td><td><b>≤ 0.1%</b></td></tr>
+            <tr><td>结果计算</td><td>按初复标平均值计算，取四位有效数字</td></tr>
+            <tr><td>偏差超限处理</td><td>重新标定</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 贮存与发放 -->
+<section class="block" id="storage">
+  <div class="wrap">
+    <div class="sec-label">STAGE 03 — 04</div>
+    <h2 class="sec-title">贮存与发放</h2>
+    <p class="sec-intro">专室专人贮存、阴凉干燥通风、每日记录温湿度；统一配制发放、过期不发不用，发放与领用全程留痕。</p>
+
+    <div class="subsec">
+      <div class="subsec-head"><span class="k">STORAGE · 贮存</span><h3>贮存（3 项）</h3></div>
+      <div class="art"><div class="no">01</div><div class="body"><p>标准滴定溶液应<b>专室存放</b>，室内<b>阴凉、干燥、通风良好</b>并有<b>专人负责</b>。</p></div></div>
+      <div class="art"><div class="no">02</div><div class="body"><p>每日检查室内<b>温湿度并记录</b>，不符合要求应及时调整。特别注意<b>性质不稳定</b>的标准滴定溶液。</p></div></div>
+      <div class="art"><div class="no">03</div><div class="body"><p>保持室内<b>干净、整洁、有序</b>。</p></div></div>
+    </div>
+
+    <div class="subsec">
+      <div class="subsec-head"><span class="k">ISSUE · 发放</span><h3>发放（6 项）</h3></div>
+      <div class="art"><div class="no">01</div><div class="body"><p><b>专人负责</b>标准滴定溶液的发放工作。</p></div></div>
+      <div class="art"><div class="no">02</div><div class="body"><p>每个检验员所需标准滴定溶液均由配制人员<b>统一配制</b>，<b>不得自行配制、使用</b>。</p></div></div>
+      <div class="art"><div class="no">03</div><div class="body"><p><b>过使用期</b>的标准滴定溶液<b>不得发放、使用</b>。</p></div></div>
+      <div class="art"><div class="no">04</div><div class="body"><p>发放应<b>有记录</b>，内容：品名、浓度、效期、数量、标定日期、领用日期、领用人、发放人。</p></div></div>
+      <div class="art"><div class="no">05</div><div class="body"><p>所有领用容器应<b>具塞</b>，并严格洗涤、晾干后才可盛装。<b>湿容器不得盛放</b>标准滴定溶液。</p></div></div>
+      <div class="art"><div class="no">06</div><div class="body"><p>领用后的容器均要<b>贴好标签</b>。</p></div></div>
+    </div>
+
+    <!-- 记录与标识要素 表 -->
+    <div class="subsec">
+      <div class="subsec-head"><span class="k">RECORDS</span><h3>记录与标识要素</h3></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>项目</th><th>应包含要素</th></tr></thead>
+          <tbody>
+            <tr><td>标液标签</td><td>品名、浓度、配制者、配制日期、复标者、标定者、标定日期、复标日期、室温、使用期限</td></tr>
+            <tr><td>发放记录</td><td>品名、浓度、效期、数量、标定日期、领用日期、领用人、发放人</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 使用 -->
+<section class="block" id="use">
+  <div class="wrap">
+    <div class="sec-label">STAGE 05</div>
+    <h2 class="sec-title">标准滴定溶液的使用</h2>
+    <p class="sec-intro">使用前摇匀、必要时比对，结果存疑重新配制复查，发现异常或超期立即停用。</p>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">01</div><div class="body"><p>标准滴定溶液使用前<b>必须摇匀</b>。</p></div></div>
+      <div class="art"><div class="no">02</div><div class="body"><p>使用新标准贮备液配制的标准滴定溶液时，必要时与原标准滴定溶液进行<b>比对</b>，如不完全一致，应向配制人员<b>提出复检</b>。</p></div></div>
+      <div class="art"><div class="no">03</div><div class="body"><p>如样品不符合规定或在<b>限度边缘</b>时，应重新配制标准滴定溶液<b>再进行复查</b>。</p></div></div>
+      <div class="art"><div class="no">04</div><div class="body"><p>使用过程中发现出现<b>混浊、沉淀等异常</b>情况或<b>超过使用期限</b>的，应<b>立即停用</b>。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="sig">
+      <div class="o">龙岩龙化化工质检科</div>
+      <div class="d">标准滴定溶液管理制度</div>
+    </div>
+    <div class="meta">
+      文件编号 LH/ZJZD-007:2026<br>
+      五环节 · 配制 / 标定 / 贮存 / 发放 / 使用<br>
+      量值准确 · 全程留痕
+    </div>
+  </div>
+</footer>
+
+<button id="top" aria-label="返回顶部">↑</button>
+
+<script>
+  const burger=document.getElementById('burger');
+  const links=document.getElementById('links');
+  burger.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+  const top=document.getElementById('top');
+  window.addEventListener('scroll',()=>top.classList.toggle('show',window.scrollY>500),{passive:true});
+  top.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>

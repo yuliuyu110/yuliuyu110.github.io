@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>实验室气瓶、气体安全管理制度</title>
+<style>
+  :root{--bg:#ffffff;--line:#e5e5e5;--ink:#141414;--gray:#6b6b6b;--gray-2:#9a9a9a;--navy:#002d72;--max:1120px;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--gray);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+    font-size:15.5px;line-height:1.9;font-weight:400;-webkit-font-smoothing:antialiased;letter-spacing:.2px;}
+  b,strong{color:var(--ink);font-weight:700;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 40px;}
+
+  nav.top{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line);}
+  .top-inner{max-width:var(--max);margin:0 auto;padding:0 40px;height:66px;display:flex;align-items:center;justify-content:space-between;}
+  .org{display:flex;align-items:baseline;gap:12px;}
+  .org .name{font-weight:700;color:var(--ink);font-size:16px;letter-spacing:.5px;}
+  .org .dept{color:var(--gray-2);font-size:13px;}
+  .top-links{display:flex;gap:34px;}
+  .top-links a{font-size:13.5px;color:var(--gray);transition:color .15s;}
+  .top-links a:hover{color:var(--navy);}
+  #burger{display:none;background:none;border:none;font-size:20px;color:var(--ink);cursor:pointer;}
+
+  .hero{border-bottom:1px solid var(--line);}
+  .hero .wrap{padding-top:84px;padding-bottom:84px;}
+  .eyebrow{font-size:12.5px;letter-spacing:3px;color:var(--gray-2);text-transform:uppercase;margin-bottom:30px;}
+  .hero h1{font-weight:300;color:var(--ink);font-size:50px;line-height:1.3;letter-spacing:1px;margin:0 0 28px;}
+  .hero h1 b{font-weight:700;}
+  .hero .lede{max-width:670px;font-size:16px;color:var(--gray);line-height:2;margin:0;}
+
+  .stats-band{max-width:var(--max);margin:0 auto;}
+  .stats{border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);}
+  .stats .cell{background:var(--bg);padding:40px;}
+  .stats .num{font-weight:300;color:var(--ink);font-size:38px;line-height:1;letter-spacing:1px;}
+  .stats .num small{font-size:17px;color:var(--gray-2);margin-left:4px;}
+  .stats .lab{margin-top:14px;font-size:13px;color:var(--gray-2);letter-spacing:1px;}
+
+  section.block{border-bottom:1px solid var(--line);}
+  .block .wrap{padding-top:72px;padding-bottom:72px;}
+  .sec-label{font-size:12.5px;letter-spacing:3px;color:var(--gray-2);text-transform:uppercase;margin-bottom:14px;}
+  .sec-title{font-weight:300;color:var(--ink);font-size:32px;letter-spacing:1px;margin:0 0 8px;}
+  .sec-intro{max-width:740px;color:var(--gray);margin:14px 0 0;}
+  .subsec{margin-top:50px;}
+  .subsec-head{display:flex;align-items:baseline;gap:14px;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:8px;}
+  .subsec-head .k{font-size:12px;letter-spacing:2px;color:var(--gray-2);text-transform:uppercase;}
+  .subsec-head h3{margin:0;font-weight:700;color:var(--ink);font-size:18px;letter-spacing:.5px;}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .grid .cellb{background:var(--bg);padding:30px;display:flex;flex-direction:column;gap:11px;transition:background .18s,color .18s;}
+  .grid .gn{font-weight:300;font-size:26px;color:var(--navy);letter-spacing:1px;transition:color .18s;}
+  .grid .gt{font-size:16px;color:var(--ink);font-weight:700;transition:color .18s;}
+  .grid .gd{font-size:12.5px;color:var(--gray-2);line-height:1.6;transition:color .18s;}
+  .grid .cellb:hover{background:var(--navy);}
+  .grid .cellb:hover .gn,.grid .cellb:hover .gt,.grid .cellb:hover .gd{color:#fff;}
+  .grid .cellb:hover .gd{color:rgba(255,255,255,.72);}
+
+  .art{display:flex;gap:30px;padding:24px 0;border-top:1px solid var(--line);}
+  .art:first-of-type{border-top:none;}
+  .art .no{flex:0 0 56px;font-size:18px;color:var(--navy);font-weight:300;letter-spacing:1px;padding-top:2px;}
+  .art .body{flex:1;min-width:0;}
+  .art .body>p{margin:0 0 10px;}
+  .art .body>p:last-child{margin-bottom:0;}
+  .art .lead{color:var(--ink);}
+  .clause{display:flex;gap:10px;margin:6px 0;color:var(--gray);}
+  .clause .ci{flex:0 0 auto;color:var(--ink);font-weight:700;}
+
+  table{width:100%;border-collapse:collapse;margin-top:8px;font-size:14.5px;}
+  thead th{text-align:left;font-weight:700;color:var(--ink);font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;padding:14px 18px;border-bottom:2px solid var(--ink);white-space:nowrap;}
+  tbody td{padding:18px;border-bottom:1px solid var(--line);color:var(--gray);vertical-align:top;}
+  tbody td:first-child{color:var(--ink);font-weight:700;white-space:nowrap;}
+  tbody td b{color:var(--navy);}
+  tbody tr:hover td{background:#fafafa;}
+  .tbl-wrap{overflow-x:auto;}
+  .tbl-note{margin-top:16px;font-size:13px;color:var(--gray-2);}
+
+  footer{padding:48px 0 60px;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;}
+  footer .sig .o{color:var(--ink);font-weight:700;font-size:15px;letter-spacing:.5px;}
+  footer .sig .d{color:var(--gray-2);font-size:13px;margin-top:6px;}
+  footer .meta{color:var(--gray-2);font-size:12.5px;text-align:right;line-height:1.9;}
+
+  #top{position:fixed;right:30px;bottom:30px;width:48px;height:48px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:18px;cursor:pointer;z-index:40;opacity:0;pointer-events:none;transition:opacity .25s,background .18s,color .18s;}
+  #top.show{opacity:1;pointer-events:auto;}
+  #top:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+  @media (max-width:900px){
+    .wrap,.top-inner{padding-left:24px;padding-right:24px;}
+    .hero h1{font-size:34px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .grid{grid-template-columns:repeat(2,1fr);}
+    .top-links{position:absolute;top:66px;left:0;right:0;background:var(--bg);flex-direction:column;gap:0;border-bottom:1px solid var(--line);display:none;}
+    .top-links.open{display:flex;}
+    .top-links a{padding:16px 24px;border-top:1px solid var(--line);}
+    #burger{display:block;}
+  }
+  @media (max-width:560px){
+    .hero h1{font-size:26px;}
+    .sec-title{font-size:24px;}
+    .stats,.grid{grid-template-columns:1fr;}
+    .art{flex-direction:column;gap:6px;}
+    .art .no{flex-basis:auto;}
+    .stats .num{font-size:30px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="top">
+  <div class="top-inner">
+    <div class="org">
+      <span class="name">龙岩龙化化工</span>
+      <span class="dept">质检科 · 中心化验室</span>
+    </div>
+    <button id="burger" aria-label="菜单">☰</button>
+    <div class="top-links" id="links">
+      <a href="#safety">安全要点</a>
+      <a href="#receiving">采购与接收</a>
+      <a href="#usage">安全使用</a>
+      <a href="#daily">日常管理</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">实验室气瓶、气体安全管理制度 · LH/ZJZD-010:2024</div>
+    <h1>检漏、固定、留余压，<br><b>气瓶安全全程受控。</b></h1>
+    <p class="lede">规范实验室气体的采购接收、安全使用与日常管理，从验收拒收、压力控制到检漏、固定与防火防油，保障人员与设备安全。</p>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats">
+    <div class="cell"><div class="num">15<small>项</small></div><div class="lab">安全管理要求</div></div>
+    <div class="cell"><div class="num">≥0.05<small>MPa</small></div><div class="lab">减压阀出口压力</div></div>
+    <div class="cell"><div class="num">0.05<small>MPa</small></div><div class="lab">空瓶留余压</div></div>
+    <div class="cell"><div class="num">2<small>次</small></div><div class="lab">实验前后检漏</div></div>
+  </div>
+</div>
+
+<!-- 安全要点 grid signature -->
+<section class="block" id="safety">
+  <div class="wrap">
+    <div class="sec-label">SAFETY POINTS</div>
+    <h2 class="sec-title">气瓶安全要点</h2>
+    <p class="sec-intro">围绕防火、防倾、防撞、防漏、防油，气瓶在存放与使用中须严守以下要点。</p>
+    <div class="grid" style="margin-top:36px;">
+      <div class="cellb"><span class="gn">01</span><span class="gt">严禁火源</span><span class="gd">实验室严禁火源</span></div>
+      <div class="cellb"><span class="gn">02</span><span class="gt">垂直固定</span><span class="gd">垂直放置，设固定措施防倾倒</span></div>
+      <div class="cellb"><span class="gn">03</span><span class="gt">轻搬防撞</span><span class="gd">轻装轻卸，不滚动、不碰撞</span></div>
+      <div class="cellb"><span class="gn">04</span><span class="gt">留压标识</span><span class="gd">用毕留余压 0.05MPa，标注"空瓶"</span></div>
+      <div class="cellb"><span class="gn">05</span><span class="gt">前后检漏</span><span class="gd">实验前后各检漏一次（肥皂水）</span></div>
+      <div class="cellb"><span class="gn">06</span><span class="gt">氧瓶禁油</span><span class="gd">专用工具，严禁接触油脂、防静电</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 采购与接收 -->
+<section class="block" id="receiving">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 01</div>
+    <h2 class="sec-title">气体的采购、接收</h2>
+    <p class="sec-intro">由专业公司供货运输、符合危化品条例；搬运轻装轻卸，接收严格外观检查，不合格一律拒收。</p>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">01</div><div class="body"><p>气体采购人应联系<b>专业公司</b>负责供货和运输，要符合国务院颁布的<b>《危险化学品安全管理条例》</b>中的相关要求。</p></div></div>
+      <div class="art"><div class="no">02</div><div class="body"><p>危险气体在搬运过程中应<b>轻装轻卸</b>。</p></div></div>
+      <div class="art"><div class="no">03</div><div class="body">
+        <p class="lead"><b>外观检查：</b></p>
+        <div class="clause"><span class="ci">（一）</span><span>气瓶标签是否<b>完整</b>、参数是否<b>清晰</b>；</span></div>
+        <div class="clause"><span class="ci">（二）</span><span>用<b>肥皂水</b>检查气瓶阀口是否有漏气情况；</span></div>
+        <div class="clause"><span class="ci">（三）</span><span>瓶体外观<b>有缺陷、有油污、无瓶帽、无防震胶圈</b>的气瓶，应<b>拒绝接收</b>；</span></div>
+        <div class="clause"><span class="ci">（四）</span><span>气瓶标识：若发现气瓶<b>颜色、字样与标签所标不符</b>，应<b>拒绝接收</b>。</span></div>
+      </div></div>
+      <div class="art"><div class="no">04</div><div class="body"><p>气瓶安装加压阀时，<b>阀口严禁朝向有人的方向</b>，以防发生危险伤及他人。</p></div></div>
+    </div>
+
+    <!-- 接收检查与拒收标准表 -->
+    <div class="subsec">
+      <div class="subsec-head"><span class="k">ACCEPTANCE</span><h3>接收检查与拒收标准</h3></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>检查项</th><th>要求 / 拒收情形</th></tr></thead>
+          <tbody>
+            <tr><td>标签</td><td>完整、参数清晰</td></tr>
+            <tr><td>阀口</td><td>肥皂水检查，<b>无漏气</b></td></tr>
+            <tr><td>瓶体</td><td>有缺陷 / 油污 / 无瓶帽 / 无防震胶圈 → <b>拒收</b></td></tr>
+            <tr><td>标识</td><td>颜色、字样与标签不符 → <b>拒收</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">搬运须轻装轻卸；安装加压阀时，<b style="color:var(--ink)">阀口严禁朝向有人方向</b>。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 安全使用 -->
+<section class="block" id="usage">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 02</div>
+    <h2 class="sec-title">气瓶、气体的使用</h2>
+    <p class="sec-intro">使用前检查漏气、调定输出压力；使用结束先关总阀再松减压阀，并复检漏气。</p>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">01</div><div class="body"><p>使用气瓶、气体前，须对设备进行<b>检查</b>，确认是否漏气或可能漏气的因素，发现时应及时进行维护修理，或及时<b>报告相关质检科负责人</b>。</p></div></div>
+      <div class="art"><div class="no">02</div><div class="body"><p>使用时，一般将减压阀出口的压力调至 <b>0.05MPa 或以上</b>输出，特殊情况除外。</p></div></div>
+      <div class="art"><div class="no">03</div><div class="body"><p>使用结束时，应<b>先关闭总阀，然后再放松减压阀</b>，并再次用<b>肥皂水检查是否漏气</b>。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 日常管理 -->
+<section class="block" id="daily">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 03</div>
+    <h2 class="sec-title">日常管理和注意事项</h2>
+    <p class="sec-intro">严禁火源、垂直固定、轻搬防撞；检查安全设施、留余压标空瓶、前后检漏，冬季防结霜、氧气瓶禁油。</p>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">01</div><div class="body"><p>实验室<b>严禁火源</b>。</p></div></div>
+      <div class="art"><div class="no">02</div><div class="body"><p>气瓶要<b>垂直放置</b>，不能倒地乱放。气瓶应设有<b>固定措施</b>，防止气瓶意外倾倒。</p></div></div>
+      <div class="art"><div class="no">03</div><div class="body"><p>气体钢瓶搬用，<b>不得倒地滚动，不得与硬物碰撞</b>。</p></div></div>
+      <div class="art"><div class="no">04</div><div class="body"><p>在进行实验之前应认真检查安全设施，<b>胶管是否老化、气阀是否松动</b>，如发现异样应申报维修。</p></div></div>
+      <div class="art"><div class="no">05</div><div class="body"><p>气瓶、气体使用结束后，必须<b>留余压 0.05MPa</b>，并标注<b>"空瓶"</b>字样。</p></div></div>
+      <div class="art"><div class="no">06</div><div class="body"><p>为保证安全，每次开始实验之前应对使用的气瓶进行<b>检漏</b>，实验结束关闭气瓶总阀后对气瓶<b>再次检漏</b>。</p></div></div>
+      <div class="art"><div class="no">07</div><div class="body"><p>冬季使用气瓶时，瓶阀或减压器可能出现<b>结霜</b>现象，用<b>热水或蒸汽解冻</b>，<b>严禁用火烘烤或用铁器敲击瓶阀</b>，也不能猛拧减压器的调节螺丝，以防气体大量冲出造成事故。</p></div></div>
+      <div class="art"><div class="no">08</div><div class="body"><p><b>氧气瓶</b>应配备专用工具，并<b>严禁与油类接触</b>。操作人员不能穿戴沾有各种油脂或易感应产生静电的服装手套操作，以免引起燃烧或爆炸。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="sig">
+      <div class="o">龙岩龙化化工质检科</div>
+      <div class="d">实验室气瓶、气体安全管理制度</div>
+    </div>
+    <div class="meta">
+      文件编号 LH/ZJZD-010:2024<br>
+      三环节 · 采购接收 / 安全使用 / 日常管理<br>
+      检漏 · 固定 · 留余压 0.05MPa
+    </div>
+  </div>
+</footer>
+
+<button id="top" aria-label="返回顶部">↑</button>
+
+<script>
+  const burger=document.getElementById('burger');
+  const links=document.getElementById('links');
+  burger.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+  const top=document.getElementById('top');
+  window.addEventListener('scroll',()=>top.classList.toggle('show',window.scrollY>500),{passive:true});
+  top.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>

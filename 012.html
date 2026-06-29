@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>检验设备检定校准规程</title>
+<style>
+  :root{--bg:#ffffff;--line:#e5e5e5;--ink:#141414;--gray:#6b6b6b;--gray-2:#9a9a9a;--navy:#002d72;--max:1120px;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--gray);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+    font-size:15.5px;line-height:1.9;font-weight:400;-webkit-font-smoothing:antialiased;letter-spacing:.2px;}
+  b,strong{color:var(--ink);font-weight:700;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 40px;}
+
+  nav.top{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line);}
+  .top-inner{max-width:var(--max);margin:0 auto;padding:0 40px;height:66px;display:flex;align-items:center;justify-content:space-between;}
+  .org{display:flex;align-items:baseline;gap:12px;}
+  .org .name{font-weight:700;color:var(--ink);font-size:16px;letter-spacing:.5px;}
+  .org .dept{color:var(--gray-2);font-size:13px;}
+  .top-links{display:flex;gap:34px;}
+  .top-links a{font-size:13.5px;color:var(--gray);transition:color .15s;}
+  .top-links a:hover{color:var(--navy);}
+  #burger{display:none;background:none;border:none;font-size:20px;color:var(--ink);cursor:pointer;}
+
+  .hero{border-bottom:1px solid var(--line);}
+  .hero .wrap{padding-top:84px;padding-bottom:84px;}
+  .eyebrow{font-size:12.5px;letter-spacing:3px;color:var(--gray-2);text-transform:uppercase;margin-bottom:30px;}
+  .hero h1{font-weight:300;color:var(--ink);font-size:52px;line-height:1.28;letter-spacing:1px;margin:0 0 28px;}
+  .hero h1 b{font-weight:700;}
+  .hero .lede{max-width:660px;font-size:16px;color:var(--gray);line-height:2;margin:0;}
+
+  .stats-band{max-width:var(--max);margin:0 auto;}
+  .stats{border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);}
+  .stats .cell{background:var(--bg);padding:40px;}
+  .stats .num{font-weight:300;color:var(--ink);font-size:40px;line-height:1;letter-spacing:1px;}
+  .stats .num small{font-size:18px;color:var(--gray-2);margin-left:4px;}
+  .stats .lab{margin-top:14px;font-size:13px;color:var(--gray-2);letter-spacing:1px;}
+
+  section.block{border-bottom:1px solid var(--line);}
+  .block .wrap{padding-top:72px;padding-bottom:72px;}
+  .sec-label{font-size:12.5px;letter-spacing:3px;color:var(--gray-2);text-transform:uppercase;margin-bottom:14px;}
+  .sec-title{font-weight:300;color:var(--ink);font-size:32px;letter-spacing:1px;margin:0 0 8px;}
+  .sec-intro{max-width:740px;color:var(--gray);margin:14px 0 0;}
+
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .grid.c3{grid-template-columns:repeat(3,1fr);}
+  .grid a,.grid .cellb{background:var(--bg);padding:30px;display:flex;flex-direction:column;gap:11px;transition:background .18s,color .18s;}
+  .grid .gn{font-weight:300;font-size:28px;color:var(--navy);letter-spacing:1px;transition:color .18s;}
+  .grid .gt{font-size:16px;color:var(--ink);font-weight:700;transition:color .18s;}
+  .grid .gt em{font-style:normal;color:var(--gray-2);font-weight:400;font-size:13px;margin-left:8px;}
+  .grid .gd{font-size:12.5px;color:var(--gray-2);line-height:1.6;transition:color .18s;}
+  .grid a:hover,.grid .cellb:hover{background:var(--navy);}
+  .grid a:hover .gn,.grid a:hover .gt,.grid a:hover .gt em,.grid a:hover .gd,
+  .grid .cellb:hover .gn,.grid .cellb:hover .gt,.grid .cellb:hover .gt em,.grid .cellb:hover .gd{color:#fff;}
+  .grid a:hover .gd,.grid .cellb:hover .gd,.grid a:hover .gt em,.grid .cellb:hover .gt em{color:rgba(255,255,255,.7);}
+
+  table{width:100%;border-collapse:collapse;margin-top:8px;font-size:14.5px;}
+  thead th{text-align:left;font-weight:700;color:var(--ink);font-size:12.5px;letter-spacing:1.2px;text-transform:uppercase;padding:14px 16px;border-bottom:2px solid var(--ink);white-space:nowrap;}
+  tbody td{padding:15px 16px;border-bottom:1px solid var(--line);color:var(--gray);vertical-align:top;}
+  tbody tr:hover td{background:#fafafa;}
+  .tbl-wrap{overflow-x:auto;}
+  .tbl-note{margin-top:16px;font-size:13px;color:var(--gray-2);}
+  /* equipment tables */
+  table.equip td.idx{color:var(--gray-2);font-weight:400;white-space:nowrap;width:48px;}
+  table.equip td.nm{color:var(--ink);font-weight:700;white-space:nowrap;}
+  table.equip td.cyc b{color:var(--navy);}
+  table.equip td.std{color:var(--gray-2);white-space:nowrap;font-variant-numeric:tabular-nums;}
+  /* standards table */
+  table.std td:first-child{color:var(--ink);font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums;}
+  table.std td b{color:var(--navy);}
+
+  footer{padding:48px 0 60px;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;}
+  footer .sig .o{color:var(--ink);font-weight:700;font-size:15px;letter-spacing:.5px;}
+  footer .sig .d{color:var(--gray-2);font-size:13px;margin-top:6px;}
+  footer .meta{color:var(--gray-2);font-size:12.5px;text-align:right;line-height:1.9;}
+
+  #top{position:fixed;right:30px;bottom:30px;width:48px;height:48px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:18px;cursor:pointer;z-index:40;opacity:0;pointer-events:none;transition:opacity .25s,background .18s,color .18s;}
+  #top.show{opacity:1;pointer-events:auto;}
+  #top:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+  @media (max-width:900px){
+    .wrap,.top-inner{padding-left:24px;padding-right:24px;}
+    .hero h1{font-size:36px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .grid,.grid.c3{grid-template-columns:repeat(2,1fr);}
+    .top-links{position:absolute;top:66px;left:0;right:0;background:var(--bg);flex-direction:column;gap:0;border-bottom:1px solid var(--line);display:none;}
+    .top-links.open{display:flex;}
+    .top-links a{padding:16px 24px;border-top:1px solid var(--line);}
+    #burger{display:block;}
+  }
+  @media (max-width:560px){
+    .hero h1{font-size:28px;}
+    .sec-title{font-size:24px;}
+    .stats,.grid,.grid.c3{grid-template-columns:1fr;}
+    .stats .num{font-size:32px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="top">
+  <div class="top-inner">
+    <div class="org">
+      <span class="name">龙岩龙化化工</span>
+      <span class="dept">质检科 · 中心化验室</span>
+    </div>
+    <button id="burger" aria-label="菜单">☰</button>
+    <div class="top-links" id="links">
+      <a href="#overview">设备分类</a>
+      <a href="#verification">检定设备</a>
+      <a href="#calibration">校准设备</a>
+      <a href="#standards">依据标准</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">检验设备检定校准规程 · LH/ZJZD-012:2026</div>
+    <h1>量值溯源，<br><b>按期检定校准。</b></h1>
+    <p class="lede">为保障中心化验室仪器设备的安全和正常运行，对全部检验设备的精度、测量范围、检定与校准周期及依据标准作出统一要求，确保量值准确、数据可信。</p>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats">
+    <div class="cell"><div class="num">26<small>台</small></div><div class="lab">纳管检验设备</div></div>
+    <div class="cell"><div class="num">7<small>项</small></div><div class="lab">检定设备</div></div>
+    <div class="cell"><div class="num">19<small>项</small></div><div class="lab">校准设备</div></div>
+    <div class="cell"><div class="num">9<small>部</small></div><div class="lab">依据标准（JJG / JJF）</div></div>
+  </div>
+</div>
+
+<!-- 设备分类 grid signature -->
+<section class="block" id="overview">
+  <div class="wrap">
+    <div class="sec-label">CATEGORIES</div>
+    <h2 class="sec-title">设备分类</h2>
+    <p class="sec-intro">26 台检验设备按性质分为六类，玻璃量器以检定/校准为主，仪器类与热工设备按校准管理。</p>
+    <div class="grid c3" style="margin-top:36px;">
+      <div class="cellb"><span class="gn">16</span><span class="gt">玻璃量器</span><span class="gd">滴定管 / 容量瓶 / 吸量管 / 气体量管 · JJG196</span></div>
+      <div class="cellb"><span class="gn">2</span><span class="gt">称量设备</span><span class="gd">电子天平 · 检定 1 年 · JJG1036</span></div>
+      <div class="cellb"><span class="gn">2</span><span class="gt">光学 · 光谱</span><span class="gd">分光光度计 / ICP 光谱仪</span></div>
+      <div class="cellb"><span class="gn">1</span><span class="gt">色谱仪器</span><span class="gd">气相色谱仪 · 校准 2 年 · JJG700</span></div>
+      <div class="cellb"><span class="gn">4</span><span class="gt">热工设备</span><span class="gd">温度计 / 高温炉 / 干燥箱 / 水浴锅</span></div>
+      <div class="cellb"><span class="gn">1</span><span class="gt">其他</span><span class="gd">露点仪 · 校准 2 年 · JJF1272</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 检定设备表 -->
+<section class="block" id="verification">
+  <div class="wrap">
+    <div class="sec-label">VERIFICATION · 检定</div>
+    <h2 class="sec-title">检定设备（7 项）</h2>
+    <p class="sec-intro">由法定计量机构按检定规程实施，给出合格与否的结论；滴定管 3 年或 1 年、天平与光度计、温度计 1 年。</p>
+    <div class="tbl-wrap" style="margin-top:30px;">
+      <table class="equip">
+        <thead><tr><th>序号</th><th>设备名称</th><th>规格型号</th><th>精度 / 测量范围</th><th>检定周期</th><th>依据</th></tr></thead>
+        <tbody>
+          <tr><td class="idx">1</td><td class="nm">酸式滴定管</td><td>50 mL</td><td>0.1 mL</td><td class="cyc"><b>3 年</b></td><td class="std">JJG196-2006</td></tr>
+          <tr><td class="idx">2</td><td class="nm">微量滴定管（酸式）</td><td>5 mL</td><td>0.02 mL</td><td class="cyc"><b>3 年</b></td><td class="std">JJG196-2006</td></tr>
+          <tr><td class="idx">3</td><td class="nm">碱式滴定管</td><td>50 mL</td><td>0.1 mL</td><td class="cyc"><b>1 年</b></td><td class="std">JJG196-2006</td></tr>
+          <tr><td class="idx">4</td><td class="nm">分光光度计</td><td>V-1150</td><td>±0.5 nm</td><td class="cyc"><b>1 年</b></td><td class="std">JJG178-2007</td></tr>
+          <tr><td class="idx">5</td><td class="nm">温度计</td><td>150 ℃</td><td>0.1 ℃</td><td class="cyc"><b>1 年</b></td><td class="std">JJG130-2011</td></tr>
+          <tr><td class="idx">6</td><td class="nm">电子天平</td><td>GL224-15CN</td><td>0.1 mg</td><td class="cyc"><b>1 年</b></td><td class="std">JJG1036-2008</td></tr>
+          <tr><td class="idx">7</td><td class="nm">电子天平</td><td>FA2204B</td><td>0.1 mg</td><td class="cyc"><b>1 年</b></td><td class="std">JJG1036-2008</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 校准设备表 -->
+<section class="block" id="calibration">
+  <div class="wrap">
+    <div class="sec-label">CALIBRATION · 校准</div>
+    <h2 class="sec-title">校准设备（19 项）</h2>
+    <p class="sec-intro">按校准规范确定量值偏差；仪器与热工设备周期 2 年，玻璃量器（容量瓶、吸量管、气体量管）周期 3 年。</p>
+    <div class="tbl-wrap" style="margin-top:30px;">
+      <table class="equip">
+        <thead><tr><th>序号</th><th>设备名称</th><th>规格型号</th><th>精度 / 测量范围</th><th>校准周期</th><th>依据</th></tr></thead>
+        <tbody>
+          <tr><td class="idx">8</td><td class="nm">高温炉</td><td>SX2-4-10N</td><td>室温 — 1000 ℃</td><td class="cyc"><b>2 年</b></td><td class="std">JJF1376-2012</td></tr>
+          <tr><td class="idx">9</td><td class="nm">干燥箱</td><td>HGZF-II/H-101-I</td><td>±1 ℃</td><td class="cyc"><b>2 年</b></td><td class="std">JJF1101-2019</td></tr>
+          <tr><td class="idx">10</td><td class="nm">电热恒温水浴锅</td><td>BWS-20</td><td>/</td><td class="cyc"><b>2 年</b></td><td class="std">JJF1101-2019</td></tr>
+          <tr><td class="idx">11</td><td class="nm">ICP 光谱仪</td><td>SPECTRO</td><td>/</td><td class="cyc"><b>2 年</b></td><td class="std">JJG768-2005</td></tr>
+          <tr><td class="idx">12</td><td class="nm">气相色谱仪</td><td>GC-9560</td><td>/</td><td class="cyc"><b>2 年</b></td><td class="std">JJG700-2016</td></tr>
+          <tr><td class="idx">13</td><td class="nm">露点仪</td><td>DPT-600Plus</td><td>/</td><td class="cyc"><b>2 年</b></td><td class="std">JJF1272-2011</td></tr>
+          <tr><td class="idx">14</td><td class="nm">容量瓶</td><td>1000 mL</td><td>±0.4 mL</td><td class="cyc"><b>3 年</b></td><td class="std">JJG196-2006</td></tr>
+          <tr><td class="idx">15</td><td class="nm">容量瓶</td><td>500 mL</td><td>±0.25 mL</td><td class="cyc"><b>3 年</b></td><td class="std">JJG196-2006</td></tr>
+          <tr><td class="idx">16</td><td class="nm">容量瓶</td><td>250 mL</td><td>±0.15 mL</td><td class="cyc"><b>3 年</b></td><td class="std">JJG196-2006</td></tr>
+          <tr><td class="idx">17</td><td class="nm">容量瓶</td><td>200 mL</td><td>±0.15 mL</td><td class="cyc"><b>3 年</b></td><td class="std">JJG196-2006</td></tr>
+          <tr><td class="idx">18</td><td class="nm">容量瓶</td><td>100 mL</td><td>±0.1 mL</td><td class="cyc"><b>3 年</b></td><td class="std">JJG196-2006</td></tr>
+          <tr><td class="idx">19</td><td class="nm">容量瓶</td><td>50 mL</td><td>±0.05 mL</td><td class="cyc"><b>3 年</b></td><td class="std">JJG196-2006</td></tr>
+          <tr><td class="idx">20</td><td class="nm">单刻度吸量管</td><td>50 mL</td><td>±0.05 mL</td><td class="cyc"><b>3 年</b></td><td class="std">JJG196-2006</td></tr>
+          <tr><td class="idx">21</td><td class="nm">单刻度吸量管</td><td>25 mL</td><td>±0.03 mL</td><td class="cyc"><b>3 年</b></td><td class="std">JJG196-2006</td></tr>
+          <tr><td class="idx">22</td><td class="nm">单刻度吸量管</td><td>20 mL</td><td>±0.03 mL</td><td class="cyc"><b>3 年</b></td><td class="std">JJG196-2006</td></tr>
+          <tr><td class="idx">23</td><td class="nm">单刻度吸量管</td><td>10 mL</td><td>±0.05 mL</td><td class="cyc"><b>3 年</b></td><td class="std">JJG196-2006</td></tr>
+          <tr><td class="idx">24</td><td class="nm">刻度吸量管</td><td>5 mL</td><td>±0.025 mL</td><td class="cyc"><b>3 年</b></td><td class="std">JJG196-2006</td></tr>
+          <tr><td class="idx">25</td><td class="nm">刻度吸量管</td><td>2 mL</td><td>±0.012 mL</td><td class="cyc"><b>3 年</b></td><td class="std">JJG196-2006</td></tr>
+          <tr><td class="idx">26</td><td class="nm">气体量管</td><td>100 mL</td><td>0.05 mL</td><td class="cyc"><b>3 年</b></td><td class="std">JJG196-2006</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 依据标准表 -->
+<section class="block" id="standards">
+  <div class="wrap">
+    <div class="sec-label">STANDARDS</div>
+    <h2 class="sec-title">检定 / 校准依据标准</h2>
+    <p class="sec-intro">本规程涉及 9 部国家计量检定规程（JJG）与计量校准规范（JJF），适用设备如下。</p>
+    <div class="tbl-wrap" style="margin-top:30px;">
+      <table class="std">
+        <thead><tr><th>标准号</th><th>适用设备</th><th>类型</th></tr></thead>
+        <tbody>
+          <tr><td>JJG196-2006</td><td>滴定管、容量瓶、吸量管、气体量管</td><td><b>检定 / 校准</b></td></tr>
+          <tr><td>JJG178-2007</td><td>分光光度计</td><td>检定</td></tr>
+          <tr><td>JJG130-2011</td><td>温度计</td><td>检定</td></tr>
+          <tr><td>JJG1036-2008</td><td>电子天平</td><td>检定</td></tr>
+          <tr><td>JJF1376-2012</td><td>高温炉</td><td>校准</td></tr>
+          <tr><td>JJF1101-2019</td><td>干燥箱、电热恒温水浴锅</td><td>校准</td></tr>
+          <tr><td>JJG768-2005</td><td>ICP 光谱仪</td><td>校准</td></tr>
+          <tr><td>JJG700-2016</td><td>气相色谱仪</td><td>校准</td></tr>
+          <tr><td>JJF1272-2011</td><td>露点仪</td><td>校准</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">JJG 为国家计量<b style="color:var(--ink)">检定</b>规程，JJF 为国家计量<b style="color:var(--ink)">校准</b>规范；设备应在周期到期前完成送检送校并保留证书。</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="sig">
+      <div class="o">龙岩龙化化工质检科</div>
+      <div class="d">检验设备检定校准规程</div>
+    </div>
+    <div class="meta">
+      文件编号 LH/ZJZD-012:2026<br>
+      26 台设备 · 7 检定 / 19 校准 · 9 部依据标准<br>
+      量值溯源 · 按期检定校准
+    </div>
+  </div>
+</footer>
+
+<button id="top" aria-label="返回顶部">↑</button>
+
+<script>
+  const burger=document.getElementById('burger');
+  const links=document.getElementById('links');
+  burger.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+  const top=document.getElementById('top');
+  window.addEventListener('scroll',()=>top.classList.toggle('show',window.scrollY>500),{passive:true});
+  top.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>
