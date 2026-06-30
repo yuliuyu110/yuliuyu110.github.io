@@ -370,6 +370,106 @@
             font-size: 0.82rem;
         }
 
+        .inst-clickable {
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .inst-clickable:hover {
+            background: #fafafa;
+        }
+
+        .inst-clickable:hover td:first-child {
+            color: var(--blue);
+        }
+
+        /* ── INSTRUMENT MODAL ── */
+        .inst-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .inst-modal-overlay.active {
+            display: flex;
+        }
+
+        .inst-modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 88vh;
+        }
+
+        .inst-modal-content img {
+            display: block;
+            max-width: 90vw;
+            max-height: 88vh;
+            border-radius: 6px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        }
+
+        .inst-modal-close {
+            position: absolute;
+            top: -16px;
+            right: -16px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #fff;
+            color: var(--text);
+            border: none;
+            font-size: 1.1rem;
+            line-height: 1;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .inst-modal-close:hover {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        .inst-modal-nav {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 12px;
+        }
+
+        .inst-modal-arrow {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            color: var(--text);
+            border: none;
+            font-size: 1.2rem;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .inst-modal-arrow:hover {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        .inst-modal-counter {
+            color: #fff;
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
+        }
+
         .inst-abbr {
             display: inline-block;
             font-size: 0.7rem;
@@ -656,15 +756,15 @@
     </div>
     <table class="inst-table">
         <tbody>
-            <tr>
+            <tr class="inst-clickable" onclick="openInstModal('003.png')">
                 <td>气相色谱仪 <span class="inst-abbr">GC</span></td>
                 <td>用于挥发性有机物定量分析及产品纯度检测</td>
             </tr>
-            <tr>
+            <tr class="inst-clickable" onclick="openInstModal('004.png')">
                 <td>高效液相色谱 <span class="inst-abbr">HPLC</span></td>
                 <td>用于非挥发性组分的分离、定性与定量分析</td>
             </tr>
-            <tr>
+            <tr class="inst-clickable" onclick="openInstModal('002.png')">
                 <td>等离子体发射光谱 <span class="inst-abbr">ICP</span></td>
                 <td>微量乃至痕量金属元素的多元素同时检测</td>
             </tr>
@@ -676,7 +776,7 @@
                 <td>离子计 <span class="inst-abbr">ISE</span> </td>
                 <td>阴阳离子含量定量，用于水质及产品检测</td>
             </tr>
-            <tr>
+            <tr class="inst-clickable" onclick="openInstModal('005.png')">
                 <td>色度 / 浊度仪 </td>
                 <td>定量溶液澄清及颜色等外观</td>
             </tr>
@@ -688,7 +788,7 @@
                 <td>快速水分测定仪 <span class="inst-abbr">HMA</span></td>
                 <td>快速测定试样的水分</td>
             </tr>
-            <tr>
+            <tr class="inst-clickable" onclick="openInstModal('008.png')">
                 <td>pH / 电导率仪</td>
                 <td>溶液酸碱度与导电性实时监测</td>
             </tr>
@@ -696,11 +796,11 @@
                 <td>旋转粘度计 / 折光仪</td>
                 <td>流体物性参数测定，辅助中控判断</td>
             </tr>
-            <tr>
+            <tr class="inst-clickable" onclick="openInstModal(['006.png','007.png'])">
                 <td>微量水分测定仪 <span class="inst-abbr">TMA</span></td>
                 <td>电量法/露点法测定气体产品中微量水分</td>
             </tr>
-            <tr>
+            <tr class="inst-clickable" onclick="openInstModal('009.png')">
                 <td>超纯水仪器 <span class="inst-abbr">UPWS</span></td>
                 <td>制备一级试验用水</td>
             </tr>
@@ -788,6 +888,54 @@
     </div>
     <div class="footer-right">QID · LONGHUA CHEMICAL</div>
 </footer>
+
+<!-- INSTRUMENT MODAL -->
+<div class="inst-modal-overlay" id="instModalOverlay" onclick="if(event.target===this) closeInstModal()">
+    <div class="inst-modal-content">
+        <button class="inst-modal-close" onclick="closeInstModal()">✕</button>
+        <img id="instModalImg" src="" alt="仪器图片">
+        <div class="inst-modal-nav" id="instModalNav">
+            <button class="inst-modal-arrow" onclick="instModalPrev()">‹</button>
+            <span class="inst-modal-counter" id="instModalCounter"></span>
+            <button class="inst-modal-arrow" onclick="instModalNext()">›</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    var instModalImages = [];
+    var instModalIndex = 0;
+
+    function openInstModal(images) {
+        instModalImages = Array.isArray(images) ? images : [images];
+        instModalIndex = 0;
+        updateInstModalImg();
+        document.getElementById('instModalOverlay').classList.add('active');
+    }
+    function updateInstModalImg() {
+        document.getElementById('instModalImg').src = instModalImages[instModalIndex];
+        var nav = document.getElementById('instModalNav');
+        nav.style.display = instModalImages.length > 1 ? 'flex' : 'none';
+        document.getElementById('instModalCounter').textContent = (instModalIndex + 1) + ' / ' + instModalImages.length;
+    }
+    function instModalPrev() {
+        instModalIndex = (instModalIndex - 1 + instModalImages.length) % instModalImages.length;
+        updateInstModalImg();
+    }
+    function instModalNext() {
+        instModalIndex = (instModalIndex + 1) % instModalImages.length;
+        updateInstModalImg();
+    }
+    function closeInstModal() {
+        document.getElementById('instModalOverlay').classList.remove('active');
+    }
+    document.addEventListener('keydown', function(e) {
+        if (!document.getElementById('instModalOverlay').classList.contains('active')) return;
+        if (e.key === 'Escape') closeInstModal();
+        if (e.key === 'ArrowLeft') instModalPrev();
+        if (e.key === 'ArrowRight') instModalNext();
+    });
+</script>
 
 </body>
 </html>
