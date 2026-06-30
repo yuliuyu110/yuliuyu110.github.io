@@ -1,10 +1,13 @@
-<svg viewBox="0 0 200 81" xmlns="http://www.w3.org/2000/svg">
-  <rect x="0" y="0" width="200" height="81" rx="14" fill="#0F2B5B"/>
+<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="300" height="200" rx="24" fill="#0F2B5B"/>
 
-  <text x="100" y="70"
+  <text y="141"
         font-family="'Liberation Serif', Georgia, 'Times New Roman', serif"
-        font-size="92" font-weight="700"
+        font-size="126.45" font-weight="700"
         fill="#FFFFFF"
-        stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round" paint-order="stroke fill"
-        text-anchor="middle">ZJK</text>
+        stroke="#FFFFFF" stroke-width="4.21" stroke-linejoin="round" paint-order="stroke fill">
+    <tspan x="40.43">Z</tspan>
+    <tspan x="115.52">J</tspan>
+    <tspan x="169.56">K</tspan>
+  </text>
 </svg>
