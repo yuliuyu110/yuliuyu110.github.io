@@ -42,6 +42,19 @@
 
         .nav-brand {
             display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-brand .logo-icon {
+            height: 36px;
+            width: auto;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .nav-brand .brand-text {
+            display: flex;
             flex-direction: column;
             gap: 0;
         }
@@ -456,8 +469,11 @@
 <!-- NAV -->
 <nav>
     <div class="nav-brand">
-        <span class="name">福建省龙岩龙化化工有限公司 · 质检科</span>
-        <span class="dept">QID · Longyan Longhua Chemical Co., Ltd.</span>
+        <img src="001.png" alt="质检科图标" class="logo-icon">
+        <div class="brand-text">
+            <span class="name">福建省龙岩龙化化工有限公司 · 质检科</span>
+            <span class="dept">QID · Longyan Longhua Chemical Co., Ltd.</span>
+        </div>
     </div>
     <ul class="nav-links">
         <li><a href="#about">科室概况</a></li>
