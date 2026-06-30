@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>标液药品更换验证操作规程</title>
+<style>
+  :root{--bg:#ffffff;--line:#e5e5e5;--ink:#141414;--gray:#6b6b6b;--gray-2:#9a9a9a;--navy:#002d72;--max:1120px;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--gray);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+    font-size:15.5px;line-height:1.9;font-weight:400;-webkit-font-smoothing:antialiased;letter-spacing:.2px;}
+  b,strong{color:var(--ink);font-weight:700;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 40px;}
+
+  nav.top{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line);}
+  .top-inner{max-width:var(--max);margin:0 auto;padding:0 40px;height:66px;display:flex;align-items:center;justify-content:space-between;}
+  .org{display:flex;align-items:baseline;gap:12px;}
+  .org .name{font-weight:700;color:var(--ink);font-size:16px;letter-spacing:.5px;}
+  .org .dept{color:var(--gray-2);font-size:13px;}
+  .right-area{display:flex;align-items:center;gap:22px;}
+  .top-links{display:flex;gap:30px;}
+  .top-links a{font-size:13.5px;color:var(--gray);transition:color .15s;}
+  .top-links a:hover{color:var(--navy);}
+  .home-btn{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--ink);
+    border:1px solid var(--line);padding:8px 16px;letter-spacing:.5px;
+    transition:background .18s,color .18s,border-color .18s;white-space:nowrap;}
+  .home-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+  #burger{display:none;background:none;border:none;font-size:20px;color:var(--ink);cursor:pointer;}
+
+  .hero{border-bottom:1px solid var(--line);}
+  .hero .wrap{padding-top:84px;padding-bottom:84px;}
+  .eyebrow{font-size:12.5px;letter-spacing:3px;color:var(--gray-2);text-transform:uppercase;margin-bottom:30px;}
+  .hero h1{font-weight:300;color:var(--ink);font-size:48px;line-height:1.3;letter-spacing:1px;margin:0 0 28px;}
+  .hero h1 b{font-weight:700;}
+  .hero .lede{max-width:680px;font-size:16px;color:var(--gray);line-height:2;margin:0;}
+
+  .stats-band{max-width:var(--max);margin:0 auto;}
+  .stats{border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);}
+  .stats .cell{background:var(--bg);padding:40px;}
+  .stats .num{font-weight:300;color:var(--ink);font-size:40px;line-height:1;letter-spacing:1px;}
+  .stats .num small{font-size:18px;color:var(--gray-2);margin-left:4px;}
+  .stats .lab{margin-top:14px;font-size:13px;color:var(--gray-2);letter-spacing:1px;}
+
+  section.block{border-bottom:1px solid var(--line);}
+  .block .wrap{padding-top:72px;padding-bottom:72px;}
+  .sec-label{font-size:12.5px;letter-spacing:3px;color:var(--gray-2);text-transform:uppercase;margin-bottom:14px;}
+  .sec-title{font-weight:300;color:var(--ink);font-size:32px;letter-spacing:1px;margin:0 0 8px;}
+  .sec-intro{max-width:760px;color:var(--gray);margin:14px 0 0;}
+  .subsec{margin-top:50px;}
+  .subsec-head{display:flex;align-items:baseline;gap:14px;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:8px;}
+  .subsec-head .k{font-size:12px;letter-spacing:2px;color:var(--gray-2);text-transform:uppercase;}
+  .subsec-head h3{margin:0;font-weight:700;color:var(--ink);font-size:18px;letter-spacing:.5px;}
+
+  /* clickable flow */
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:36px;}
+  .flow a{background:#fff;padding:28px 24px;display:flex;flex-direction:column;gap:9px;transition:background .18s,color .18s;}
+  .flow a .sn{font-size:12px;color:var(--navy);font-weight:700;letter-spacing:2px;transition:color .18s;}
+  .flow a .st{font-size:17px;color:var(--ink);font-weight:700;transition:color .18s;}
+  .flow a .sd{font-size:12.5px;color:var(--gray-2);transition:color .18s;}
+  .flow a:hover{background:var(--navy);}
+  .flow a:hover .sn,.flow a:hover .st{color:#fff;}
+  .flow a:hover .sd{color:rgba(255,255,255,.7);}
+
+  .art{display:flex;gap:30px;padding:24px 0;border-top:1px solid var(--line);}
+  .art:first-of-type{border-top:none;}
+  .art .no{flex:0 0 56px;font-size:18px;color:var(--navy);font-weight:300;letter-spacing:1px;padding-top:2px;}
+  .art .body{flex:1;min-width:0;}
+  .art .body>p{margin:0;}
+
+  table{width:100%;border-collapse:collapse;margin-top:8px;font-size:14.5px;}
+  thead th{text-align:left;font-weight:700;color:var(--ink);font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;padding:14px 18px;border-bottom:2px solid var(--ink);white-space:nowrap;}
+  tbody td{padding:18px;border-bottom:1px solid var(--line);color:var(--gray);vertical-align:top;}
+  tbody td:first-child{color:var(--ink);font-weight:700;white-space:nowrap;}
+  tbody td b{color:var(--navy);}
+  tbody tr:hover td{background:#fafafa;}
+  .tbl-wrap{overflow-x:auto;}
+
+  footer{padding:48px 0 60px;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;}
+  footer .sig .o{color:var(--ink);font-weight:700;font-size:15px;letter-spacing:.5px;}
+  footer .sig .d{color:var(--gray-2);font-size:13px;margin-top:6px;}
+  footer .foot-home{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:13.5px;color:var(--ink);border:1px solid var(--line);padding:10px 20px;transition:background .18s,color .18s,border-color .18s;}
+  footer .foot-home:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+  footer .meta{color:var(--gray-2);font-size:12.5px;text-align:right;line-height:1.9;}
+
+  #top{position:fixed;right:30px;bottom:30px;width:48px;height:48px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:18px;cursor:pointer;z-index:40;opacity:0;pointer-events:none;transition:opacity .25s,background .18s,color .18s;}
+  #top.show{opacity:1;pointer-events:auto;}
+  #top:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+  @media (max-width:900px){
+    .wrap,.top-inner{padding-left:24px;padding-right:24px;}
+    .hero h1{font-size:33px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .flow{grid-template-columns:repeat(2,1fr);}
+    .top-links{position:absolute;top:66px;left:0;right:0;background:var(--bg);flex-direction:column;gap:0;border-bottom:1px solid var(--line);display:none;}
+    .top-links.open{display:flex;}
+    .top-links a{padding:16px 24px;border-top:1px solid var(--line);}
+    #burger{display:block;}
+  }
+  @media (max-width:560px){
+    .hero h1{font-size:26px;}
+    .sec-title{font-size:24px;}
+    .stats,.flow{grid-template-columns:1fr;}
+    .art{flex-direction:column;gap:4px;}
+    .art .no{flex-basis:auto;}
+    .stats .num{font-size:32px;}
+    .org .dept{display:none;}
+    .home-btn{padding:7px 12px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="top">
+  <div class="top-inner">
+    <a class="org" href="https://www.lhzjk.com">
+      <span class="name">龙岩龙化化工</span>
+      <span class="dept">质检科 · 中心化验室</span>
+    </a>
+    <div class="right-area">
+      <div class="top-links" id="links">
+        <a href="#duties">职责分工</a>
+        <a href="#prepare">更换前准备</a>
+        <a href="#calibration">配制与标定</a>
+        <a href="#after">更换后管理</a>
+      </div>
+      <a class="home-btn" href="https://www.lhzjk.com">↩ 返回主页</a>
+      <button id="burger" aria-label="菜单">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">标液药品更换验证操作规程 · LH/ZJZD-015:2026</div>
+    <h1>新旧对比，标定验证，<br><b>更换可追溯。</b></h1>
+    <p class="lede">为确保实验数据的准确性、可靠性，规范标准溶液所用药品更换前后的对比流程，特制定本规程。适用于实验室所有涉及标准溶液配制的实验项目。</p>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats">
+    <div class="cell"><div class="num">4<small>环节</small></div><div class="lab">操作流程</div></div>
+    <div class="cell"><div class="num">3<small>类</small></div><div class="lab">职责角色</div></div>
+    <div class="cell"><div class="num">16<small>项</small></div><div class="lab">操作要求</div></div>
+    <div class="cell"><div class="num">2<small>套</small></div><div class="lab">过渡期新旧并行</div></div>
+  </div>
+</div>
+
+<!-- 流程 signature -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-label">WORKFLOW</div>
+    <h2 class="sec-title">更换验证流程</h2>
+    <p class="sec-intro">标液药品更换遵循"准备 → 配制标定 → 更换后管理 → 特殊情况处理"四个环节，全程对比、记录可追溯。</p>
+    <div class="flow">
+      <a href="#prepare"><span class="sn">STEP 01</span><span class="st">更换前准备</span><span class="sd">药品对比 · 仪器 · 溶液</span></a>
+      <a href="#calibration"><span class="sn">STEP 02</span><span class="st">配制与标定</span><span class="sd">新配 · 旧标 · 新标 · 对比</span></a>
+      <a href="#after"><span class="sn">STEP 03</span><span class="st">更换后管理</span><span class="sd">记录 · 标示 · 过渡 · 验证</span></a>
+      <a href="#special"><span class="sn">STEP 04</span><span class="st">特殊情况</span><span class="sd">差异处理 · 药品不符</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 职责 -->
+<section class="block" id="duties">
+  <div class="wrap">
+    <div class="sec-label">RESPONSIBILITIES</div>
+    <h2 class="sec-title">职责分工</h2>
+    <p class="sec-intro">规程的实施由实验室负责人、专管人员与实验人员三类角色协同保障。</p>
+    <div class="tbl-wrap" style="margin-top:30px;">
+      <table>
+        <thead><tr><th>角色</th><th>职责</th></tr></thead>
+        <tbody>
+          <tr><td>实验室负责人</td><td>负责规程<b>贯彻实施</b>，定期检查执行情况</td></tr>
+          <tr><td>专管人员</td><td>负责标准溶液的<b>配制、标定、使用、保存</b>等全过程管理</td></tr>
+          <tr><td>实验人员</td><td>严格按照规定操作，并<b>及时报告异常情况</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 更换前准备 -->
+<section class="block" id="prepare">
+  <div class="wrap">
+    <div class="sec-label">STEP 01</div>
+    <h2 class="sec-title">药品更换前的准备</h2>
+    <p class="sec-intro">对比新旧药品信息、确认仪器校准状态、备足溶剂，为新旧标液对比做好基础准备。</p>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">01</div><div class="body"><p><b>新旧药品对比：</b>对比新旧药品的<b>批号、生产厂家、纯度、规格</b>等信息，确保符合实验要求。对于纯度有较高要求的药品，建议进行<b>纯度测定</b>。</p></div></div>
+      <div class="art"><div class="no">02</div><div class="body"><p><b>仪器准备：</b>确保分析天平、容量瓶、滴定管等仪器处于<b>校准状态</b>。清洗并干燥所有玻璃器皿。</p></div></div>
+      <div class="art"><div class="no">03</div><div class="body"><p><b>溶液准备：</b>准备足量的<b>去离子水</b>或其他所需溶剂。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 配制与标定 -->
+<section class="block" id="calibration">
+  <div class="wrap">
+    <div class="sec-label">STEP 02</div>
+    <h2 class="sec-title">新旧标准溶液的配制与标定</h2>
+    <p class="sec-intro">按规程配制新标液并记录全部数据；更换前先标定旧标液，新标液配成后标定并与旧标液对比分析。</p>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">01</div><div class="body"><p><b>新标准溶液配制：</b>严格按照操作规程配制新标准溶液。记录配制过程中的所有数据，包括<b>称量值、定容体积</b>等。</p></div></div>
+      <div class="art"><div class="no">02</div><div class="body"><p><b>旧标准溶液标定：</b>在更换药品前，对旧标准溶液进行<b>一次标定</b>，以确定其准确浓度。</p></div></div>
+      <div class="art"><div class="no">03</div><div class="body"><p><b>新标准溶液标定：</b>配制完成后，对新标准溶液进行标定，并与旧标准溶液的标定结果进行<b>对比</b>。</p></div></div>
+      <div class="art"><div class="no">04</div><div class="body"><p><b>对比分析：</b>对比新旧标准溶液的标定结果，分析两者之间的差异，<b>判断新药品是否适合</b>用于配制标准溶液。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 更换后管理 -->
+<section class="block" id="after">
+  <div class="wrap">
+    <div class="sec-label">STEP 03</div>
+    <h2 class="sec-title">药品更换后的注意事项</h2>
+    <p class="sec-intro">完整记录与清晰标示，过渡期保留新旧两种标液并行对比，使用新液时密切验证可靠性。</p>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">01</div><div class="body"><p><b>记录：</b>记录<b>药品更换日期、新旧药品信息、标定结果</b>等。</p></div></div>
+      <div class="art"><div class="no">02</div><div class="body"><p><b>标示：</b>在新配制的标准溶液容器上清晰标注<b>药品名称、浓度、配制日期、有效期</b>等信息。</p></div></div>
+      <div class="art"><div class="no">03</div><div class="body"><p><b>过渡期：</b>在更换药品的过渡期内，建议<b>同时保留新旧两种标准溶液</b>，以备对比验证。</p></div></div>
+      <div class="art"><div class="no">04</div><div class="body"><p><b>实验验证：</b>在使用新液进行实验时，应密切关注实验结果并与<b>以往结果进行对比</b>，以验证新标准溶液的可靠性。</p></div></div>
+    </div>
+
+    <!-- 特殊情况处理 -->
+    <div class="subsec" id="special">
+      <div class="subsec-head"><span class="k">STEP 04 · EXCEPTIONS</span><h3>特殊情况处理</h3></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>情况</th><th>处理措施</th></tr></thead>
+          <tbody>
+            <tr><td>标定结果差异较大</td><td>仔细检查实验过程，查找原因；如无法找到原因，建议<b>重新配制标准溶液并进行标定</b></td></tr>
+            <tr><td>新药品不符合要求</td><td><b>停止使用</b>该药品，联系供应商进行处理，选择符合要求的<b>替代药品</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="sig">
+      <div class="o">龙岩龙化化工质检科</div>
+      <div class="d">标液药品更换验证操作规程</div>
+      <a class="foot-home" href="https://www.lhzjk.com">↩ 返回主页 · www.lhzjk.com</a>
+    </div>
+    <div class="meta">
+      文件编号 LH/ZJZD-015:2026<br>
+      四环节 · 准备 / 配制标定 / 更换后 / 特殊情况<br>
+      新旧对比 · 标定验证 · 可追溯
+    </div>
+  </div>
+</footer>
+
+<button id="top" aria-label="返回顶部">↑</button>
+
+<script>
+  const burger=document.getElementById('burger');
+  const links=document.getElementById('links');
+  burger.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+  const top=document.getElementById('top');
+  window.addEventListener('scroll',()=>top.classList.toggle('show',window.scrollY>500),{passive:true});
+  top.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>

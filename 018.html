@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>质量数据安全储备管理规定</title>
+<style>
+  :root{--bg:#ffffff;--line:#e5e5e5;--ink:#141414;--gray:#6b6b6b;--gray-2:#9a9a9a;--navy:#002d72;--max:1120px;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--gray);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+    font-size:15.5px;line-height:1.9;font-weight:400;-webkit-font-smoothing:antialiased;letter-spacing:.2px;}
+  b,strong{color:var(--ink);font-weight:700;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 40px;}
+
+  nav.top{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line);}
+  .top-inner{max-width:var(--max);margin:0 auto;padding:0 40px;height:66px;display:flex;align-items:center;justify-content:space-between;}
+  .org{display:flex;align-items:baseline;gap:12px;}
+  .org .name{font-weight:700;color:var(--ink);font-size:16px;letter-spacing:.5px;}
+  .org .dept{color:var(--gray-2);font-size:13px;}
+  .right-area{display:flex;align-items:center;gap:22px;}
+  .top-links{display:flex;gap:30px;}
+  .top-links a{font-size:13.5px;color:var(--gray);transition:color .15s;}
+  .top-links a:hover{color:var(--navy);}
+  .home-btn{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--ink);
+    border:1px solid var(--line);padding:8px 16px;letter-spacing:.5px;
+    transition:background .18s,color .18s,border-color .18s;white-space:nowrap;}
+  .home-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+  #burger{display:none;background:none;border:none;font-size:20px;color:var(--ink);cursor:pointer;}
+
+  .hero{border-bottom:1px solid var(--line);}
+  .hero .wrap{padding-top:84px;padding-bottom:84px;}
+  .eyebrow{font-size:12.5px;letter-spacing:3px;color:var(--gray-2);text-transform:uppercase;margin-bottom:30px;}
+  .hero h1{font-weight:300;color:var(--ink);font-size:48px;line-height:1.3;letter-spacing:1px;margin:0 0 28px;}
+  .hero h1 b{font-weight:700;}
+  .hero .lede{max-width:680px;font-size:16px;color:var(--gray);line-height:2;margin:0;}
+
+  .stats-band{max-width:var(--max);margin:0 auto;}
+  .stats{border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);}
+  .stats .cell{background:var(--bg);padding:40px;}
+  .stats .num{font-weight:300;color:var(--ink);font-size:38px;line-height:1;letter-spacing:1px;}
+  .stats .num small{font-size:17px;color:var(--gray-2);margin-left:4px;}
+  .stats .lab{margin-top:14px;font-size:13px;color:var(--gray-2);letter-spacing:1px;}
+
+  section.block{border-bottom:1px solid var(--line);}
+  .block .wrap{padding-top:72px;padding-bottom:72px;}
+  .sec-label{font-size:12.5px;letter-spacing:3px;color:var(--gray-2);text-transform:uppercase;margin-bottom:14px;}
+  .sec-title{font-weight:300;color:var(--ink);font-size:32px;letter-spacing:1px;margin:0 0 8px;}
+  .sec-intro{max-width:760px;color:var(--gray);margin:14px 0 0;}
+  .subsec{margin-top:50px;}
+  .subsec-head{display:flex;align-items:baseline;gap:14px;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:8px;}
+  .subsec-head .k{font-size:12px;letter-spacing:2px;color:var(--gray-2);text-transform:uppercase;}
+  .subsec-head h3{margin:0;font-weight:700;color:var(--ink);font-size:18px;letter-spacing:.5px;}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .grid .cellb{background:var(--bg);padding:30px;display:flex;flex-direction:column;gap:11px;transition:background .18s,color .18s;}
+  .grid .gn{font-weight:300;font-size:26px;color:var(--navy);letter-spacing:1px;transition:color .18s;}
+  .grid .gt{font-size:16px;color:var(--ink);font-weight:700;transition:color .18s;}
+  .grid .gd{font-size:12.5px;color:var(--gray-2);line-height:1.6;transition:color .18s;}
+  .grid .cellb:hover{background:var(--navy);}
+  .grid .cellb:hover .gn,.grid .cellb:hover .gt,.grid .cellb:hover .gd{color:#fff;}
+  .grid .cellb:hover .gd{color:rgba(255,255,255,.72);}
+
+  .art{display:flex;gap:30px;padding:26px 0;border-top:1px solid var(--line);}
+  .art:first-of-type{border-top:none;}
+  .art .no{flex:0 0 64px;font-size:14px;color:var(--navy);font-weight:700;letter-spacing:.5px;padding-top:3px;}
+  .art .body{flex:1;min-width:0;}
+  .art .body>p{margin:0;}
+
+  table{width:100%;border-collapse:collapse;margin-top:8px;font-size:14.5px;}
+  thead th{text-align:left;font-weight:700;color:var(--ink);font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;padding:14px 18px;border-bottom:2px solid var(--ink);white-space:nowrap;}
+  tbody td{padding:18px;border-bottom:1px solid var(--line);color:var(--gray);vertical-align:top;}
+  tbody td:first-child{color:var(--ink);font-weight:700;white-space:nowrap;}
+  tbody td b{color:var(--navy);}
+  tbody tr:hover td{background:#fafafa;}
+  .tbl-wrap{overflow-x:auto;}
+  .tbl-note{margin-top:16px;font-size:13px;color:var(--gray-2);}
+
+  footer{padding:48px 0 60px;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;}
+  footer .sig .o{color:var(--ink);font-weight:700;font-size:15px;letter-spacing:.5px;}
+  footer .sig .d{color:var(--gray-2);font-size:13px;margin-top:6px;}
+  footer .foot-home{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:13.5px;color:var(--ink);border:1px solid var(--line);padding:10px 20px;transition:background .18s,color .18s,border-color .18s;}
+  footer .foot-home:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+  footer .meta{color:var(--gray-2);font-size:12.5px;text-align:right;line-height:1.9;}
+
+  #top{position:fixed;right:30px;bottom:30px;width:48px;height:48px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:18px;cursor:pointer;z-index:40;opacity:0;pointer-events:none;transition:opacity .25s,background .18s,color .18s;}
+  #top.show{opacity:1;pointer-events:auto;}
+  #top:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+  @media (max-width:900px){
+    .wrap,.top-inner{padding-left:24px;padding-right:24px;}
+    .hero h1{font-size:33px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .grid{grid-template-columns:repeat(2,1fr);}
+    .top-links{position:absolute;top:66px;left:0;right:0;background:var(--bg);flex-direction:column;gap:0;border-bottom:1px solid var(--line);display:none;}
+    .top-links.open{display:flex;}
+    .top-links a{padding:16px 24px;border-top:1px solid var(--line);}
+    #burger{display:block;}
+  }
+  @media (max-width:560px){
+    .hero h1{font-size:26px;}
+    .sec-title{font-size:24px;}
+    .stats,.grid{grid-template-columns:1fr;}
+    .art{flex-direction:column;gap:6px;}
+    .art .no{flex-basis:auto;}
+    .stats .num{font-size:32px;}
+    .org .dept{display:none;}
+    .home-btn{padding:7px 12px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="top">
+  <div class="top-inner">
+    <a class="org" href="https://www.lhzjk.com">
+      <span class="name">龙岩龙化化工</span>
+      <span class="dept">质检科 · 中心化验室</span>
+    </a>
+    <div class="right-area">
+      <div class="top-links" id="links">
+        <a href="#general">总则</a>
+        <a href="#classification">数据分级</a>
+        <a href="#backup">备份要求</a>
+        <a href="#supervision">监督问责</a>
+      </div>
+      <a class="home-btn" href="https://www.lhzjk.com">↩ 返回主页</a>
+      <button id="burger" aria-label="菜单">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">质量数据安全储备管理规定 · LH/ZJZD-018:2026</div>
+    <h1>分类备份，多重介质，<br><b>数据安全储备。</b></h1>
+    <p class="lede">为规范质量数据备份及管理工作，合理存储历史质量数据并保证其安全性，防止因硬件故障、意外断电、病毒等造成数据丢失，保障质量数据和技术资料的储备，特制订本规定。</p>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats">
+    <div class="cell"><div class="num">2<small>类</small></div><div class="lab">质量数据分级</div></div>
+    <div class="cell"><div class="num">≥3<small>位</small></div><div class="lab">加密密码长度</div></div>
+    <div class="cell"><div class="num">3<small>个月</small></div><div class="lab">密码更换周期</div></div>
+    <div class="cell"><div class="num">1<small>年</small></div><div class="lab">授权周期</div></div>
+  </div>
+</div>
+
+<!-- 数据安全要点 grid signature -->
+<section class="block" id="points">
+  <div class="wrap">
+    <div class="sec-label">KEY POINTS</div>
+    <h2 class="sec-title">数据安全要点</h2>
+    <p class="sec-intro">围绕加密、分类、上传、备份、授权与问责六个方面，保障质量数据安全储备、可追溯。</p>
+    <div class="grid" style="margin-top:36px;">
+      <div class="cellb"><span class="gn">01</span><span class="gt">加密设密</span><span class="gd">电脑加密，密码 ≥3 位，每 3 个月更换</span></div>
+      <div class="cellb"><span class="gn">02</span><span class="gt">分类存放</span><span class="gd">文件按文件夹分类存放</span></div>
+      <div class="cellb"><span class="gn">03</span><span class="gt">定期上传</span><span class="gd">及时上传资料，不隐瞒</span></div>
+      <div class="cellb"><span class="gn">04</span><span class="gt">多介质备份</span><span class="gd">备份到硬盘 / 移动硬盘 / 光盘</span></div>
+      <div class="cellb"><span class="gn">05</span><span class="gt">授权管理</span><span class="gd">授权清单内，每年至少授权一次</span></div>
+      <div class="cellb"><span class="gn">06</span><span class="gt">违规问责</span><span class="gd">1 月未传警告 · 3 月未传问责</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 一 总则 -->
+<section class="block" id="general">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 01</div>
+    <h2 class="sec-title">一　总则</h2>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">1.1<br>目的</div><div class="body"><p>为规范质量数据<b>备份及管理</b>工作，合理存储历史质量数据及保证质量数据的安全性，防止因<b>硬件故障、意外断电、病毒</b>等因素造成质量数据的丢失，保障质量数据和技术资料的储备，特制订本管理规定。</p></div></div>
+      <div class="art"><div class="no">1.2<br>适用</div><div class="body"><p>质检科及各分析室<b>所有电脑使用权限的员工</b>。授权员工应在授权清单内（见附录一《质检科及分析室电脑授权使用清单》），<b>每年至少由质检科科长进行授权一次</b>。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 数据分级 -->
+<section class="block" id="classification">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 02</div>
+    <h2 class="sec-title">二　质量数据分级</h2>
+    <p class="sec-intro">根据公司情况，备份的质量数据分为一般质量数据和重要质量数据两种。</p>
+    <div class="tbl-wrap" style="margin-top:30px;">
+      <table>
+        <thead><tr><th>数据类别</th><th>主要包含</th><th>等级</th></tr></thead>
+        <tbody>
+          <tr><td>一般质量数据</td><td>采购、生产和检验质量数据等</td><td>一般</td></tr>
+          <tr><td>重要质量数据</td><td>销售质量数据等</td><td><b>重要</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 备份要求 -->
+<section class="block" id="backup">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 03</div>
+    <h2 class="sec-title">三　备份制度和要求</h2>
+    <p class="sec-intro">电脑加密设密、文件分类存放，授权人员严格执行，违规严肃处理。</p>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">3.1</div><div class="body"><p>质检科及各分析室电脑都应进行<b>加密</b>，设置 <b>3 位以上</b>的密码，密码 <b>3 个月</b>要进行更换。</p></div></div>
+      <div class="art"><div class="no">3.2</div><div class="body"><p>除临时的文件外，其他文件要用<b>文件夹的形式分类存放</b>，即先建立好文件夹，然后把相应的文件放到不同的文件夹中。</p></div></div>
+      <div class="art"><div class="no">3.3</div><div class="body"><p>各电脑授权人员应<b>严格执行</b>本规定，如发现<b>不及时上传资料、故意隐瞒资料</b>等，将进行严肃处理。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 监督问责 -->
+<section class="block" id="supervision">
+  <div class="wrap">
+    <div class="sec-label">CHAPTER 04</div>
+    <h2 class="sec-title">四　监督、备份与问责</h2>
+    <p class="sec-intro">科长定期抽查上传日期，按未上传时长警告或问责，并将数据备份到其他介质。</p>
+    <div style="margin-top:30px;">
+      <div class="art"><div class="no">4.1</div><div class="body"><p>质检科科长<b>抽查</b>电脑授权人员备份质量数据的日期：如发现<b>一月以上未上传</b>将进行警告，<b>三个月未上传</b>将进行问责。质检科科长把员工上传的质量数据进行备份，<b>备份到另外介质</b>，如硬盘、移动硬盘、光盘等。</p></div></div>
+    </div>
+
+    <!-- 监督时限表 -->
+    <div class="subsec">
+      <div class="subsec-head"><span class="k">SUPERVISION</span><h3>上传监督时限</h3></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>未上传时长</th><th>处理</th></tr></thead>
+          <tbody>
+            <tr><td>超过 1 个月</td><td><b>警告</b></td></tr>
+            <tr><td>超过 3 个月</td><td><b>问责</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">科长将员工上传的质量数据<b style="color:var(--ink)">备份到另外介质</b>（硬盘、移动硬盘、光盘等）；<b style="color:var(--ink)">所有员工电脑内重要的文件都要进行备份</b>。</p>
+    </div>
+
+    <!-- 附则 -->
+    <div class="subsec">
+      <div class="subsec-head"><span class="k">SUPPLEMENTARY</span><h3>附则</h3></div>
+      <div class="art" style="border-top:none;padding-top:18px;"><div class="no">附则</div><div class="body"><p>本规定的<b>解释权归质检科</b>。如有未尽事宜，<b>报请分管领导后执行</b>。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="sig">
+      <div class="o">龙岩龙化化工质检科</div>
+      <div class="d">质量数据安全储备管理规定</div>
+    </div>
+    <div class="meta">
+      文件编号 LH/ZJZD-018:2026<br>
+      总则 / 数据分级 / 备份要求 / 监督问责<br>
+      分类备份 · 多重介质 · 安全储备
+    </div>
+  </div>
+</footer>
+
+<button id="top" aria-label="返回顶部">↑</button>
+
+<script>
+  const burger=document.getElementById('burger');
+  const links=document.getElementById('links');
+  burger.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+  const top=document.getElementById('top');
+  window.addEventListener('scroll',()=>top.classList.toggle('show',window.scrollY>500),{passive:true});
+  top.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>
