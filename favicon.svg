@@ -1,13 +1,13 @@
 <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
   <rect x="0" y="0" width="300" height="200" rx="24" fill="#0F2B5B"/>
 
-  <text y="141"
+  <text y="149.5"
         font-family="'Liberation Serif', Georgia, 'Times New Roman', serif"
-        font-size="126.45" font-weight="700"
+        font-size="154.73" font-weight="700"
         fill="#FFFFFF"
-        stroke="#FFFFFF" stroke-width="4.21" stroke-linejoin="round" paint-order="stroke fill">
-    <tspan x="40.43">Z</tspan>
-    <tspan x="115.52">J</tspan>
-    <tspan x="169.56">K</tspan>
+        stroke="#FFFFFF" stroke-width="5.16" stroke-linejoin="round" paint-order="stroke fill">
+    <tspan x="15.24">Z</tspan>
+    <tspan x="107.66">J</tspan>
+    <tspan x="174.2">K</tspan>
   </text>
 </svg>
