@@ -210,43 +210,93 @@
         }
 
         /* ── REGULATIONS ── */
-        .reg-flow {
+        .reg-categories {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            flex-direction: column;
+            gap: 0;
+            border-top: 1px solid var(--border);
         }
 
-        .reg-pill {
+        .reg-category {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .reg-cat-label {
+            padding: 28px 24px 28px 0;
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .reg-cat-name {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: 0.02em;
+        }
+
+        .reg-cat-en {
+            font-size: 0.68rem;
+            color: var(--muted);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .reg-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 24px 0 24px 28px;
+            align-content: flex-start;
+        }
+
+        .reg-item {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 9px 16px;
+            gap: 7px;
+            padding: 8px 14px;
             border: 1px solid var(--border);
-            border-radius: 40px;
             text-decoration: none;
             color: var(--text);
-            font-size: 0.84rem;
+            font-size: 0.82rem;
             background: #fff;
-            transition: border-color 0.15s, color 0.15s, background 0.15s;
+            transition: border-color 0.2s, color 0.2s, background 0.2s;
             white-space: nowrap;
         }
 
-        .reg-pill:hover {
+        .reg-item:hover {
             border-color: var(--blue);
             color: var(--blue);
             background: #f0f6ff;
         }
 
-        .reg-pill-num {
-            font-size: 0.64rem;
+        .reg-item-num {
+            font-size: 0.62rem;
             font-weight: 700;
-            color: #c0c0c0;
-            letter-spacing: 0.04em;
-            transition: color 0.15s;
+            color: #ccc;
+            letter-spacing: 0.06em;
+            transition: color 0.2s;
         }
 
-        .reg-pill:hover .reg-pill-num {
+        .reg-item:hover .reg-item-num {
             color: var(--blue);
+        }
+
+        @media (max-width: 768px) {
+            .reg-category {
+                grid-template-columns: 1fr;
+            }
+            .reg-cat-label {
+                padding: 20px 0 12px 0;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+            .reg-items {
+                padding: 16px 0;
+            }
         }
 
         /* ── INSTRUMENTS ── */
@@ -472,26 +522,87 @@
         <h2>管理制度</h2>
         <span class="tag">Regulations</span>
     </div>
-    <div class="reg-flow">
-        <a href="001.html" class="reg-pill"><span class="reg-pill-num">01</span>安全管理</a>
-        <a href="002.html" class="reg-pill"><span class="reg-pill-num">02</span>日常检验</a>
-        <a href="003.html" class="reg-pill"><span class="reg-pill-num">03</span>卫生管理</a>
-        <a href="004.html" class="reg-pill"><span class="reg-pill-num">04</span>药品管理</a>
-        <a href="005.html" class="reg-pill"><span class="reg-pill-num">05</span>采样留样</a>
-        <a href="006.html" class="reg-pill"><span class="reg-pill-num">06</span>通用溶液管理</a>
-        <a href="007.html" class="reg-pill"><span class="reg-pill-num">07</span>标液管理</a>
-        <a href="008.html" class="reg-pill"><span class="reg-pill-num">08</span>天平室管理</a>
-        <a href="009.html" class="reg-pill"><span class="reg-pill-num">09</span>仪器设备管理</a>
-        <a href="010.html" class="reg-pill"><span class="reg-pill-num">10</span>气瓶、气体安全管理</a>
-        <a href="011.html" class="reg-pill"><span class="reg-pill-num">11</span>加热设备安全管理</a>
-        <a href="012.html" class="reg-pill"><span class="reg-pill-num">12</span>设备检定校准</a>
-        <a href="013.html" class="reg-pill"><span class="reg-pill-num">13</span>安全责任书</a>
-        <a href="014.html" class="reg-pill"><span class="reg-pill-num">14</span>6S管理</a>
-        <a href="015.html" class="reg-pill"><span class="reg-pill-num">15</span>标液药品更换验证</a>
-        <a href="016.html" class="reg-pill"><span class="reg-pill-num">16</span>质量数据管理办法</a>
-        <a href="017.html" class="reg-pill"><span class="reg-pill-num">17</span>质量数据定义及采集范围规定</a>
-        <a href="018.html" class="reg-pill"><span class="reg-pill-num">18</span>质量数据安全储备管理</a>
-        <a href="019.html" class="reg-pill"><span class="reg-pill-num">19</span>车间抽检与监督管理</a>
+    <div class="reg-categories">
+
+        <!-- 安全管理 -->
+        <div class="reg-category">
+            <div class="reg-cat-label">
+                <span class="reg-cat-name">安全管理</span>
+                <span class="reg-cat-en">Safety</span>
+            </div>
+            <div class="reg-items">
+                <a href="001.html" class="reg-item"><span class="reg-item-num">01</span>安全管理</a>
+                <a href="010.html" class="reg-item"><span class="reg-item-num">10</span>气瓶、气体安全管理</a>
+                <a href="011.html" class="reg-item"><span class="reg-item-num">11</span>加热设备安全管理</a>
+                <a href="013.html" class="reg-item"><span class="reg-item-num">13</span>安全责任书</a>
+            </div>
+        </div>
+
+        <!-- 检验与采样 -->
+        <div class="reg-category">
+            <div class="reg-cat-label">
+                <span class="reg-cat-name">检验与采样</span>
+                <span class="reg-cat-en">Inspection</span>
+            </div>
+            <div class="reg-items">
+                <a href="002.html" class="reg-item"><span class="reg-item-num">02</span>日常检验</a>
+                <a href="005.html" class="reg-item"><span class="reg-item-num">05</span>采样留样</a>
+                <a href="019.html" class="reg-item"><span class="reg-item-num">19</span>车间抽检与监督管理</a>
+            </div>
+        </div>
+
+        <!-- 实验室环境 -->
+        <div class="reg-category">
+            <div class="reg-cat-label">
+                <span class="reg-cat-name">实验室环境</span>
+                <span class="reg-cat-en">Lab Environment</span>
+            </div>
+            <div class="reg-items">
+                <a href="003.html" class="reg-item"><span class="reg-item-num">03</span>卫生管理</a>
+                <a href="008.html" class="reg-item"><span class="reg-item-num">08</span>天平室管理</a>
+                <a href="014.html" class="reg-item"><span class="reg-item-num">14</span>6S管理</a>
+            </div>
+        </div>
+
+        <!-- 试剂与溶液 -->
+        <div class="reg-category">
+            <div class="reg-cat-label">
+                <span class="reg-cat-name">试剂与溶液</span>
+                <span class="reg-cat-en">Reagents</span>
+            </div>
+            <div class="reg-items">
+                <a href="004.html" class="reg-item"><span class="reg-item-num">04</span>药品管理</a>
+                <a href="006.html" class="reg-item"><span class="reg-item-num">06</span>通用溶液管理</a>
+                <a href="007.html" class="reg-item"><span class="reg-item-num">07</span>标液管理</a>
+                <a href="015.html" class="reg-item"><span class="reg-item-num">15</span>标液药品更换验证</a>
+            </div>
+        </div>
+
+        <!-- 仪器设备 -->
+        <div class="reg-category">
+            <div class="reg-cat-label">
+                <span class="reg-cat-name">仪器设备</span>
+                <span class="reg-cat-en">Equipment</span>
+            </div>
+            <div class="reg-items">
+                <a href="009.html" class="reg-item"><span class="reg-item-num">09</span>仪器设备管理</a>
+                <a href="012.html" class="reg-item"><span class="reg-item-num">12</span>设备检定校准</a>
+            </div>
+        </div>
+
+        <!-- 质量数据 -->
+        <div class="reg-category">
+            <div class="reg-cat-label">
+                <span class="reg-cat-name">质量数据</span>
+                <span class="reg-cat-en">Data</span>
+            </div>
+            <div class="reg-items">
+                <a href="016.html" class="reg-item"><span class="reg-item-num">16</span>质量数据管理办法</a>
+                <a href="017.html" class="reg-item"><span class="reg-item-num">17</span>质量数据定义及采集范围规定</a>
+                <a href="018.html" class="reg-item"><span class="reg-item-num">18</span>质量数据安全储备管理</a>
+            </div>
+        </div>
+
     </div>
 </div>
 
