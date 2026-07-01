@@ -32,12 +32,21 @@
 
         /* ── NAV ── */
         nav {
+            position: relative;
+            z-index: 500;
+            background: #fff;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 48px;
             height: 64px;
             border-bottom: 1px solid var(--border);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 32px;
         }
 
         .nav-brand {
@@ -642,9 +651,243 @@
         @media (max-width: 1024px) and (min-width: 769px) {
             .inst-cards { grid-template-columns: repeat(2, 1fr); }
         }
+
+        /* ── PAGE INTERACTION BLOCKER ── */
+        /* 未登录时覆盖整个内容区域，拦截所有点击/触摸，点击后弹出登录框 */
+        #pageBlocker {
+            position: fixed;
+            inset: 0;
+            z-index: 400;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        #pageBlocker.hidden { display: none; }
+
+        /* ── NAV LOGIN BUTTON ── */
+        .nav-login-btn {
+            padding: 8px 20px;
+            background: var(--blue);
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: opacity 0.15s;
+            font-family: inherit;
+        }
+
+        .nav-login-btn:hover { opacity: 0.88; }
+
+        /* ── LOGIN / REGISTER MODAL ── */
+        #loginOverlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #loginOverlay.hidden { display: none; }
+
+        .login-box {
+            position: relative;
+            background: #fff;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+            width: 100%;
+            max-width: 360px;
+            padding: 44px 40px 40px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+
+        .login-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .login-brand img {
+            height: 44px;
+            width: auto;
+            border-radius: 6px;
+        }
+
+        .login-brand .login-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .login-brand .login-sub {
+            font-size: 0.75rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+        }
+
+        .login-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 28px;
+        }
+
+        .login-tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.85rem;
+            color: var(--muted);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        .login-tab.active {
+            color: var(--blue);
+            border-bottom-color: var(--blue);
+            font-weight: 700;
+        }
+
+        .login-field {
+            margin-bottom: 18px;
+        }
+
+        .login-field label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+        }
+
+        .login-field input {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.15s;
+            font-family: inherit;
+        }
+
+        .login-field input:focus {
+            border-color: var(--blue);
+        }
+
+        .login-error {
+            font-size: 0.78rem;
+            color: #c0392b;
+            margin: -6px 0 16px;
+            min-height: 1em;
+        }
+
+        .login-submit {
+            width: 100%;
+            padding: 11px 0;
+            background: var(--blue);
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: opacity 0.15s;
+            font-family: inherit;
+        }
+
+        .login-submit:hover { opacity: 0.88; }
+
+        .login-hint {
+            margin-top: 18px;
+            text-align: center;
+            font-size: 0.72rem;
+            color: var(--muted);
+        }
+
+        .login-panel { display: none; }
+        .login-panel.active { display: block; }
+
+        .login-close {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            color: var(--muted);
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .login-close:hover { color: var(--text); }
+
+        /* ── NAV USER MENU ── */
+        .nav-user {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .nav-user.hidden { display: none; }
+
+        .nav-user .nav-user-name {
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+
+        .nav-user .nav-logout {
+            font-size: 0.78rem;
+            color: var(--blue);
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+            letter-spacing: 0.03em;
+        }
+
+        .nav-user .nav-logout:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
+
+<!-- 未登录时覆盖全站，拦截所有点击，点击任意位置弹出登录框 -->
+<div id="pageBlocker" onclick="openLoginModal()"></div>
+
+<!-- LOGIN MODAL -->
+<div id="loginOverlay" class="hidden" onclick="if(event.target===this) closeLoginModal()">
+    <div class="login-box">
+        <button type="button" class="login-close" onclick="closeLoginModal()">✕</button>
+        <div class="login-brand">
+            <img src="001.png" alt="质检科图标">
+            <span class="login-title">龙岩龙化化工 · 质检科</span>
+            <span class="login-sub">QID PORTAL ACCESS</span>
+        </div>
+
+        <form onsubmit="return handleLogin(event)">
+            <div class="login-field">
+                <label for="loginUser">账号</label>
+                <input type="text" id="loginUser" autocomplete="username" placeholder="请输入账号">
+            </div>
+            <div class="login-field">
+                <label for="loginPass">密码</label>
+                <input type="password" id="loginPass" autocomplete="current-password" placeholder="请输入密码">
+            </div>
+            <div class="login-error" id="loginError"></div>
+            <button type="submit" class="login-submit">登录</button>
+        </form>
+        <div class="login-hint">账号 Users / 密码 123</div>
+    </div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -655,13 +898,20 @@
             <span class="dept">QID · Longyan Longhua Chemical Co., Ltd.</span>
         </div>
     </div>
-    <ul class="nav-links">
-        <li><a href="#about">科室概况</a></li>
-        <li><a href="#functions">核心职能</a></li>
-        <li><a href="#regulations">管理制度</a></li>
-        <li><a href="#instruments">分析仪器</a></li>
-        <li><a href="#systems">业务系统</a></li>
-    </ul>
+    <div class="nav-right">
+        <ul class="nav-links">
+            <li><a href="#about">科室概况</a></li>
+            <li><a href="#functions">核心职能</a></li>
+            <li><a href="#regulations">管理制度</a></li>
+            <li><a href="#instruments">分析仪器</a></li>
+            <li><a href="#systems">业务系统</a></li>
+        </ul>
+        <button class="nav-login-btn" id="navLoginBtn" onclick="openLoginModal()">登录</button>
+        <div class="nav-user hidden" id="navUser">
+            <span class="nav-user-name" id="navUserName"></span>
+            <button class="nav-logout" onclick="handleLogout()">退出登录</button>
+        </div>
+    </div>
 </nav>
 
 <!-- HERO -->
@@ -1038,6 +1288,79 @@
         if (e.key === 'Escape') closeInstModal();
         if (e.key === 'ArrowLeft') instModalPrev();
         if (e.key === 'ArrowRight') instModalNext();
+    });
+</script>
+
+<!-- AUTH -->
+<script>
+    var AUTH_SESSION_KEY = 'qid_current_user';
+    var ACCOUNT = { user: 'Users', pass: '123' };
+
+    function openLoginModal() {
+        document.getElementById('loginError').textContent = '';
+        document.getElementById('loginOverlay').classList.remove('hidden');
+    }
+
+    function closeLoginModal() {
+        document.getElementById('loginOverlay').classList.add('hidden');
+    }
+
+    function handleLogin(e) {
+        e.preventDefault();
+        var user = document.getElementById('loginUser').value.trim();
+        var pass = document.getElementById('loginPass').value;
+        var errEl = document.getElementById('loginError');
+
+        if (!user || !pass) {
+            errEl.textContent = '请输入账号和密码';
+            return false;
+        }
+        if (user === ACCOUNT.user && pass === ACCOUNT.pass) {
+            errEl.textContent = '';
+            sessionStorage.setItem(AUTH_SESSION_KEY, user);
+            unlockSite(user);
+        } else {
+            errEl.textContent = '账号或密码错误';
+        }
+        return false;
+    }
+
+    function unlockSite(user) {
+        closeLoginModal();
+        document.getElementById('pageBlocker').classList.add('hidden');
+        document.getElementById('navLoginBtn').classList.add('hidden');
+        document.getElementById('navUser').classList.remove('hidden');
+        var nameEl = document.getElementById('navUserName');
+        if (nameEl) nameEl.textContent = user;
+    }
+
+    function lockSite() {
+        document.getElementById('pageBlocker').classList.remove('hidden');
+        document.getElementById('navLoginBtn').classList.remove('hidden');
+        document.getElementById('navUser').classList.add('hidden');
+    }
+
+    function handleLogout() {
+        sessionStorage.removeItem(AUTH_SESSION_KEY);
+        lockSite();
+        document.getElementById('loginUser').value = '';
+        document.getElementById('loginPass').value = '';
+    }
+
+    (function initAuth() {
+        var current = sessionStorage.getItem(AUTH_SESSION_KEY);
+        if (current === ACCOUNT.user) {
+            unlockSite(current);
+        } else {
+            lockSite();
+        }
+    })();
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            var overlay = document.getElementById('loginOverlay');
+            if (!overlay.classList.contains('hidden')) closeLoginModal();
+        }
     });
 </script>
 
