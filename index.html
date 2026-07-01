@@ -200,7 +200,7 @@
             background: var(--blue);
             color: #fff;
             border: none;
-            border-radius: 20px;
+            border-radius: var(--radius-sm);
             font-size: 0.8rem;
             font-weight: 600;
             letter-spacing: 0.04em;
@@ -411,7 +411,6 @@
             background: var(--blue-light);
             box-shadow: inset 3px 0 0 var(--blue);
         }
-        body:not(.auth-active) .reg-item:hover .reg-item-num { color: var(--blue); }
         body:not(.auth-active) .reg-item:hover .reg-item-name { color: var(--blue-dark); }
 
         body:not(.auth-active) .inst-card:hover {
@@ -439,8 +438,8 @@
             box-shadow: var(--shadow-md);
             z-index: 1;
         }
-        body.auth-active .reg-item:hover .reg-item-num { color: rgba(255,255,255,0.6); }
         body.auth-active .reg-item:hover .reg-item-name { color: #fff; }
+        body.auth-active .reg-item:hover .reg-item-en { color: rgba(255,255,255,0.6); }
 
         body.auth-active .inst-card:hover {
             background: var(--blue);
@@ -553,9 +552,9 @@
         }
 
         .reg-cat-name {
-            font-size: 0.84rem;
+            font-size: 0.94rem;
             font-weight: 700;
-            color: var(--text);
+            color: var(--blue);
             letter-spacing: 0.02em;
         }
 
@@ -589,19 +588,19 @@
 
         .reg-item.auth-hint-flash { animation: blueFlash 0.6s ease; }
 
-        .reg-item-num {
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: var(--muted);
-            letter-spacing: 0.04em;
-            transition: color var(--transition);
-        }
-
         .reg-item-name {
             font-size: 0.84rem;
             font-weight: 700;
             line-height: 1.35;
             transition: color var(--transition);
+        }
+
+        .reg-item-en {
+            font-size: 0.66rem;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+            line-height: 1;
+            margin-top: 2px;
         }
 
         /* ============================================================
@@ -633,9 +632,9 @@
         }
 
         .inst-cat-name {
-            font-size: 0.84rem;
+            font-size: 0.94rem;
             font-weight: 700;
-            color: var(--text);
+            color: var(--blue);
             letter-spacing: 0.02em;
         }
 
@@ -1177,7 +1176,7 @@
             .nav-login-btn {
                 padding: 6px 16px;
                 font-size: 0.74rem;
-                border-radius: 16px;
+                border-radius: var(--radius-sm);
             }
 
             .nav-brand .name { font-size: 0.76rem; }
@@ -1202,23 +1201,37 @@
             .reg-cat-label {
                 padding: 16px 20px;
                 border-right: none;
-                border-bottom: 1px solid var(--border);
+                border-bottom: 2px solid var(--blue);
                 flex-direction: row;
                 align-items: baseline;
                 gap: 10px;
+                background: var(--blue-pale);
+                box-shadow: inset 4px 0 0 var(--blue);
             }
+            .reg-cat-name { font-size: 0.92rem; }
             .reg-items { grid-template-columns: 1fr; }
+            .reg-item {
+                padding: 14px 20px 14px 24px;
+                border-left: 3px solid transparent;
+            }
 
             .inst-category { grid-template-columns: 1fr; }
             .inst-cat-label {
                 padding: 16px 20px;
                 border-right: none;
-                border-bottom: 1px solid var(--border);
+                border-bottom: 2px solid var(--blue);
                 flex-direction: row;
                 align-items: baseline;
                 gap: 10px;
+                background: var(--blue-pale);
+                box-shadow: inset 4px 0 0 var(--blue);
             }
+            .inst-cat-name { font-size: 0.92rem; }
             .inst-cards { grid-template-columns: 1fr; }
+            .inst-card {
+                padding: 14px 20px 14px 24px;
+                border-left: 3px solid transparent;
+            }
             .inst-card:nth-child(2n) { border-right: none; }
 
             .links-grid { grid-template-columns: 1fr; }
@@ -1321,8 +1334,8 @@
     <div class="nav-brand">
         <img src="001.png" alt="质检科图标" class="logo-icon">
         <div class="brand-text">
-            <span class="name">龙岩龙化化工 · 质检科</span>
-            <span class="dept">QID · Longyan Longhua Chemical</span>
+            <span class="name">龙 化 化 工  ·  质 检 科</span>
+            <span class="dept">QID · Longhua Chemical</span>
         </div>
     </div>
     <div class="nav-right">
@@ -1358,7 +1371,7 @@
      HERO
      ============================================================ -->
 <div class="hero">
-    <p class="hero-eyebrow">龙岩龙化化工 · 质检科 QID</p>
+    <p class="hero-eyebrow">福建省龙岩龙化化工有限公司 · 质检科 QID</p>
     <h1><strong>质量</strong>，是每一批次<br>产品的底线</h1>
     <p class="hero-desc">
         从原辅料入厂到成品出库，覆盖生产全链路的质量检测与数据管控，严格执行 GB/T 国家标准与 ISO 质量管理体系。
@@ -1458,10 +1471,10 @@
                 <span class="reg-cat-en">Safety</span>
             </div>
             <div class="reg-items">
-                <a href="001.html" class="reg-item"><span class="reg-item-num">01</span><span class="reg-item-name">安全管理</span></a>
-                <a href="010.html" class="reg-item"><span class="reg-item-num">02</span><span class="reg-item-name">气瓶、气体安全管理</span></a>
-                <a href="011.html" class="reg-item"><span class="reg-item-num">03</span><span class="reg-item-name">加热设备安全管理</span></a>
-                <a href="013.html" class="reg-item"><span class="reg-item-num">04</span><span class="reg-item-name">安全责任书</span></a>
+                <a href="001.html" class="reg-item"><span class="reg-item-name">安全管理</span><span class="reg-item-en">Safety Management</span></a>
+                <a href="010.html" class="reg-item"><span class="reg-item-name">气瓶、气体安全管理</span><span class="reg-item-en">Cylinder &amp; Gas Safety</span></a>
+                <a href="011.html" class="reg-item"><span class="reg-item-name">加热设备安全管理</span><span class="reg-item-en">Heating Equipment Safety</span></a>
+                <a href="013.html" class="reg-item"><span class="reg-item-name">安全责任书</span><span class="reg-item-en">Safety Responsibility Letter</span></a>
             </div>
         </div>
 
@@ -1471,9 +1484,9 @@
                 <span class="reg-cat-en">Inspection</span>
             </div>
             <div class="reg-items">
-                <a href="002.html" class="reg-item"><span class="reg-item-num">05</span><span class="reg-item-name">日常检验</span></a>
-                <a href="005.html" class="reg-item"><span class="reg-item-num">06</span><span class="reg-item-name">采样留样</span></a>
-                <a href="019.html" class="reg-item"><span class="reg-item-num">07</span><span class="reg-item-name">车间抽检与监督管理</span></a>
+                <a href="002.html" class="reg-item"><span class="reg-item-name">日常检验</span><span class="reg-item-en">Routine Inspection</span></a>
+                <a href="005.html" class="reg-item"><span class="reg-item-name">采样留样</span><span class="reg-item-en">Sampling &amp; Retention</span></a>
+                <a href="019.html" class="reg-item"><span class="reg-item-name">车间抽检与监督管理</span><span class="reg-item-en">Workshop Spot Check</span></a>
             </div>
         </div>
 
@@ -1483,9 +1496,9 @@
                 <span class="reg-cat-en">Lab Env.</span>
             </div>
             <div class="reg-items">
-                <a href="003.html" class="reg-item"><span class="reg-item-num">08</span><span class="reg-item-name">卫生管理</span></a>
-                <a href="008.html" class="reg-item"><span class="reg-item-num">09</span><span class="reg-item-name">天平室管理</span></a>
-                <a href="014.html" class="reg-item"><span class="reg-item-num">10</span><span class="reg-item-name">6S 管理</span></a>
+                <a href="003.html" class="reg-item"><span class="reg-item-name">卫生管理</span><span class="reg-item-en">Hygiene Management</span></a>
+                <a href="008.html" class="reg-item"><span class="reg-item-name">天平室管理</span><span class="reg-item-en">Balance Room Management</span></a>
+                <a href="014.html" class="reg-item"><span class="reg-item-name">6S 管理</span><span class="reg-item-en">6S Management</span></a>
             </div>
         </div>
 
@@ -1495,10 +1508,10 @@
                 <span class="reg-cat-en">Reagents</span>
             </div>
             <div class="reg-items">
-                <a href="004.html" class="reg-item"><span class="reg-item-num">11</span><span class="reg-item-name">药品管理</span></a>
-                <a href="006.html" class="reg-item"><span class="reg-item-num">12</span><span class="reg-item-name">通用溶液管理</span></a>
-                <a href="007.html" class="reg-item"><span class="reg-item-num">13</span><span class="reg-item-name">标液管理</span></a>
-                <a href="015.html" class="reg-item"><span class="reg-item-num">14</span><span class="reg-item-name">标液药品更换验证</span></a>
+                <a href="004.html" class="reg-item"><span class="reg-item-name">药品管理</span><span class="reg-item-en">Chemical Reagent Mgmt.</span></a>
+                <a href="006.html" class="reg-item"><span class="reg-item-name">通用溶液管理</span><span class="reg-item-en">General Solution Mgmt.</span></a>
+                <a href="007.html" class="reg-item"><span class="reg-item-name">标液管理</span><span class="reg-item-en">Standard Solution Mgmt.</span></a>
+                <a href="015.html" class="reg-item"><span class="reg-item-name">标液药品更换验证</span><span class="reg-item-en">Solution &amp; Reagent Replacement</span></a>
             </div>
         </div>
 
@@ -1508,8 +1521,8 @@
                 <span class="reg-cat-en">Equipment</span>
             </div>
             <div class="reg-items">
-                <a href="009.html" class="reg-item"><span class="reg-item-num">15</span><span class="reg-item-name">仪器设备管理</span></a>
-                <a href="012.html" class="reg-item"><span class="reg-item-num">16</span><span class="reg-item-name">设备检定校准</span></a>
+                <a href="009.html" class="reg-item"><span class="reg-item-name">仪器设备管理</span><span class="reg-item-en">Instrument &amp; Equipment Mgmt.</span></a>
+                <a href="012.html" class="reg-item"><span class="reg-item-name">设备检定校准</span><span class="reg-item-en">Equipment Calibration</span></a>
             </div>
         </div>
 
@@ -1519,9 +1532,9 @@
                 <span class="reg-cat-en">Data</span>
             </div>
             <div class="reg-items">
-                <a href="016.html" class="reg-item"><span class="reg-item-num">17</span><span class="reg-item-name">质量数据管理办法</span></a>
-                <a href="017.html" class="reg-item"><span class="reg-item-num">18</span><span class="reg-item-name">质量数据定义及采集范围</span></a>
-                <a href="018.html" class="reg-item"><span class="reg-item-num">19</span><span class="reg-item-name">质量数据安全储备管理</span></a>
+                <a href="016.html" class="reg-item"><span class="reg-item-name">质量数据管理办法</span><span class="reg-item-en">Quality Data Management Policy</span></a>
+                <a href="017.html" class="reg-item"><span class="reg-item-name">质量数据定义及采集范围</span><span class="reg-item-en">Data Definition &amp; Collection Scope</span></a>
+                <a href="018.html" class="reg-item"><span class="reg-item-name">质量数据安全储备管理</span><span class="reg-item-en">Data Security Storage Mgmt.</span></a>
             </div>
         </div>
 
