@@ -1030,6 +1030,36 @@
             line-height: 1.5;
         }
 
+        /* ---- Highlight stat strip — adds a layer of emphasis above detail chips ---- */
+        .qgoal-highlights {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .qgoal-highlight {
+            flex: 1;
+            text-align: center;
+            background: var(--blue-pale);
+            border-radius: var(--radius);
+            padding: 11px 6px;
+        }
+
+        .qgoal-highlight .hl-num {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--blue);
+            line-height: 1.2;
+        }
+
+        .qgoal-highlight .hl-label {
+            font-size: 0.65rem;
+            color: var(--blue-dark);
+            margin-top: 3px;
+            letter-spacing: 0.02em;
+            line-height: 1.4;
+        }
+
         /* ---- Verification CTA (ISO) ---- */
         .qgoal-cta {
             display: flex;
@@ -1437,6 +1467,8 @@
             .qgoal-header .qgoal-badge { font-size: 1.8rem; }
             .qgoal-body { padding: 20px 20px 24px; }
             .qgoal-chips { grid-template-columns: 1fr; }
+            .qgoal-highlights { flex-wrap: wrap; }
+            .qgoal-highlight { min-width: calc(50% - 5px); }
             .qgoal-cta { flex-direction: column; align-items: stretch; text-align: center; }
             .qgoal-cta-btn { text-align: center; }
 
@@ -1615,32 +1647,32 @@
         <span class="tag">Functions</span>
     </div>
     <div class="func-grid">
-        <div class="func-cell">
+        <div class="func-cell" onclick="openFuncModal('01')">
             <div class="func-num">01</div>
             <h3>原辅料光谱与色谱分析</h3>
             <p>运用 GC、HPLC 及 ICP-OES，对进厂原料的纯度、杂质限度及理化指标进行定量与定性检验。</p>
         </div>
-        <div class="func-cell">
+        <div class="func-cell" onclick="openFuncModal('02')">
             <div class="func-num">02</div>
             <h3>中控流体监测</h3>
             <p>在反应釜及核心管线节点实施定时采样，对密度、pH、粘度及关键中间产物浓度进行实时动态监测。</p>
         </div>
-        <div class="func-cell">
+        <div class="func-cell" onclick="openFuncModal('03')">
             <div class="func-num">03</div>
             <h3>成品出厂检定与留样</h3>
             <p>依据检验规程进行批次放行测试，出具分析报告，实行标准化留样管理以备追溯与稳定性考察。</p>
         </div>
-        <div class="func-cell">
+        <div class="func-cell" onclick="openFuncModal('04')">
             <div class="func-num">04</div>
             <h3>环保与安全指标监测</h3>
             <p>定期对厂区废水、废气实施 BOD、COD、VOCs 等环保参数监测，确保排放达到法定生态阈值。</p>
         </div>
-        <div class="func-cell">
+        <div class="func-cell" onclick="openFuncModal('05')">
             <div class="func-num">05</div>
             <h3>数据记录与质量追溯</h3>
             <p>建立电子台账与纸质档案双轨留存体系，所有检测数据具备完整批次溯源链，支持内外部审核。</p>
         </div>
-        <div class="func-cell">
+        <div class="func-cell" onclick="openFuncModal('06')">
             <div class="func-num">06</div>
             <h3>方法验证与标准修订</h3>
             <p>负责检测方法开发与验证，跟踪国家标准更新，适时修订作业指导书，持续提升分析准确性。</p>
@@ -2028,6 +2060,312 @@
     </div>
 </div>
 
+<div class="qgoal-modal-overlay" id="funcModalOverlay01" onclick="if(event.target===this) closeFuncModal('01')">
+    <div class="qgoal-box">
+        <button class="qgoal-close" onclick="closeFuncModal('01')" aria-label="关闭">✕</button>
+        <div class="qgoal-header">
+            <div class="qgoal-eyebrow">核心职能 · 01</div>
+            <div class="qgoal-badge">01<span> 原辅料光谱与色谱分析</span></div>
+            <div class="qgoal-title">色谱-光谱联用，源头把关原辅料合规性</div>
+        </div>
+        <div class="qgoal-body">
+            <p class="qgoal-intro">依据物料技术规格书，对入厂原辅料的纯度、杂质限度及关键理化指标开展系统性检验。综合运用色谱与光谱联用技术，从物理和化学层面对物料合规性进行判定，确保不合格物料无法流入生产线。</p>
+            <div class="qgoal-highlights">
+                <div class="qgoal-highlight"><div class="hl-num">3</div><div class="hl-label">核心分析技术</div></div>
+                <div class="qgoal-highlight"><div class="hl-num">4</div><div class="hl-label">检验维度</div></div>
+                <div class="qgoal-highlight"><div class="hl-num">100%</div><div class="hl-label">入厂批次抽检</div></div>
+            </div>
+            <div class="qgoal-subhead">检验工作内容</div>
+            <div class="qgoal-chips">
+                <div class="qgoal-chip">
+                    <div class="chip-title">纯度定量</div>
+                    <div class="chip-desc">主成分含量测定</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">杂质限度</div>
+                    <div class="chip-desc">微量杂质筛查</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">理化性质</div>
+                    <div class="chip-desc">密度、折光率、熔点等</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">合规判定</div>
+                    <div class="chip-desc">对照规格书出具结论</div>
+                </div>
+            </div>
+            <div class="qgoal-subhead">核心分析技术</div>
+            <div class="qgoal-chips">
+                <div class="qgoal-chip">
+                    <div class="chip-title">GC 气相色谱</div>
+                    <div class="chip-desc">挥发性组分定量分析</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">HPLC 液相色谱</div>
+                    <div class="chip-desc">高纯度组分分离检测</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">ICP-OES</div>
+                    <div class="chip-desc">微量元素与重金属分析</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="qgoal-modal-overlay" id="funcModalOverlay02" onclick="if(event.target===this) closeFuncModal('02')">
+    <div class="qgoal-box">
+        <button class="qgoal-close" onclick="closeFuncModal('02')" aria-label="关闭">✕</button>
+        <div class="qgoal-header">
+            <div class="qgoal-eyebrow">核心职能 · 02</div>
+            <div class="qgoal-badge">02<span> 中控流体监测</span></div>
+            <div class="qgoal-title">关键控制点实时监测，稳定工艺过程</div>
+        </div>
+        <div class="qgoal-body">
+            <p class="qgoal-intro">在反应釜及核心管线关键控制点（CCP）实施定时巡检与在线实时监测，密切跟踪物料状态变化。通过过程数据的实时反馈及时调优工艺参数，将系统偏差控制在受控范围内，保障生产过程的稳定性与可重复性。</p>
+            <div class="qgoal-highlights">
+                <div class="qgoal-highlight"><div class="hl-num">4</div><div class="hl-label">监测指标</div></div>
+                <div class="qgoal-highlight"><div class="hl-num">CCP</div><div class="hl-label">关键控制点</div></div>
+                <div class="qgoal-highlight"><div class="hl-num">实时</div><div class="hl-label">反馈调优</div></div>
+            </div>
+            <div class="qgoal-subhead">监测指标</div>
+            <div class="qgoal-chips">
+                <div class="qgoal-chip">
+                    <div class="chip-title">密度</div>
+                    <div class="chip-desc">判断反应进程</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">pH 值</div>
+                    <div class="chip-desc">酸碱平衡控制</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">粘度</div>
+                    <div class="chip-desc">流变性能把控</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">中间产物浓度</div>
+                    <div class="chip-desc">反应完成度判定</div>
+                </div>
+            </div>
+            <div class="qgoal-subhead">监测方式</div>
+            <div class="qgoal-chips">
+                <div class="qgoal-chip">
+                    <div class="chip-title">定时巡检</div>
+                    <div class="chip-desc">按周期采样分析</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">在线监测</div>
+                    <div class="chip-desc">实时数据采集</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">参数反馈</div>
+                    <div class="chip-desc">动态调优工艺</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="qgoal-modal-overlay" id="funcModalOverlay03" onclick="if(event.target===this) closeFuncModal('03')">
+    <div class="qgoal-box">
+        <button class="qgoal-close" onclick="closeFuncModal('03')" aria-label="关闭">✕</button>
+        <div class="qgoal-header">
+            <div class="qgoal-eyebrow">核心职能 · 03</div>
+            <div class="qgoal-badge">03<span> 成品出厂检定与留样</span></div>
+            <div class="qgoal-title">批次放行测试 + 标准化留样双重保障</div>
+        </div>
+        <div class="qgoal-body">
+            <p class="qgoal-intro">依据检验规程对最终交付物实施批次放行测试，全项验证性能与可靠性指标；同步执行标准化留样管理，为产品追溯、异议处理与稳定性考察提供数据支撑，仅当各项数据 100% 达标方可放行。</p>
+            <div class="qgoal-highlights">
+                <div class="qgoal-highlight"><div class="hl-num">100%</div><div class="hl-label">放行前全项检测</div></div>
+                <div class="qgoal-highlight"><div class="hl-num">双轨</div><div class="hl-label">留样体系</div></div>
+                <div class="qgoal-highlight"><div class="hl-num">可追溯</div><div class="hl-label">批次全程</div></div>
+            </div>
+            <div class="qgoal-subhead">工作内容</div>
+            <div class="qgoal-chips">
+                <div class="qgoal-chip">
+                    <div class="chip-title">批次放行测试</div>
+                    <div class="chip-desc">出厂前终验</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">分析报告</div>
+                    <div class="chip-desc">按批次逐一出具</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">标准化留样</div>
+                    <div class="chip-desc">备查与复检</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">稳定性考察</div>
+                    <div class="chip-desc">留样长期跟踪</div>
+                </div>
+            </div>
+            <div class="qgoal-subhead">判定依据</div>
+            <div class="qgoal-chips">
+                <div class="qgoal-chip">
+                    <div class="chip-title">检验规程</div>
+                    <div class="chip-desc">按 SOP 执行</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">国家/企业标准</div>
+                    <div class="chip-desc">双重判定依据</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">COA 证明</div>
+                    <div class="chip-desc">出厂合格凭证</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="qgoal-modal-overlay" id="funcModalOverlay04" onclick="if(event.target===this) closeFuncModal('04')">
+    <div class="qgoal-box">
+        <button class="qgoal-close" onclick="closeFuncModal('04')" aria-label="关闭">✕</button>
+        <div class="qgoal-header">
+            <div class="qgoal-eyebrow">核心职能 · 04</div>
+            <div class="qgoal-badge">04<span> 环保与安全指标监测</span></div>
+            <div class="qgoal-title">废水废气全面监测，达标排放零风险</div>
+        </div>
+        <div class="qgoal-body">
+            <p class="qgoal-intro">定期对厂区废水、废气实施环保参数监测，覆盖生化、化学及挥发性有机污染物等多个维度，实时掌握排放数据变化趋势，确保各项指标持续符合国家及地方生态环境法定阈值，防范环保合规风险。</p>
+            <div class="qgoal-highlights">
+                <div class="qgoal-highlight"><div class="hl-num">3</div><div class="hl-label">污染物类别</div></div>
+                <div class="qgoal-highlight"><div class="hl-num">定期</div><div class="hl-label">巡检频次</div></div>
+                <div class="qgoal-highlight"><div class="hl-num">达标</div><div class="hl-label">排放管控</div></div>
+            </div>
+            <div class="qgoal-subhead">监测工作</div>
+            <div class="qgoal-chips">
+                <div class="qgoal-chip">
+                    <div class="chip-title">废水监测</div>
+                    <div class="chip-desc">BOD / COD 定期检测</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">废气监测</div>
+                    <div class="chip-desc">VOCs 排放跟踪</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">阈值预警</div>
+                    <div class="chip-desc">超标及时上报</div>
+                </div>
+            </div>
+            <div class="qgoal-subhead">监测参数</div>
+            <div class="qgoal-chips">
+                <div class="qgoal-chip">
+                    <div class="chip-title">BOD</div>
+                    <div class="chip-desc">生化需氧量</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">COD</div>
+                    <div class="chip-desc">化学需氧量</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">VOCs</div>
+                    <div class="chip-desc">挥发性有机物</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="qgoal-modal-overlay" id="funcModalOverlay05" onclick="if(event.target===this) closeFuncModal('05')">
+    <div class="qgoal-box">
+        <button class="qgoal-close" onclick="closeFuncModal('05')" aria-label="关闭">✕</button>
+        <div class="qgoal-header">
+            <div class="qgoal-eyebrow">核心职能 · 05</div>
+            <div class="qgoal-badge">05<span> 数据记录与质量追溯</span></div>
+            <div class="qgoal-title">电子 + 纸质双轨留存，全批次可追溯</div>
+        </div>
+        <div class="qgoal-body">
+            <p class="qgoal-intro">建立电子台账与纸质档案双轨留存体系，所有检测数据自采集起即纳入统一编号管理，形成完整的批次溯源链条。数据记录规范、可核查，为内外部审核、客户异议处理及产品追溯提供可靠依据。</p>
+            <div class="qgoal-highlights">
+                <div class="qgoal-highlight"><div class="hl-num">双轨</div><div class="hl-label">留存体系</div></div>
+                <div class="qgoal-highlight"><div class="hl-num">全批次</div><div class="hl-label">溯源覆盖</div></div>
+                <div class="qgoal-highlight"><div class="hl-num">可核查</div><div class="hl-label">审核支持</div></div>
+            </div>
+            <div class="qgoal-subhead">工作内容</div>
+            <div class="qgoal-chips">
+                <div class="qgoal-chip">
+                    <div class="chip-title">电子台账</div>
+                    <div class="chip-desc">数据实时录入</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">纸质档案</div>
+                    <div class="chip-desc">双重备份存档</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">批次编号管理</div>
+                    <div class="chip-desc">全流程可查</div>
+                </div>
+            </div>
+            <div class="qgoal-subhead">体系价值</div>
+            <div class="qgoal-chips">
+                <div class="qgoal-chip">
+                    <div class="chip-title">溯源链完整</div>
+                    <div class="chip-desc">支持批次反查</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">审核支持</div>
+                    <div class="chip-desc">内外部随时调阅</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">异议处理</div>
+                    <div class="chip-desc">数据佐证依据</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="qgoal-modal-overlay" id="funcModalOverlay06" onclick="if(event.target===this) closeFuncModal('06')">
+    <div class="qgoal-box">
+        <button class="qgoal-close" onclick="closeFuncModal('06')" aria-label="关闭">✕</button>
+        <div class="qgoal-header">
+            <div class="qgoal-eyebrow">核心职能 · 06</div>
+            <div class="qgoal-badge">06<span> 方法验证与标准修订</span></div>
+            <div class="qgoal-title">紧跟国标更新，持续提升分析准确性</div>
+        </div>
+        <div class="qgoal-body">
+            <p class="qgoal-intro">负责检测方法的开发、验证与优化，密切跟踪国家标准动态更新，适时组织作业指导书（SOP）的修订与培训，确保检验方法始终保持科学性、先进性与准确性，持续提升实验室整体检测能力。</p>
+            <div class="qgoal-highlights">
+                <div class="qgoal-highlight"><div class="hl-num">持续</div><div class="hl-label">方法优化</div></div>
+                <div class="qgoal-highlight"><div class="hl-num">动态</div><div class="hl-label">标准跟踪</div></div>
+                <div class="qgoal-highlight"><div class="hl-num">定期</div><div class="hl-label">SOP 修订</div></div>
+            </div>
+            <div class="qgoal-subhead">主要工作</div>
+            <div class="qgoal-chips">
+                <div class="qgoal-chip">
+                    <div class="chip-title">方法开发验证</div>
+                    <div class="chip-desc">新方法建立与确认</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">标准动态跟踪</div>
+                    <div class="chip-desc">国标/行标更新监控</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">SOP 修订培训</div>
+                    <div class="chip-desc">作业指导书迭代落地</div>
+                </div>
+            </div>
+            <div class="qgoal-subhead">验证要点</div>
+            <div class="qgoal-chips">
+                <div class="qgoal-chip">
+                    <div class="chip-title">精密度/准确度</div>
+                    <div class="chip-desc">方法可靠性验证</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">重复性/再现性</div>
+                    <div class="chip-desc">符合计量学要求</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">方法学对比</div>
+                    <div class="chip-desc">多方法交叉验证</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="inst-modal-overlay" id="instModalOverlay" onclick="if(event.target===this) closeInstModal()">
     <div class="inst-modal-content">
         <button class="inst-modal-close" onclick="closeInstModal()" aria-label="关闭">✕</button>
@@ -2156,6 +2494,29 @@
         if (e.key === 'Escape') { closeInstModal(); return; }
         if (e.key === 'ArrowLeft')  { instModalPrev(); e.preventDefault(); }
         if (e.key === 'ArrowRight') { instModalNext(); e.preventDefault(); }
+    });
+
+    /* ---- Function Cards Modal (01-06) ---- */
+    function openFuncModal(n) {
+        var ov = document.getElementById('funcModalOverlay' + n);
+        if (!ov) return;
+        ov.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeFuncModal(n) {
+        var ov = document.getElementById('funcModalOverlay' + n);
+        if (!ov) return;
+        ov.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key !== 'Escape') return;
+        ['01','02','03','04','05','06'].forEach(function(n) {
+            var ov = document.getElementById('funcModalOverlay' + n);
+            if (ov && ov.classList.contains('active')) closeFuncModal(n);
+        });
     });
 
     /* ---- ISO Modal ---- */
