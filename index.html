@@ -884,6 +884,191 @@
         }
 
         /* ============================================================
+           QUALITY GOAL MODAL
+           ============================================================ */
+        .qgoal-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(15,23,42,0.6);
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .qgoal-modal-overlay.active { display: flex; }
+
+        .qgoal-box {
+            position: relative;
+            background: #fff;
+            width: 100%;
+            max-width: 520px;
+            max-height: 86vh;
+            border-radius: 16px;
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: loginSlideIn 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        .qgoal-close {
+            position: absolute;
+            top: 16px; right: 16px;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background: var(--bg-warm);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background var(--transition), color var(--transition), border-color var(--transition);
+            z-index: 2;
+        }
+
+        .qgoal-close:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+        /* ---- Header: white bg, blue text, no color block ---- */
+        .qgoal-header {
+            padding: 30px 32px 22px;
+            flex-shrink: 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .qgoal-header .qgoal-eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .qgoal-header .qgoal-badge {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 4px;
+            font-size: 2.1rem;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.01em;
+            color: var(--blue);
+        }
+
+        .qgoal-header .qgoal-badge span {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .qgoal-header .qgoal-title {
+            margin-top: 10px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-soft);
+            line-height: 1.6;
+        }
+
+        /* ---- Body ---- */
+        .qgoal-body {
+            padding: 22px 32px 28px;
+            overflow-y: auto;
+        }
+
+        .qgoal-intro {
+            font-size: 0.84rem;
+            line-height: 1.75;
+            color: var(--text-soft);
+            margin-bottom: 20px;
+        }
+
+        .qgoal-subhead {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--blue);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .qgoal-subhead:not(:first-child) { margin-top: 22px; }
+
+        /* ---- Compact chip grid — short, scannable items ---- */
+        .qgoal-chips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .qgoal-chip {
+            background: var(--bg-warm);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 12px 14px;
+            transition: border-color var(--transition), background var(--transition);
+        }
+
+        .qgoal-chip:hover { border-color: var(--blue); background: var(--blue-pale); }
+
+        .qgoal-chip .chip-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 3px;
+        }
+
+        .qgoal-chip .chip-desc {
+            font-size: 0.72rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* ---- Verification CTA (ISO) ---- */
+        .qgoal-cta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            background: var(--bg-warm);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px 18px;
+        }
+
+        .qgoal-cta-text {
+            font-size: 0.78rem;
+            line-height: 1.65;
+            color: var(--text-soft);
+        }
+
+        .qgoal-cta-btn {
+            flex-shrink: 0;
+            padding: 10px 22px;
+            background: var(--blue);
+            color: #fff;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+        }
+
+        .qgoal-cta-btn:hover {
+            background: var(--blue-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,91,172,0.3);
+        }
+
+        /* ============================================================
            LOGIN MODAL
            ============================================================ */
         #loginOverlay {
@@ -1247,6 +1432,14 @@
             .login-header-banner { padding: 28px 24px 0; }
             .login-body { padding: 16px 24px 24px; }
 
+            .qgoal-box { max-width: 100%; margin: 0 8px; max-height: 90vh; }
+            .qgoal-header { padding: 24px 20px 18px; }
+            .qgoal-header .qgoal-badge { font-size: 1.8rem; }
+            .qgoal-body { padding: 20px 20px 24px; }
+            .qgoal-chips { grid-template-columns: 1fr; }
+            .qgoal-cta { flex-direction: column; align-items: stretch; text-align: center; }
+            .qgoal-cta-btn { text-align: center; }
+
             .auth-toast { bottom: 30px; font-size: 0.76rem; padding: 10px 22px; }
             .cursor-tooltip { display: none; }
             .back-to-top { bottom: 20px; right: 20px; width: 38px; height: 38px; }
@@ -1270,7 +1463,7 @@
            PRINT
            ============================================================ */
         @media print {
-            nav, .back-to-top, #pageBlocker, #loginOverlay, .inst-modal-overlay, .auth-toast, .cursor-tooltip { display: none !important; }
+            nav, .back-to-top, #pageBlocker, #loginOverlay, .inst-modal-overlay, .qgoal-modal-overlay, .auth-toast, .cursor-tooltip { display: none !important; }
             .hero, .section, footer { padding: 20px 0; border: none; }
             .func-cell, .inst-card, .reg-item, .link-item { break-inside: avoid; }
         }
@@ -1382,19 +1575,19 @@
      STATS
      ============================================================ -->
 <div class="stats">
-    <div class="stat-item">
+    <div class="stat-item" onclick="openQGoalModal()">
         <div class="stat-num">100<span>%</span></div>
         <div class="stat-label">批次合格率目标</div>
     </div>
-    <div class="stat-item">
+    <div class="stat-item" onclick="openStagesModal()">
         <div class="stat-num">3</div>
         <div class="stat-label">全链路管控阶段</div>
     </div>
-    <div class="stat-item">
+    <div class="stat-item" onclick="openStandardModal()">
         <div class="stat-num">GB/T</div>
         <div class="stat-label">国家标准执行</div>
     </div>
-    <div class="stat-item">
+    <div class="stat-item" onclick="openIsoModal()">
         <div class="stat-num">ISO</div>
         <div class="stat-label">质量管理体系认证</div>
     </div>
@@ -1715,6 +1908,126 @@
 <!-- ============================================================
      INSTRUMENT IMAGE MODAL
      ============================================================ -->
+<div class="qgoal-modal-overlay" id="qgoalModalOverlay" onclick="if(event.target===this) closeQGoalModal()">
+    <div class="qgoal-box">
+        <button class="qgoal-close" onclick="closeQGoalModal()" aria-label="关闭">✕</button>
+        <div class="qgoal-header">
+            <div class="qgoal-eyebrow">核心量化目标</div>
+            <div class="qgoal-badge">100<span>% 批次合格率</span></div>
+            <div class="qgoal-title">生产与交付的刚性基线，全流程监控 · 零缺陷放行</div>
+        </div>
+        <div class="qgoal-body">
+            <div class="qgoal-subhead">质量方针</div>
+            <div class="qgoal-chips">
+                <div class="qgoal-chip">
+                    <div class="chip-title">质量第一</div>
+                    <div class="chip-desc">全员参与，一票否决</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">用户至上</div>
+                    <div class="chip-desc">需求驱动研发工艺</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">用心服务</div>
+                    <div class="chip-desc">全周期闭环响应</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">追求卓越</div>
+                    <div class="chip-desc">PDCA 持续迭代</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="qgoal-modal-overlay" id="stagesModalOverlay" onclick="if(event.target===this) closeStagesModal()">
+    <div class="qgoal-box">
+        <button class="qgoal-close" onclick="closeStagesModal()" aria-label="关闭">✕</button>
+        <div class="qgoal-header">
+            <div class="qgoal-eyebrow">全链路管控阶段</div>
+            <div class="qgoal-badge">3<span> 全链路管控阶段</span></div>
+            <div class="qgoal-title">源头到终端的闭环质量防线</div>
+        </div>
+        <div class="qgoal-body">
+            <div class="qgoal-subhead">三大阶段</div>
+            <div class="qgoal-chips">
+                <div class="qgoal-chip">
+                    <div class="chip-title">原材料检验</div>
+                    <div class="chip-desc">源头阻截风险</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">中控检验</div>
+                    <div class="chip-desc">过程动态监控</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">成品检验</div>
+                    <div class="chip-desc">终端合规放行 COA</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="qgoal-modal-overlay" id="standardModalOverlay" onclick="if(event.target===this) closeStandardModal()">
+    <div class="qgoal-box">
+        <button class="qgoal-close" onclick="closeStandardModal()" aria-label="关闭">✕</button>
+        <div class="qgoal-header">
+            <div class="qgoal-eyebrow">标准执行体系</div>
+            <div class="qgoal-badge">GB/T<span> 国家标准执行</span></div>
+            <div class="qgoal-title">国标筑基，企标严于国标</div>
+        </div>
+        <div class="qgoal-body">
+            <div class="qgoal-subhead">标准层级</div>
+            <div class="qgoal-chips">
+                <div class="qgoal-chip">
+                    <div class="chip-title">GB/T · HG/T</div>
+                    <div class="chip-desc">国家与行业标准，筑牢底线</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">Q/LHHG</div>
+                    <div class="chip-desc">企业标准，践行高标内控</div>
+                </div>
+            </div>
+            <div class="qgoal-subhead">检验承诺</div>
+            <div class="qgoal-chips">
+                <div class="qgoal-chip">
+                    <div class="chip-title">合规</div>
+                    <div class="chip-desc">Compliant</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">可信</div>
+                    <div class="chip-desc">Credible</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">科学</div>
+                    <div class="chip-desc">Scientific</div>
+                </div>
+                <div class="qgoal-chip">
+                    <div class="chip-title">准确</div>
+                    <div class="chip-desc">Accurate</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="qgoal-modal-overlay" id="isoModalOverlay" onclick="if(event.target===this) closeIsoModal()">
+    <div class="qgoal-box">
+        <button class="qgoal-close" onclick="closeIsoModal()" aria-label="关闭">✕</button>
+        <div class="qgoal-header">
+            <div class="qgoal-eyebrow">体系认证</div>
+            <div class="qgoal-badge">ISO<span> 质量管理体系认证</span></div>
+            <div class="qgoal-title">覆盖采购 · 生产 · 检验 · 交付全过程</div>
+        </div>
+        <div class="qgoal-body">
+            <div class="qgoal-cta">
+                <p class="qgoal-cta-text">证书信息已在认监委平台公示，可在线核验真伪。</p>
+                <a class="qgoal-cta-btn" href="https://cx.cnca.cn/CertECloud/result/skipResultList?certItemOne=A" target="_blank" rel="noopener noreferrer">前往官方核验</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="inst-modal-overlay" id="instModalOverlay" onclick="if(event.target===this) closeInstModal()">
     <div class="inst-modal-content">
         <button class="inst-modal-close" onclick="closeInstModal()" aria-label="关闭">✕</button>
@@ -1843,6 +2156,70 @@
         if (e.key === 'Escape') { closeInstModal(); return; }
         if (e.key === 'ArrowLeft')  { instModalPrev(); e.preventDefault(); }
         if (e.key === 'ArrowRight') { instModalNext(); e.preventDefault(); }
+    });
+
+    /* ---- ISO Modal ---- */
+    function openIsoModal() {
+        document.getElementById('isoModalOverlay').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeIsoModal() {
+        document.getElementById('isoModalOverlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (!document.getElementById('isoModalOverlay').classList.contains('active')) return;
+        if (e.key === 'Escape') { closeIsoModal(); }
+    });
+
+    /* ---- Standard Modal ---- */
+    function openStandardModal() {
+        document.getElementById('standardModalOverlay').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeStandardModal() {
+        document.getElementById('standardModalOverlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (!document.getElementById('standardModalOverlay').classList.contains('active')) return;
+        if (e.key === 'Escape') { closeStandardModal(); }
+    });
+
+    /* ---- Stages Modal ---- */
+    function openStagesModal() {
+        document.getElementById('stagesModalOverlay').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeStagesModal() {
+        document.getElementById('stagesModalOverlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (!document.getElementById('stagesModalOverlay').classList.contains('active')) return;
+        if (e.key === 'Escape') { closeStagesModal(); }
+    });
+
+    /* ---- Quality Goal Modal ---- */
+    function openQGoalModal() {
+        document.getElementById('qgoalModalOverlay').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeQGoalModal() {
+        document.getElementById('qgoalModalOverlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (!document.getElementById('qgoalModalOverlay').classList.contains('active')) return;
+        if (e.key === 'Escape') { closeQGoalModal(); }
     });
 
     /* ---- Login Modal ---- */
